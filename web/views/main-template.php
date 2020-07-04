@@ -65,6 +65,7 @@ body {
 
 .top-banner {
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 @media ( min-width : 1200px) .container {
@@ -184,6 +185,7 @@ body {
     padding-top: 0.5rem;
     padding-bottom: 0.25rem;
     padding-left: 1.25rem;
+
 }
 .item-list{
 	text-align: center;
@@ -202,7 +204,17 @@ body {
 	padding-left: 0px;
 	padding-right:0px;
 }
-
+.col-new-review{
+	border: 1px solid #0275d8;
+}
+.col-right{
+	margin-top: 20px;
+}
+.list-new-review .item-new-review{
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-bottom: 1px dashed #0275d8;
+}
 </style>
 </head>
 <body>
@@ -228,16 +240,16 @@ body {
 						src="<?php echo $servername ?>/web/public/images/school-banner.jpg">
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 no-padding col-new-review">
     			<div class="new-review">
-    			<div class="list-review">
-    				<div class="item-review">abc</div>
-    				<div class="item-review">cba</div>
-    				<div class="item-review">cba</div>
-    				<div class="item-review">cba</div>
-    				<div class="item-review">cba</div>
-    				<div class="item-review">cba</div>
-    				<div class="item-review">cba</div>
+    			<div class="list-new-review">
+    				<div class="item-new-review">abc</div>
+    				<div class="item-new-review">cba</div>
+    				<div class="item-new-review">cba</div>
+    				<div class="item-new-review">cba</div>
+    				<div class="item-new-review">cba</div>
+    				<div class="item-new-review">cba</div>
+    				<div class="item-new-review">cba</div>
     			</div>
     			</div>
 			</div>
@@ -606,7 +618,7 @@ body {
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-3 col-right">
 				<div class="right-nav">
 					<div class="wrapper-nav row">
 						<div class="col-md-12 no-padding">
