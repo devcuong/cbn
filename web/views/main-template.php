@@ -151,19 +151,18 @@ body {
 
 .page-heading h4 {
 	display: inline-block;
-	color: #0040FF;
+	color: #0275d8;
 	font-family: 'Anton', sans-serif;
 	font-size: 150%;
 	font-weight: 400;
 	padding-right: 10px;
 	margin-bottom: -1px;
-	border-bottom: 2px solid #0040FF;
+	border-bottom: 2px solid #0275d8;
 }
 .main-banner{
 	position: relative;
 }
 .main-banner .hero {
-    border-radius: 50px;
     position: absolute;
 	bottom: 50px;
     left: 15%;
@@ -248,7 +247,7 @@ body {
 
 .item-list>.nav-header {
 	color: #fff;
-	background-color: #0040FF;
+	background-color: #0275d8;
 	font-family: 'Anton', sans-serif;
 	font-size: 125%;
 	text-transform: uppercase;
@@ -270,7 +269,11 @@ body {
 	padding-left: 5px;
 	padding-right: 5px;
 }
-
+.item-list .item-nav:hover{
+	background: #f1f2f2;
+    border: 1px solid #3273dc;
+    cursor: pointer;
+}
 .no-padding {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -368,7 +371,7 @@ body {
 								<div class="field has-addons">
 									<div
 										class="control has-icons-left is-expanded banner-search-box">
-										<form action="//congtytop.com/tim-kiem/trang-ket-qua"
+										<form action="<?php echo $servername ?>/tim-kiem/trang-ket-qua"
 											method="POST">
 											<div class="input-group box-search">
 												<input name="company-search" id="company-search"
