@@ -80,7 +80,11 @@ body {
 	
 	
 	
+	
+	
 	:
+	
+	
 	
 	
 	
@@ -101,8 +105,12 @@ body {
 	
 	
 	
+	
+	
 	!
 	important
+	
+	
 	
 	
 	
@@ -151,7 +159,69 @@ body {
 	margin-bottom: -1px;
 	border-bottom: 2px solid #0040FF;
 }
-
+.main-banner{
+	position: relative;
+}
+.main-banner .hero {
+    border-radius: 50px;
+    position: absolute;
+	bottom: 50px;
+    left: 15%;
+    width: 70%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.2);
+}
+.z-1 {
+    z-index: 1;
+}
+.hero-body {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 1rem 1rem;
+}
+.field.has-addons {
+    display: flex;
+    justify-content: flex-start;
+}
+.field.has-addons .control.is-expanded {
+    flex-grow: 1;
+}
+.banner-search-box {
+    border-radius: 30px;
+    background-color: transparent;
+    position: relative;
+    background: #fff;
+}
+.box-search {
+    border-radius: 30px !important;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+.input-group-append {
+    margin-left: -1px;
+    display: flex;
+}
+.box-search .input-group-append .btn {
+    background-color: transparent;
+    border: none;
+}
+.input-group-append .btn {
+    padding: 0px 12px;
+    width: 42px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.box-search .input-group-append .btn i {
+    color: #b62831;
+}
+.fa-search:before {
+    content: "\f002";
+}
 .main-banner img {
 	width: 100%;
 }
@@ -176,44 +246,98 @@ body {
 	color: orange;
 }
 
-.item-list>.nav-header{
+.item-list>.nav-header {
 	color: #fff;
-    background-color: #0040FF;
-    font-family: 'Anton', sans-serif;
-    font-size: 125%;
-    text-transform: uppercase;
-    padding-top: 0.5rem;
-    padding-bottom: 0.25rem;
-    padding-left: 1.25rem;
-
+	background-color: #0040FF;
+	font-family: 'Anton', sans-serif;
+	font-size: 125%;
+	text-transform: uppercase;
+	padding-top: 0.5rem;
+	padding-bottom: 0.25rem;
+	padding-left: 1.25rem;
 }
-.item-list{
+
+.item-list {
 	text-align: center;
 }
-.item-list .item-nav{
+
+.item-list .item-nav {
 	display: inline-block;
 	border: 1px solid #ddd;
 	margin-bottom: 5px;
 	border-radius: 15px;
-	box-shadow:2px 1px 2px #ddd;
+	box-shadow: 2px 1px 2px #ddd;
 	padding-left: 5px;
 	padding-right: 5px;
 }
 
-.no-padding{
+.no-padding {
 	padding-left: 0px;
-	padding-right:0px;
+	padding-right: 0px;
 }
-.col-new-review{
+
+.col-new-review {
 	border: 1px solid #0275d8;
 }
-.col-right{
+
+.col-right {
 	margin-top: 20px;
 }
-.list-new-review .item-new-review{
-	padding-bottom: 10px;
-	padding-top: 10px;
+
+.list-new-review .item-new-review {
+	/*padding-bottom: 10px;*/
+	padding-top: 5px;
 	border-bottom: 1px dashed #0275d8;
+	min-height: 100px;
+	max-height: 100px;
+	overflow: hidden;
+}
+
+.item-new-review .user-name {
+	font-weight: bold;
+	color: #0275d8;
+	padding-left: 5px;
+}
+
+.item-new-review .review-school-name {
+	color: #FE2E2E;
+}
+
+.item-new-review .review-rate {
+	color: #fff;
+	padding: 3px;
+	background: #0275d8;
+}
+
+.item-new-review .review-rate .bi-star-fill {
+	margin-left: 3px;
+}
+
+.container-scroll {
+	overflow: auto;
+}
+
+.new-review-container {
+	max-height: 342px;
+}
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #ddd;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
 </style>
 </head>
@@ -238,20 +362,72 @@ body {
 				<div class="main-banner">
 					<img alt="review trường học, trung tâm du học"
 						src="<?php echo $servername ?>/web/public/images/school-banner.jpg">
+					<div class="hero">
+						<div class="hero-body z-1">
+							<div>
+								<div class="field has-addons">
+									<div
+										class="control has-icons-left is-expanded banner-search-box">
+										<form action="//congtytop.com/tim-kiem/trang-ket-qua"
+											method="POST">
+											<div class="input-group box-search">
+												<input name="company-search" id="company-search"
+													class="input form-control ui-autocomplete-input"
+													type="text" placeholder="Tìm trường học" autocomplete="off">
+												<div class="input-group-append">
+													<button class="btn" type="submit">
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4 no-padding col-new-review">
-    			<div class="new-review">
-    			<div class="list-new-review">
-    				<div class="item-new-review">abc</div>
-    				<div class="item-new-review">cba</div>
-    				<div class="item-new-review">cba</div>
-    				<div class="item-new-review">cba</div>
-    				<div class="item-new-review">cba</div>
-    				<div class="item-new-review">cba</div>
-    				<div class="item-new-review">cba</div>
-    			</div>
-    			</div>
+				<div class="new-review container-scroll new-review-container">
+					<div class="list-new-review">
+						<div class="item-new-review">
+							<span class="user-name">Học viên&nbsp;</span>đã review <span
+								class="review-school-name">Công Nghiệp TPHCM &nbsp;</span> <span
+								class="review-rate">5<svg width="0.8em" height="0.8em"
+									viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor"
+									xmlns="http://www.w3.org/2000/svg">
+  <path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+</svg></span>
+							<div class="short-review">Cơ sở vật chất khá ổn, mát mẻ và thoải
+								mái Giáo viên nhiệt tình và có trình độ Tư vấn viên thân thiện
+								và nhiệt tình Cơ sở vật chất khá ổn, mát mẻ và thoải mái Giáo
+								viên nhiệt tình và có trình độ Tư vấn viên thân thiện và nhiệt
+								tình</div>
+						</div>
+						<div class="item-new-review">
+							<span class="user-name">Học viên&nbsp;</span>đã review <span
+								class="review-school-name">Công Nghiệp TPHCM &nbsp;</span> <span
+								class="review-rate">5<svg width="0.8em" height="0.8em"
+									viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor"
+									xmlns="http://www.w3.org/2000/svg">
+  <path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+</svg></span>
+							<div class="short-review">Cơ sở vật chất khá ổn, mát mẻ và thoải
+								mái Giáo viên nhiệt tình và có trình độ Tư vấn viên thân thiện
+								và nhiệt tình Cơ sở vật chất khá ổn, mát mẻ và thoải mái Giáo
+								viên nhiệt tình và có trình độ Tư vấn viên thân thiện và nhiệt
+								tình</div>
+						</div>
+						<div class="item-new-review">cba</div>
+						<div class="item-new-review">cba</div>
+						<div class="item-new-review">cba</div>
+						<div class="item-new-review">cba</div>
+						<div class="item-new-review">cba</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -623,7 +799,7 @@ body {
 					<div class="wrapper-nav row">
 						<div class="col-md-12 no-padding">
 							<div class="item-list">
-							<h3 class="nav-header">DANH MỤC</h3>
+								<h3 class="nav-header">DANH MỤC</h3>
 								<div class="item-nav">
 									<span class="tag-icon"><svg width="1em" height="1em"
 											viewBox="0 0 16 16" class="bi bi-tag-fill"
