@@ -35,6 +35,7 @@ body {
 
 .item-review {
 	min-height: 100%;
+	min-width:100%;
 	padding: 5px;
 	margin-bottom: 10px;
 	margin-top: 5px;
@@ -47,10 +48,62 @@ body {
 .school-logo {
 	text-align: center;
 }
+.school-logo img{
+	width: 100%;
+	border: 1px solid #ddd;
+}
 
+
+@media (min-width: 768px) {
 .item-wrapper {
-	max-width: 25%;
+	width: 25%;
 	border-bottom: 0.1px solid #e8e8eb;
+}
+.school-info .school-name {
+	font-weight: 600 !important;
+	font-size: 1rem;
+	color: #00b7ff;
+}
+.school-info .school-rating {
+	font-weight: 600 !important;
+	font-size: 1rem;
+}
+.school-info .school-category {
+	font-weight: 600 !important;
+	font-size: 1rem;
+}
+.school-info .school-address {
+	font-weight: 600 !important;
+	font-size: 1rem;
+}
+}
+@media (max-width: 768px) {
+.item-wrapper {
+	width: 100%;
+	border-bottom: 0.1px solid #e8e8eb;
+}
+.school-info .school-name {
+	font-weight: 600 !important;
+	font-size: 1.5rem;
+	color: #00b7ff;
+}
+.school-info .school-rating {
+	font-weight: 600 !important;
+	font-size: 1.5rem;
+}
+.school-info .school-category {
+	font-weight: 600 !important;
+	font-size: 1.5rem;
+}
+.school-info .school-address {
+	font-weight: 600 !important;
+	font-size: 1.5rem;
+}
+.col-banner{
+    padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+}
 }
 
 .item-wrapper:hover {
@@ -59,9 +112,7 @@ body {
 	cursor: pointer;
 }
 
-.col-question .col-banner {
-	padding-left: 0px;
-}
+
 
 .top-banner {
 	margin-top: 10px;
@@ -225,11 +276,7 @@ body {
 	width: 100%;
 }
 
-.school-info .school-name {
-	font-weight: 600 !important;
-	font-size: 1rem;
-	color: #00b7ff;
-}
+
 
 .list-item {
 	border-left: 1px solid #e8e8eb;
@@ -453,8 +500,7 @@ body {
 							<div class="item-review">
 								<div class="school-logo">
 									<img
-										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png"
-										class="img-thumbnail">
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png">
 								</div>
 								<div class="school-info">
 									<div class="school-name">Trường Đại Học Tổng Hợp</div>
