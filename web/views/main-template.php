@@ -35,7 +35,7 @@ body {
 
 .item-review {
 	min-height: 100%;
-	min-width:100%;
+	min-width: 100%;
 	padding: 5px;
 	margin-bottom: 10px;
 	margin-top: 5px;
@@ -48,62 +48,63 @@ body {
 .school-logo {
 	text-align: center;
 }
-.school-logo img{
+
+.school-logo img {
 	width: 100%;
 	border: 1px solid #ddd;
 }
 
+@media ( min-width : 768px) {
+	.item-wrapper {
+		width: 25%;
+		border-bottom: 0.1px solid #e8e8eb;
+	}
+	.school-info .school-name {
+		font-weight: 600 !important;
+		font-size: 1rem;
+		color: #00b7ff;
+	}
+	.school-info .school-rating {
+		font-weight: 600 !important;
+		font-size: 1rem;
+	}
+	.school-info .school-category {
+		font-weight: 600 !important;
+		font-size: 1rem;
+	}
+	.school-info .school-address {
+		font-weight: 600 !important;
+		font-size: 1rem;
+	}
+}
 
-@media (min-width: 768px) {
-.item-wrapper {
-	width: 25%;
-	border-bottom: 0.1px solid #e8e8eb;
-}
-.school-info .school-name {
-	font-weight: 600 !important;
-	font-size: 1rem;
-	color: #00b7ff;
-}
-.school-info .school-rating {
-	font-weight: 600 !important;
-	font-size: 1rem;
-}
-.school-info .school-category {
-	font-weight: 600 !important;
-	font-size: 1rem;
-}
-.school-info .school-address {
-	font-weight: 600 !important;
-	font-size: 1rem;
-}
-}
-@media (max-width: 768px) {
-.item-wrapper {
-	width: 100%;
-	border-bottom: 0.1px solid #e8e8eb;
-}
-.school-info .school-name {
-	font-weight: 600 !important;
-	font-size: 1.5rem;
-	color: #00b7ff;
-}
-.school-info .school-rating {
-	font-weight: 600 !important;
-	font-size: 1.5rem;
-}
-.school-info .school-category {
-	font-weight: 600 !important;
-	font-size: 1.5rem;
-}
-.school-info .school-address {
-	font-weight: 600 !important;
-	font-size: 1.5rem;
-}
-.col-banner{
-    padding-left: 0px;
-	padding-right: 0px;
-	padding-bottom: 10px;
-}
+@media ( max-width : 768px) {
+	.item-wrapper {
+		width: 100%;
+		border-bottom: 0.1px solid #e8e8eb;
+	}
+	.school-info .school-name {
+		font-weight: 600 !important;
+		font-size: 1.5rem;
+		color: #00b7ff;
+	}
+	.school-info .school-rating {
+		font-weight: 600 !important;
+		font-size: 1.5rem;
+	}
+	.school-info .school-category {
+		font-weight: 600 !important;
+		font-size: 1.5rem;
+	}
+	.school-info .school-address {
+		font-weight: 600 !important;
+		font-size: 1.5rem;
+	}
+	.col-banner {
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-bottom: 10px;
+	}
 }
 
 .item-wrapper:hover {
@@ -112,8 +113,6 @@ body {
 	cursor: pointer;
 }
 
-
-
 .top-banner {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -121,6 +120,8 @@ body {
 
 @media ( min-width : 1200px) .container {
 	max-width
+	
+	
 	
 	
 	
@@ -146,6 +147,8 @@ body {
 	
 	
 	
+	
+	
 	1100
 	px
 	
@@ -158,8 +161,12 @@ body {
 	
 	
 	
+	
+	
 	!
 	important
+	
+	
 	
 	
 	
@@ -210,73 +217,85 @@ body {
 	margin-bottom: -1px;
 	border-bottom: 2px solid #0275d8;
 }
-.main-banner{
+
+.main-banner {
 	position: relative;
 }
+
 .main-banner .hero {
-    position: absolute;
+	position: absolute;
 	bottom: 50px;
-    left: 15%;
-    width: 70%;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.2);
+	left: 15%;
+	width: 70%;
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.2);
 }
+
 .z-1 {
-    z-index: 1;
+	z-index: 1;
 }
+
 .hero-body {
-    flex-grow: 1;
-    flex-shrink: 0;
-    padding: 1rem 1rem;
+	flex-grow: 1;
+	flex-shrink: 0;
+	padding: 1rem 1rem;
 }
+
 .field.has-addons {
-    display: flex;
-    justify-content: flex-start;
+	display: flex;
+	justify-content: flex-start;
 }
+
 .field.has-addons .control.is-expanded {
-    flex-grow: 1;
+	flex-grow: 1;
 }
+
 .banner-search-box {
-    border-radius: 30px;
-    background-color: transparent;
-    position: relative;
-    background: #fff;
+	border-radius: 30px;
+	background-color: transparent;
+	position: relative;
+	background: #fff;
 }
+
 .box-search {
-    border-radius: 30px !important;
-    overflow: hidden;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
+	border-radius: 30px !important;
+	overflow: hidden;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
 }
+
 .input-group-append {
-    margin-left: -1px;
-    display: flex;
+	margin-left: -1px;
+	display: flex;
 }
+
 .box-search .input-group-append .btn {
-    background-color: transparent;
-    border: none;
+	background-color: transparent;
+	border: none;
 }
+
 .input-group-append .btn {
-    padding: 0px 12px;
-    width: 42px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
+	padding: 0px 12px;
+	width: 42px;
+	text-align: center;
+	position: relative;
+	z-index: 2;
 }
+
 .box-search .input-group-append .btn i {
-    color: #b62831;
+	color: #b62831;
 }
+
 .fa-search:before {
-    content: "\f002";
+	content: "\f002";
 }
+
 .main-banner img {
 	width: 100%;
 }
-
-
 
 .list-item {
 	border-left: 1px solid #e8e8eb;
@@ -286,6 +305,13 @@ body {
 
 .wrapper-nav {
 	border: 1px solid #e8e8eb;
+}
+
+.wrapper-social {
+	border: 1px solid #e8e8eb;
+}
+.right-social{
+	margin-top: 10px;
 }
 
 .checked {
@@ -302,7 +328,16 @@ body {
 	padding-bottom: 0.25rem;
 	padding-left: 1.25rem;
 }
-
+.facebook-page>.social-header {
+	color: #fff;
+	background-color: #0275d8;
+	font-family: 'Anton', sans-serif;
+	font-size: 125%;
+	text-transform: uppercase;
+	padding-top: 0.5rem;
+	padding-bottom: 0.25rem;
+	padding-left: 1.25rem;
+}
 .item-list {
 	text-align: center;
 }
@@ -316,11 +351,13 @@ body {
 	padding-left: 5px;
 	padding-right: 5px;
 }
-.item-list .item-nav:hover{
+
+.item-list .item-nav:hover {
 	background: #f1f2f2;
-    border: 1px solid #3273dc;
-    cursor: pointer;
+	border: 1px solid #3273dc;
+	cursor: pointer;
 }
+
 .no-padding {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -418,7 +455,8 @@ body {
 								<div class="field has-addons">
 									<div
 										class="control has-icons-left is-expanded banner-search-box">
-										<form action="<?php echo $servername ?>/tim-kiem/trang-ket-qua"
+										<form
+											action="<?php echo $servername ?>/tim-kiem/trang-ket-qua"
 											method="POST">
 											<div class="input-group box-search">
 												<input name="company-search" id="company-search"
@@ -1034,9 +1072,23 @@ body {
 </svg></span> <span class="tag-text">Du học Trung Quốc</span>
 								</div>
 							</div>
+							
 						</div>
+						
 					</div>
+
 				</div>
+			<div class="right-social">
+			<div class="wrapper-social row">
+			<div class="col-md-12 no-padding">
+			<div class="facebook-page"><h3 class="social-header">FACEBOOK</h3>
+			<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=296849044479436&autoLogAppEvents=1" nonce="LpZo3nyz"></script>
+<div class="fb-page" data-href="https://www.facebook.com/Edu2Review" data-tabs="timeline" data-width="500" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Edu2Review" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Edu2Review">Edu2Review.com</a></blockquote></div>
+			</div>
+			</div>
+			</div>
+			</div>
 			</div>
 		</div>
 	</div>
