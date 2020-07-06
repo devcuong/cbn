@@ -134,7 +134,19 @@ body {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	:
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -163,8 +175,20 @@ body {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	!
 	important
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -310,7 +334,8 @@ body {
 .wrapper-social {
 	border: 1px solid #e8e8eb;
 }
-.right-social{
+
+.right-social {
 	margin-top: 10px;
 }
 
@@ -328,6 +353,7 @@ body {
 	padding-bottom: 0.25rem;
 	padding-left: 1.25rem;
 }
+
 .facebook-page>.social-header {
 	color: #fff;
 	background-color: #0275d8;
@@ -338,6 +364,7 @@ body {
 	padding-bottom: 0.25rem;
 	padding-left: 1.25rem;
 }
+
 .item-list {
 	text-align: center;
 }
@@ -433,12 +460,23 @@ body {
 		<div class="container">
 			<div class="row top-nav">
 				<div class="col-md-12">
-					<ul class="nav">
-						<li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-						<li class="nav-item"><a class="nav-link disabled" href="#">Messages</a>
-						</li>
-					</ul>
+					<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark">
+						<button class="navbar-toggler navbar-toggler-right" type="button"
+							data-toggle="collapse" data-target="#collapsingNavbar">
+							<span class="navbar-toggler-icon"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-bar-expand" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
+</svg></span>
+						</button>
+						<a class="navbar-brand" href="#">Navbar</a>
+						<div class="navbar-collapse collapse" id="collapsingNavbar">
+							<ul class="navbar-nav">
+								<li class="nav-item active"><a class="nav-link" href="#">Home</a>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+								<li class="nav-item"><a class="nav-link" href="#">Wow</a></li>
+							</ul>
+						</div>
+					</nav>
 				</div>
 			</div>
 		</div>
@@ -1072,27 +1110,40 @@ body {
 </svg></span> <span class="tag-text">Du học Trung Quốc</span>
 								</div>
 							</div>
-							
+
 						</div>
-						
+
 					</div>
 
 				</div>
-			<div class="right-social">
-			<div class="wrapper-social row">
-			<div class="col-md-12 no-padding">
-			<div class="facebook-page"><h3 class="social-header">FACEBOOK</h3>
-			<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=296849044479436&autoLogAppEvents=1" nonce="LpZo3nyz"></script>
-<div class="fb-page" data-href="https://www.facebook.com/Edu2Review" data-tabs="timeline" data-width="500" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Edu2Review" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Edu2Review">Edu2Review.com</a></blockquote></div>
-			</div>
-			</div>
-			</div>
-			</div>
+				<div class="right-social">
+					<div class="wrapper-social row">
+						<div class="col-md-12 no-padding">
+							<div class="facebook-page">
+								<h3 class="social-header">FACEBOOK</h3>
+								<div id="fb-root"></div>
+								<script async defer crossorigin="anonymous"
+									src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=296849044479436&autoLogAppEvents=1"
+									nonce="LpZo3nyz"></script>
+								<div class="fb-page"
+									data-href="https://www.facebook.com/Edu2Review"
+									data-tabs="timeline" data-width="500" data-height=""
+									data-small-header="false" data-adapt-container-width="true"
+									data-hide-cover="false" data-show-facepile="true">
+									<blockquote cite="https://www.facebook.com/Edu2Review"
+										class="fb-xfbml-parse-ignore">
+										<a href="https://www.facebook.com/Edu2Review">Edu2Review.com</a>
+									</blockquote>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<script src="<?php echo $servername ?>/web/public/js/jquery.min.js"></script>
+	<script src="https://www.layoutit.com/builder/v4/layoutit/src/js/popper.min.js"></script>
 	<script src="<?php echo $servername ?>/web/public/js/bootstrap.min.js"></script>
 	<script src="<?php echo $servername ?>/web/public/js/scripts.js"></script>
 </body>
