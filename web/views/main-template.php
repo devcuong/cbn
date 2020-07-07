@@ -153,7 +153,15 @@ body {
 	
 	
 	
+	
+	
+	
+	
 	:
+	
+	
+	
+	
 	
 	
 	
@@ -234,8 +242,16 @@ body {
 	
 	
 	
+	
+	
+	
+	
 	!
 	important
+	
+	
+	
+	
 	
 	
 	
@@ -529,48 +545,49 @@ body {
 
 .topnav {
 	overflow: hidden;
-	background-color: #333;
+	background-color: #0275d8;
 }
 
 @media ( min-width : 768px) {
-    .topnav a {
-    	float: left;
-    	display: block;
-    	color: #f2f2f2;
-    	text-align: center;
-    	padding: 14px 16px;
-    	text-decoration: none;
-    	font-size: 17px;
-    }
-    
-    .topnav a:hover {
-    	background-color: #ddd;
-    	color: black;
-    }
-    
-    .topnav a.active {
-    	background-color: #4CAF50;
-    	color: white;
-    }
-    
-    .topnav .icon {
-    	display: none;
-    }
+	.topnav a {
+		float: left;
+		display: block;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 17px;
+	}
+	.topnav a:hover {
+		background-color: #2E9AFE;
+		color: white;
+		border-bottom: 1px solid #FFFFFF;
+	}
+	.topnav a.active {
+		background-color: #2E9AFE;
+		color: white;
+		border-bottom: 1px solid #FFFFFF;
+	}
+	.topnav .icon {
+		display: none;
+	}
 }
 
-
-
 @media ( max-width : 768px) {
+	.topnav {
+		min-height: 20px;
+	}
 	.topnav a {
+		color: #fff;
 		display: none;
 	}
 	.topnav a.icon {
 		float: right;
 		display: block;
 	}
-}
-
-@media ( max-width : 768px) {
+	.topnav a.icon i {
+		color: #fff;
+	}
 	.topnav.responsive {
 		position: relative;
 	}
@@ -585,6 +602,7 @@ body {
 		text-align: left;
 	}
 }
+
 </style>
 </head>
 <body>
@@ -593,10 +611,9 @@ body {
 			<div class="row top-nav">
 				<div class="col-md-12">
 					<div class="topnav" id="myTopnav">
-						<a href="#home" class="active">Home</a> 
-						<a href="#news">News</a> 
-						<a href="#contact">Contact</a> 
-						<a href="#about">About</a> <a
+					<div class="logo"><img alt="" src="<?php echo $servername ?>/web/public/images/logo.png"></div>
+						<a href="#home" class="active">Home</a> <a href="#news">News</a> <a
+							href="#contact">Contact</a> <a href="#about">About</a> <a
 							href="javascript:void(0);" class="icon" onclick="myFunction()"> <i
 							class="fa fa-bars"></i>
 						</a>
@@ -1234,7 +1251,6 @@ body {
 </svg></span> <span class="tag-text">Du học Trung Quốc</span>
 								</div>
 							</div>
-
 						</div>
 
 					</div>
