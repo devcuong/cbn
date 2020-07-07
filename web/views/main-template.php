@@ -15,17 +15,10 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style type="text/css">
 body {
 	background:
-}
-
-.top-nav {
-	min-height: 50px;
-}
-
-.top-nav a {
-	color: #fff;
 }
 
 .top-head-container {
@@ -140,7 +133,47 @@ body {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	:
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -181,8 +214,48 @@ body {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	!
 	important
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -453,6 +526,65 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
+
+.topnav {
+	overflow: hidden;
+	background-color: #333;
+}
+
+@media ( min-width : 768px) {
+    .topnav a {
+    	float: left;
+    	display: block;
+    	color: #f2f2f2;
+    	text-align: center;
+    	padding: 14px 16px;
+    	text-decoration: none;
+    	font-size: 17px;
+    }
+    
+    .topnav a:hover {
+    	background-color: #ddd;
+    	color: black;
+    }
+    
+    .topnav a.active {
+    	background-color: #4CAF50;
+    	color: white;
+    }
+    
+    .topnav .icon {
+    	display: none;
+    }
+}
+
+
+
+@media ( max-width : 768px) {
+	.topnav a {
+		display: none;
+	}
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
+}
+
+@media ( max-width : 768px) {
+	.topnav.responsive {
+		position: relative;
+	}
+	.topnav.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
 </style>
 </head>
 <body>
@@ -460,23 +592,15 @@ body {
 		<div class="container">
 			<div class="row top-nav">
 				<div class="col-md-12">
-					<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark">
-						<button class="navbar-toggler navbar-toggler-right" type="button"
-							data-toggle="collapse" data-target="#collapsingNavbar">
-							<span class="navbar-toggler-icon"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-bar-expand" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
-</svg></span>
-						</button>
-						<a class="navbar-brand" href="#">Navbar</a>
-						<div class="navbar-collapse collapse" id="collapsingNavbar">
-							<ul class="navbar-nav">
-								<li class="nav-item active"><a class="nav-link" href="#">Home</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-								<li class="nav-item"><a class="nav-link" href="#">Wow</a></li>
-							</ul>
-						</div>
-					</nav>
+					<div class="topnav" id="myTopnav">
+						<a href="#home" class="active">Home</a> 
+						<a href="#news">News</a> 
+						<a href="#contact">Contact</a> 
+						<a href="#about">About</a> <a
+							href="javascript:void(0);" class="icon" onclick="myFunction()"> <i
+							class="fa fa-bars"></i>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1143,8 +1267,19 @@ body {
 		</div>
 	</div>
 	<script src="<?php echo $servername ?>/web/public/js/jquery.min.js"></script>
-	<script src="https://www.layoutit.com/builder/v4/layoutit/src/js/popper.min.js"></script>
+	<script
+		src="https://www.layoutit.com/builder/v4/layoutit/src/js/popper.min.js"></script>
 	<script src="<?php echo $servername ?>/web/public/js/bootstrap.min.js"></script>
 	<script src="<?php echo $servername ?>/web/public/js/scripts.js"></script>
+	<script type="text/javascript">
+	function myFunction() {
+		  var x = document.getElementById("myTopnav");
+		  if (x.className === "topnav") {
+		    x.className += " responsive";
+		  } else {
+		    x.className = "topnav";
+		  }
+		}
+	</script>
 </body>
 </html>
