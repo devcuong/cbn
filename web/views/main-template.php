@@ -689,17 +689,12 @@ body {
 					</div>
 				</div>
 				<div class="col-md-9">
-						<a href="#home" class="active">Home</a> 
-						<a href="#news">News</a> 
-						<a href="#contact">Contact</a> 
-							<a href="#about">About</a> 
-							<a href="javascript:void(0);" class="icon" onclick="test()"> <i
+					<div class="topnav" id="myTopnav">
+						<a href="#home" class="active">Home</a> <a href="#news">News</a> <a
+							href="#contact">Contact</a> <a href="#about">About</a> <a
+							href="javascript:void(0);" class="icon" onclick="showNav()"> <i
 							class="fa fa-bars"></i>
 						</a>
-						<script type="text/javascript">
-						function test(){
-							alert("alo");
-						}</script>
 					</div>
 				</div>
 			</div>
@@ -1372,7 +1367,6 @@ body {
 	<script src="<?php echo $servername ?>/web/public/js/scripts.js"></script>
 	<script type="text/javascript">
 	function showNav() {
-		  alert("alo");
 		  var x = document.getElementById("myTopnav");
 		  if (x.className === "topnav") {
 		    x.className += " responsive";
