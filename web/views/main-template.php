@@ -562,6 +562,7 @@ body {
 .topnav {
 	overflow: hidden;
 	background-color: #0275d8;
+	height: 100%;
 }
 
 /*.main-logo img{
@@ -579,6 +580,7 @@ body {
 		padding: 14px 16px;
 		text-decoration: none;
 		font-size: 17px;
+		height: 100%;
 	}
 	.topnav a:hover {
 		background-color: #2E9AFE;
