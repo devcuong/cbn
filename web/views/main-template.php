@@ -157,7 +157,15 @@ body {
 	
 	
 	
+	
+	
+	
+	
 	:
+	
+	
+	
+	
 	
 	
 	
@@ -246,8 +254,16 @@ body {
 	
 	
 	
+	
+	
+	
+	
 	!
 	important
+	
+	
+	
+	
 	
 	
 	
@@ -603,15 +619,71 @@ body {
 	}
 }
 
+@media screen and (min-width: 1088px) {
+	.navbar>.container .navbar-brand {
+		margin-left: -.75rem;
+	}
+}
+
+.navbar-brand {
+	align-items: stretch;
+	display: flex;
+	flex-shrink: 0;
+	min-height: 3.25rem;
+}
+
+.navbar-brand .logo {
+	padding: 0.3rem 0 0;
+	display: flex;
+	align-items: center;
+}
+
+.navbar-brand .logo .logo__img {
+	width: 4rem;
+}
+
+.navbar-brand .logo .logo__header {
+	margin-left: 0.5rem;
+}
+
+.has-text-white {
+	color: #fff !important;
+}
+.is-size-5 {
+    font-size: 1.25rem !important;
+}
+.navbar-brand .logo .logo__header {
+	margin-left: 0.5rem;
+}
+
+.navbar-brand .logo .logo__header a {
+	color: white;
+}
+@media screen and (max-width: 768px){
+    .navbar-brand .logo {
+        justify-content: center;
+    }
+}
 </style>
 </head>
 <body>
 	<div class="top-head-container">
 		<div class="container">
 			<div class="row top-nav">
-				<div class="col-md-12">
+				<div class="col-md-3">
+					<div class="navbar-brand">
+						<div class="logo" data-no-instant="">
+							<a href="//congtytop.com"> <img class="logo__img"
+								src="//congtytop.com/mvc/public/images/logo.png" alt="">
+							</a>
+							<h1 class="logo__header has-text-white is-size-5">
+								<a href="//congtytop.com"> <b>CÔNG TY TOP</b></a>
+							</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
 					<div class="topnav" id="myTopnav">
-					<div class="logo"><img alt="" src="<?php echo $servername ?>/web/public/images/logo.png"></div>
 						<a href="#home" class="active">Home</a> <a href="#news">News</a> <a
 							href="#contact">Contact</a> <a href="#about">About</a> <a
 							href="javascript:void(0);" class="icon" onclick="myFunction()"> <i
