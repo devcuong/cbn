@@ -577,7 +577,7 @@ body {
 		display: block;
 		color: #f2f2f2;
 		text-align: center;
-		padding: 14px 16px;
+		padding: 25px 16px;
 		text-decoration: none;
 		font-size: 17px;
 		height: 100%;
@@ -624,6 +624,7 @@ body {
 		float: none;
 		display: block;
 		text-align: left;
+		text-decoration: none;
 	}
 }
 
@@ -637,18 +638,9 @@ body {
 	align-items: stretch;
 	display: flex;
 	flex-shrink: 0;
-	min-height: 3.25rem;
 }
 
-.navbar-brand .logo {
-	padding: 0.3rem 0 0;
-	display: flex;
-	align-items: center;
-}
 
-.navbar-brand .logo .logo__img {
-	width: 4rem;
-}
 
 .navbar-brand .logo .logo__header {
 	margin-left: 0.5rem;
@@ -667,10 +659,47 @@ body {
 .navbar-brand .logo .logo__header a {
 	color: white;
 }
+
+.navbar-brand .logo .logo__header a:hover {
+	text-decoration: none;
+}
 @media screen and (max-width: 768px){
+    .navbar-brand {
+        margin-right: 0px;
+    	text-align: center;
+    	min-height: 1.5rem;
+    }
     .navbar-brand .logo {
         justify-content: center;
+    	margin: 0 auto;
     }
+    .navbar-brand .logo .logo__img {
+        	width: 2rem;
+    }
+    .navbar-brand .logo .logo__header a {
+    	font-size: 1rem;
+    }
+    .navbar-brand .logo .logo__header {
+    	margin-bottom: 0px;
+    }
+    .navbar-brand .logo .logo__header {
+    	margin-top: 0px;
+    }
+    .top-box-mobile {
+        background-color: #585858;
+    	border-bottom: 1px solid #ddd;
+    }
+}
+@media screen and (min-width: 768px){
+    .navbar-brand .logo {
+    	padding: 0.3rem 0 0;
+    	display: flex;
+    	align-items: center;
+    }
+    .navbar-brand .logo .logo__img {
+    	width: 4rem;
+    }
+    
 }
 </style>
 </head>
@@ -678,14 +707,14 @@ body {
 	<div class="top-head-container">
 		<div class="container">
 			<div class="row top-nav">
-				<div class="col-md-3">
+				<div class="col-md-3 top-box-mobile">
 					<div class="navbar-brand">
 						<div class="logo" data-no-instant="">
 							<a href="//congtytop.com"> <img class="logo__img"
 								src="//congtytop.com/mvc/public/images/logo.png" alt="">
 							</a>
 							<h1 class="logo__header has-text-white is-size-5">
-								<a href="//congtytop.com"> <b>CÔNG TY TOP</b></a>
+								<a href="<?php echo $servername ?>"> <b>CÔNG TY TOP</b></a>
 							</h1>
 						</div>
 					</div>
