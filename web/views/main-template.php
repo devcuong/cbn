@@ -548,6 +548,12 @@ body {
 	background-color: #0275d8;
 }
 
+/*.main-logo img{
+	display:none;
+	width: 20%;
+	padding: 0px;
+}*/
+
 @media ( min-width : 768px) {
 	.topnav a {
 		float: left;
@@ -611,12 +617,17 @@ body {
 			<div class="row top-nav">
 				<div class="col-md-12">
 					<div class="topnav" id="myTopnav">
-					<div class="logo"><img alt="" src="<?php echo $servername ?>/web/public/images/logo.png"></div>
-						<a href="#home" class="active">Home</a> <a href="#news">News</a> <a
-							href="#contact">Contact</a> <a href="#about">About</a> <a
-							href="javascript:void(0);" class="icon" onclick="myFunction()"> <i
+						<a href="#home" class="active">Home</a> 
+						<a href="#news">News</a> 
+						<a href="#contact">Contact</a> 
+							<a href="#about">About</a> 
+							<a href="javascript:void(0);" class="icon" onclick="test()"> <i
 							class="fa fa-bars"></i>
 						</a>
+						<script type="text/javascript">
+						function test(){
+							alert("alo");
+						}</script>
 					</div>
 				</div>
 			</div>
@@ -1288,7 +1299,8 @@ body {
 	<script src="<?php echo $servername ?>/web/public/js/bootstrap.min.js"></script>
 	<script src="<?php echo $servername ?>/web/public/js/scripts.js"></script>
 	<script type="text/javascript">
-	function myFunction() {
+	function showNav() {
+		  alert("alo");
 		  var x = document.getElementById("myTopnav");
 		  if (x.className === "topnav") {
 		    x.className += " responsive";
