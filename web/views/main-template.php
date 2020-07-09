@@ -13,30 +13,34 @@
 	rel="stylesheet">
 <link href="<?php echo $servername ?>/web/public/css/style.css"
 	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+
 
 <style type="text/css">
 body {
-	background:
+	font-family: 'Quicksand', sans-serif;
 }
 
-.top-head-container  {
+.top-head-container {
 	background: #0275d8;
 	border-bottom: 1px solid #0275d8;
 }
-.bottom-foot-container{
+
+.bottom-foot-container {
 	background: #0275d8;
 	border-bottom: 1px solid #0275d8;
 }
-.bottom-foot-container .bottom-item a{
+
+.bottom-foot-container .bottom-item a {
 	text-decoration: none;
 	color: #fff;
 }
-.bottom-foot-container .header{
+
+.bottom-foot-container .header {
 	font-weight: bold;
 	color: #fff;
 }
+
 .item-review {
 	min-height: 100%;
 	min-width: 100%;
@@ -172,7 +176,11 @@ body {
 	
 	
 	
+	
+	
 	:
+	
+	
 	
 	
 	
@@ -269,8 +277,12 @@ body {
 	
 	
 	
+	
+	
 	!
 	important
+	
+	
 	
 	
 	
@@ -581,7 +593,6 @@ body {
 	width: 20%;
 	padding: 0px;
 }*/
-
 @media ( min-width : 768px) {
 	.topnav a {
 		float: left;
@@ -651,8 +662,6 @@ body {
 	flex-shrink: 0;
 }
 
-
-
 .navbar-brand .logo .logo__header {
 	margin-left: 0.5rem;
 }
@@ -660,9 +669,11 @@ body {
 .has-text-white {
 	color: #fff !important;
 }
+
 .is-size-5 {
-    font-size: 1.25rem !important;
+	font-size: 1.25rem !important;
 }
+
 .navbar-brand .logo .logo__header {
 	margin-left: 0.5rem;
 }
@@ -674,43 +685,44 @@ body {
 .navbar-brand .logo .logo__header a:hover {
 	text-decoration: none;
 }
-@media screen and (max-width: 768px){
-    .navbar-brand {
-        margin-right: 0px;
-    	text-align: center;
-    	min-height: 1.5rem;
-    }
-    .navbar-brand .logo {
-        justify-content: center;
-    	margin: 0 auto;
-    }
-    .navbar-brand .logo .logo__img {
-        	width: 2rem;
-    }
-    .navbar-brand .logo .logo__header a {
-    	font-size: 1rem;
-    }
-    .navbar-brand .logo .logo__header {
-    	margin-bottom: 0px;
-    }
-    .navbar-brand .logo .logo__header {
-    	margin-top: 0px;
-    }
-    .top-box-mobile {
-        background-color: #585858;
-    	border-bottom: 1px solid #ddd;
-    }
+
+@media screen and (max-width: 768px) {
+	.navbar-brand {
+		margin-right: 0px;
+		text-align: center;
+		min-height: 1.5rem;
+	}
+	.navbar-brand .logo {
+		justify-content: center;
+		margin: 0 auto;
+	}
+	.navbar-brand .logo .logo__img {
+		width: 2rem;
+	}
+	.navbar-brand .logo .logo__header a {
+		font-size: 1rem;
+	}
+	.navbar-brand .logo .logo__header {
+		margin-bottom: 0px;
+	}
+	.navbar-brand .logo .logo__header {
+		margin-top: 0px;
+	}
+	.top-box-mobile {
+		background-color: #585858;
+		border-bottom: 1px solid #ddd;
+	}
 }
-@media screen and (min-width: 768px){
-    .navbar-brand .logo {
-    	padding: 0.3rem 0 0;
-    	display: flex;
-    	align-items: center;
-    }
-    .navbar-brand .logo .logo__img {
-    	width: 4rem;
-    }
-    
+
+@media screen and (min-width: 768px) {
+	.navbar-brand .logo {
+		padding: 0.3rem 0 0;
+		display: flex;
+		align-items: center;
+	}
+	.navbar-brand .logo .logo__img {
+		width: 4rem;
+	}
 }
 </style>
 </head>
@@ -748,8 +760,12 @@ body {
 			<div class="row">
 				<div class="col-md-3">
 					<div class="header intro-faq">Giới thiệu</div>
-					<div class="bottom-item"><a href="#">Về rev tr</a></div>
-					<div class="bottom-item"><a href="#">Giải đáp thắc mắc</a></div>
+					<div class="bottom-item">
+						<a href="#">Về rev tr</a>
+					</div>
+					<div class="bottom-item">
+						<a href="#">Giải đáp thắc mắc</a>
+					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="header tnc">Điều khoản sử dụng</div>
