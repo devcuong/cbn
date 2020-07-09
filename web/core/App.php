@@ -15,7 +15,6 @@ class App
         $arr = $this->UrlProcess();
         $classController = $this->UrlToClass($arr[0]);
         // Xu li Controller
-       
         if ($classController != NULL) {
             if (file_exists("./web/controllers/" . $classController . ".php")) {
                 $this->controller = $classController;
@@ -27,7 +26,7 @@ class App
                    require_once "./web/controllers/" . $this->controller . ".php";
                    $this->controller = new $this->controller();
                 }else {
-                    header('Location: '."https://congtytop.com/404.php");
+                    header('Location: '."https://localhost/cbn/404.php");
                 }
             }
         }

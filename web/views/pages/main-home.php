@@ -1,242 +1,660 @@
-<style>
-.news .news-posted, .news-right .news-posted {
-	color: #888;
-	font-size: 80%;
-	margin-bottom: .5rem;
-}
-.news-posted i, .news .news-posted i, .news-right .news-posted i {
-    margin-right: 3px;
-}
-</style>
-<section class="hero-img">
-	<div class="hero-img__gradient"></div>
-	<img src="<?php echo $servername ?>/mvc/public/images/banner.png"
-		alt="công ty top">
-	<div class="hero">
-		<div class="hero-body z-1">
-			<div>
-				<div class="field has-addons">
-					<div class="control has-icons-left is-expanded banner-search-box">
-						<form action="<?php echo $servername ?>/tim-kiem/trang-ket-qua"
-							method="POST">
-							<div class="input-group box-search">
-								<input name="company-search" id="company-search"
-									class="input form-control" type="text"
-									placeholder="Tìm công ty" autocomplete="off">
-								<div class="input-group-append">
-									<button class="btn" type="submit">
-										<i class="fa fa-search" aria-hidden="true"></i>
-									</button>
+<div class="container">
+		<div class="row top-banner">
+			<div class="col-md-8 col-banner">
+				<div class="main-banner">
+					<img alt="review trường học, trung tâm du học"
+						src="<?php echo $servername ?>/web/public/images/school-banner.jpg">
+					<div class="hero">
+						<div class="hero-body z-1">
+							<div>
+								<div class="field has-addons">
+									<div
+										class="control has-icons-left is-expanded banner-search-box">
+										<form
+											action="<?php echo $servername ?>/tim-kiem/trang-ket-qua"
+											method="POST">
+											<div class="input-group box-search">
+												<input name="company-search" id="company-search"
+													class="input form-control ui-autocomplete-input"
+													type="text" placeholder="Tìm trường học" autocomplete="off">
+												<div class="input-group-append">
+													<button class="btn" type="submit">
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
 								</div>
 							</div>
-						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 no-padding col-new-review">
+				<div class="new-review container-scroll new-review-container">
+					<div class="list-new-review">
+						<div class="item-new-review">
+							<span class="user-name">Học viên&nbsp;</span>đã review <span
+								class="review-school-name">Công Nghiệp TPHCM &nbsp;</span> <span
+								class="review-rate">5<svg width="0.8em" height="0.8em"
+									viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor"
+									xmlns="http://www.w3.org/2000/svg">
+  <path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+</svg></span>
+							<div class="short-review">Cơ sở vật chất khá ổn, mát mẻ và thoải
+								mái Giáo viên nhiệt tình và có trình độ Tư vấn viên thân thiện
+								và nhiệt tình Cơ sở vật chất khá ổn, mát mẻ và thoải mái Giáo
+								viên nhiệt tình và có trình độ Tư vấn viên thân thiện và nhiệt
+								tình</div>
+						</div>
+						<div class="item-new-review">
+							<span class="user-name">Học viên&nbsp;</span>đã review <span
+								class="review-school-name">Công Nghiệp TPHCM &nbsp;</span> <span
+								class="review-rate">5<svg width="0.8em" height="0.8em"
+									viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor"
+									xmlns="http://www.w3.org/2000/svg">
+  <path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+</svg></span>
+							<div class="short-review">Cơ sở vật chất khá ổn, mát mẻ và thoải
+								mái Giáo viên nhiệt tình và có trình độ Tư vấn viên thân thiện
+								và nhiệt tình Cơ sở vật chất khá ổn, mát mẻ và thoải mái Giáo
+								viên nhiệt tình và có trình độ Tư vấn viên thân thiện và nhiệt
+								tình</div>
+						</div>
+						<div class="item-new-review">cba</div>
+						<div class="item-new-review">cba</div>
+						<div class="item-new-review">cba</div>
+						<div class="item-new-review">cba</div>
+						<div class="item-new-review">cba</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
-<div class="columns" style="height: auto !important;">
-	<section class="companies column is-three-fifths"
-		style="height: auto !important;">
-		<div class="tabs" style="margin-bottom: 0.6rem">
-			<ul>
-				<li data-tab="top-comments"
-					class="tab <?php if($data["TabCongTy"]=="latest"){ echo "is-active"; } ?>"><a
-					href="<?php echo $servername ?>?tab=latest"
-					class="has-text-weight-bold"> <span class="icon has-text-info"> <i
-							class="fas fa-comments"></i>
-					</span> Mới nhất
-				</a></li>
-				<li data-tab="top-companies"
-					class="tab <?php if($data["TabCongTy"]=="best"){ echo "is-active"; } ?>"><a
-					href="<?php echo $servername ?>?tab=best"
-					class="has-text-weight-bold"> <span class="icon has-text-success">
-							<i class="fas fa-thumbs-up"></i>
-					</span> Top công ty chất
-				</a></li>
-				<li data-tab="worst-companies"
-					class="tab <?php if($data["TabCongTy"]=="worst"){ echo "is-active"; } ?>"><a
-					href="<?php echo $servername ?>?tab=worst"
-					class="has-text-weight-bold"> <span class="icon has-text-danger"> <i
-							class="fas fa-thumbs-down"></i>
-					</span> Top công ty tào lao
-				</a></li>
-			</ul>
-		</div>
-		<div class="tabs-section" style="height: auto !important;">
-			<nav class="pagination is-small custom-pagination" role="navigation"
-				aria-label="pagination">
-				<?php echo $data["Navigate"]; ?>
-			</nav>
-					<?php
-    while ($row = mysqli_fetch_array($data["CongTyTrangHienTai"])) {
-        ?>
-                                        <div
-				data-href="<?php echo $servername ?>/companies/<?php echo $row["slugcongty"]."-".$row["id"]?>"
-				class="company-item">
-				<div class="company-info">
-					<div class="home-logo-company">
-						<figure class="company-info__logo image is-64x64">
-							<img
-								src="<?php echo $servername ?>/mvc/public/asset/companies/logo/<?php echo $row["logo"]; ?>"
-								alt="<?php echo $row["tencongty"];?>">
-						</figure>
+		<div class="row">
+			<div class="col-md-9 col-question">
+				<div class="list-question">
+					<div class="page-heading d-flex">
+						<h4 class="box-title-page mr-auto">MỚI NHẤT</h4>
+						<div class="dh-cd d-flex">
+							<a href="#"> <span class="top-school-star"> <svg width="1em"
+										height="1em" viewBox="0 0 16 16" class="bi bi-star-fill"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path
+											d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+</svg>
+							</span> <span class="top-school-text">TẤT CẢ >></span></a>
+						</div>
 					</div>
-					
-						<div class="company-info__detail">
-							<h2 class="is-size-5 has-text-weight-semibold company-info__name">
-								<a
-									href="<?php echo $servername ?>/companies/<?php echo $row["slugcongty"]."-".$row["id"]?>">
-										<?php echo $row["tencongty"]; ?> </a> <span
-									class="company-info__rating"> <span>
-										 <?php
-        $n = $row["rate"];
-        $whole = floor($row["rate"]);
-        for ($i = 1; $i <= $whole; $i ++) {
-            ?>
-										 <span class="icon is-small has-text-warning"> <i
-											class="fas fa-star"></i>
-									</span>
-										 <?php } ?>
-										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
-										<span class="icon is-small has-text-warning"> <i
-											class="far fa-star"></i>
-									</span>
-										<?php } ?>
-										
-										</span> <span class="company-info__rating-count">(<?php echo $row["luotdanhgia"] ?>)</span>
-								</span>
-							</h2>
-							<div class="company-info__other">
-								<span style="margin-right: 0.3rem"> <span class="icon"> <i
-										class="fas fa-briefcase"></i></span> <?php echo $row["nganhnghe"]?>
-									</span> <span><span class="icon"> <i class="fas fa-users"></i>
-								</span> <?php echo $row["nhanvien"] ?> </span>
-							</div>
-							<div class="company-info__location">
-								<span> <span class="icon"> <i class="fas fa-building"></i>
-								</span> <?php echo $row["diachi"]?>
-									</span>
+					<div class="list-item d-flex flex-wrap">
+						<div class="item-wrapper">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png">
+								</div>
+								<div class="school-info">
+									<div class="school-name">Trường Đại Học Tổng Hợp</div>
+									<div class="school-rating d-flex">
+										<div class="star">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+										<div class="rating-count">(15)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-tags-fill"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+													d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+</svg></span> <span class="text">Trường Đại Học</span>
+
+									</div>
+									<div class="school-address">
+										<span class="icon"> <svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-building"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+  <path
+													d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+</svg>
+										</span> <span class="text">Nhiều Cơ Sở</span>
+									</div>
+								</div>
 							</div>
 						</div>
-					
+						<div class="item-wrapper">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png"
+										class="img-thumbnail">
+								</div>
+								<div class="school-info">
+									<div class="school-name">Trường Đại Học Tổng Hợp</div>
+									<div class="school-rating d-flex">
+										<div class="star">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+										<div class="rating-count">(15)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-tags-fill"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+													d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+</svg></span> <span class="text">Trường Đại Học</span>
+
+									</div>
+									<div class="school-address">
+										<span class="icon"> <svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-building"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+  <path
+													d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+</svg>
+										</span> <span class="text">Nhiều Cơ Sở</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-wrapper">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png"
+										class="img-thumbnail">
+								</div>
+								<div class="school-info">
+									<div class="school-name">Trường Đại Học Tổng Hợp</div>
+									<div class="school-rating d-flex">
+										<div class="star">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+										<div class="rating-count">(15)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-tags-fill"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+													d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+</svg></span> <span class="text">Trường Đại Học</span>
+
+									</div>
+									<div class="school-address">
+										<span class="icon"> <svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-building"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+  <path
+													d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+</svg>
+										</span> <span class="text">Nhiều Cơ Sở</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-wrapper">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png"
+										class="img-thumbnail">
+								</div>
+								<div class="school-info">
+									<div class="school-name">Trường Đại Học Tổng Hợp</div>
+									<div class="school-rating d-flex">
+										<div class="star">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+										<div class="rating-count">(15)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-tags-fill"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+													d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+</svg></span> <span class="text">Trường Đại Học</span>
+
+									</div>
+									<div class="school-address">
+										<span class="icon"> <svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-building"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+  <path
+													d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+</svg>
+										</span> <span class="text">Nhiều Cơ Sở</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-wrapper">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png"
+										class="img-thumbnail">
+								</div>
+								<div class="school-info">
+									<div class="school-name">Trường Đại Học Tổng Hợp</div>
+									<div class="school-rating d-flex">
+										<div class="star">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+										<div class="rating-count">(15)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-tags-fill"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+													d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+</svg></span> <span class="text">Trường Đại Học</span>
+
+									</div>
+									<div class="school-address">
+										<span class="icon"> <svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-building"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+  <path
+													d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+</svg>
+										</span> <span class="text">Nhiều Cơ Sở</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-wrapper">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png"
+										class="img-thumbnail">
+								</div>
+								<div class="school-info">
+									<div class="school-name">Trường Đại Học Tổng Hợp</div>
+									<div class="school-rating d-flex">
+										<div class="star">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+										<div class="rating-count">(15)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-tags-fill"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+													d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+</svg></span> <span class="text">Trường Đại Học</span>
+
+									</div>
+									<div class="school-address">
+										<span class="icon"> <svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-building"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+  <path
+													d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+</svg>
+										</span> <span class="text">Nhiều Cơ Sở</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-wrapper">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png"
+										class="img-thumbnail">
+								</div>
+								<div class="school-info">
+									<div class="school-name">Trường Đại Học Tổng Hợp</div>
+									<div class="school-rating d-flex">
+										<div class="star">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+										<div class="rating-count">(15)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-tags-fill"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+													d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+</svg></span> <span class="text">Trường Đại Học</span>
+
+									</div>
+									<div class="school-address">
+										<span class="icon"> <svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-building"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+  <path
+													d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+</svg>
+										</span> <span class="text">Nhiều Cơ Sở</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-wrapper">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/1office-workway-logo.png"
+										class="img-thumbnail">
+								</div>
+								<div class="school-info">
+									<div class="school-name">Trường Đại Học Tổng Hợp</div>
+									<div class="school-rating d-flex">
+										<div class="star">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+										<div class="rating-count">(15)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-tags-fill"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+													d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+</svg></span> <span class="text">Trường Đại Học</span>
+
+									</div>
+									<div class="school-address">
+										<span class="icon"> <svg width="1em" height="1em"
+												viewBox="0 0 16 16" class="bi bi-building"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+													d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+  <path
+													d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+</svg>
+										</span> <span class="text">Nhiều Cơ Sở</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
 			</div>
-                                        <?php } ?>
-					<div style="margin-top: 0.6rem">
-				<nav class="pagination is-small custom-pagination" role="navigation"
-					aria-label="pagination">
-				<?php echo $data["Navigate"]; ?>
-			</nav>
+			<div class="col-md-3 col-right">
+				<div class="right-nav">
+					<div class="wrapper-nav row">
+						<div class="col-md-12 no-padding">
+							<div class="item-list">
+								<h3 class="nav-header">DANH MỤC</h3>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Đại học</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Cao đẳng</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Nghề</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Quốc tế</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Trung Tâm Tiếng Anh</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Tiếng Anh TPHCM</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Tiếng Anh Hà Nội</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Tiếng Hàn</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Tiếng Nhật</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Tiếng Trung</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Tiếng Pháp</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Tiếng Đức</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Tiếng TBN</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Kỹ năng, Nghiệp vụ</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học Mỹ</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học Anh</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học Úc</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học Singapore</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học Nhật</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học Hàn</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học Đài Loan</span>
+								</div>
+								<div class="item-nav">
+									<span class="tag-icon"><svg width="1em" height="1em"
+											viewBox="0 0 16 16" class="bi bi-tag-fill"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+												d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+</svg></span> <span class="tag-text">Du học Trung Quốc</span>
+								</div>
+							</div>
+						</div>
 
-			</div>
-		</div>
-	</section>
-	<section class="summary-reviews column z-1">
-		<h1 class="is-size-4 has-text-weight-bold reviews__header">Review gần
-			đây</h1>
-				<?php
-				$cutString = new CutString();
-    while ($r = mysqli_fetch_array($data["10ReviewMoiNhat"])) {
-        ?>
-                                        <div class="review">
-			<h3>
-				<span class="has-text-weight-bold"><?php echo $r["reviewer"] ?></span>
-				đã review <a
-					href="<?php echo $servername ?>/companies/<?php echo $r["slugcongty"]."-".$r["id"] ?>"> <?php echo $r["tencongty"] ?> </a>
-			</h3>
-			<p>
-				<span class="needs_to_be_rendered"
-					datetime="<?php echo $r["thoigian"] ?>"><?php echo $r["thoigian"] ?></span>
-				<span>
-						  <?php
-        $n = $r["rate"];
-        $whole = floor($r["rate"]);
-        for ($i = 1; $i <= $whole; $i ++) {
-            ?>
-										 <span class="icon is-small has-text-warning"> <i
-						class="fas fa-star"></i>
-				</span>
-										 <?php } ?>
-										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
-										<span class="icon is-small has-text-warning"> <i
-						class="far fa-star"></i>
-				</span>
-										<?php } ?>
-						</span>
-			</p>
-			<p><?php $noidung = $r["noidung"];
-			 $shortString = $cutString->get_first_num_of_words(trim($noidung), 20);
-			 echo $shortString;
-			?></p>
-		</div>
-                                        <?php } ?>
+					</div>
 
-			</section>
-</div>
-<div class="page-heading d-flex"><h4 class="box-title-page mr-auto">TIN TỨC</h4></div>
-<div class="columns">
-	<?php
-$index = 0;
-while ($r = mysqli_fetch_array($data["ThumbnailTinTucMoiNhat"])) {
-    ?>
-        <?php if($index == 0 || $index == 1) { ?>
-        <div class="column">
-		<div class="card news first-news">
-			<a target="_blank" title="<?php echo $r["tieude"] ?>"
-				href="<?php echo $servername ?>/news/<?php echo $r["slugtieude"] ?>-<?php echo $r["id"] ?>">
-			</a> <a class="news-right-img" target="_self"
-				title="<?php echo $r["tieude"] ?>"
-				href="<?php echo $servername ?>/news/<?php echo $r["slugtieude"] ?>-<?php echo $r["id"] ?>">
-				<img class="card-img-top lazy-loading-image loaded"
-				style="width: 100%"
-				src="<?php echo $servername ?>/mvc/public/asset/news/<?php echo $r["thumbnail"] ?>"
-				alt="<?php echo $r["tieude"] ?>" data-pin-nopin="true">
-			</a>
-			<div class="card-block has-menu-dots">
-				<h1 class="news-title">
-					<a target="_self" title="<?php echo $r["tieude"] ?>"
-						href="<?php echo $servername ?>/news/<?php echo $r["slugtieude"] ?>-<?php echo $r["id"] ?>"><?php echo $r["tieude"] ?></a>
-				</h1>
-				<h4 class="news-desc"><?php echo $r["motangan"] ?></h4>
+				</div>
+				<div class="right-social">
+					<div class="wrapper-social row">
+						<div class="col-md-12 no-padding">
+							<div class="facebook-page">
+								<h3 class="social-header">FACEBOOK</h3>
+								<div id="fb-root"></div>
+								<script async defer crossorigin="anonymous"
+									src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=296849044479436&autoLogAppEvents=1"
+									nonce="LpZo3nyz"></script>
+								<div class="fb-page"
+									data-href="https://www.facebook.com/Edu2Review"
+									data-tabs="timeline" data-width="500" data-height=""
+									data-small-header="false" data-adapt-container-width="true"
+									data-hide-cover="false" data-show-facepile="true">
+									<blockquote cite="https://www.facebook.com/Edu2Review"
+										class="fb-xfbml-parse-ignore">
+										<a href="https://www.facebook.com/Edu2Review">Edu2Review.com</a>
+									</blockquote>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-        <?php } ?>
-        <?php  $index++; ?>
-        <?php } ?>
-	<div class="column col-top-right">
-		<?php
-$index = 0;
-while ($row = mysqli_fetch_array($data["ListTinTucMoiNhat"])) {
-    ?>
-    <?php if($index != 0 && $index != 1) { ?>
-    <div class="news-right">
-			<div class="media">
-				<a class="news-right-img" target="_self"
-					title="<?php echo $row["tieude"] ?>"
-					href="<?php echo $servername ?>/news/<?php echo $row["slugtieude"] ?>-<?php echo $row["id"] ?>">
-					<img class="lazy-loading-image loaded" style="width: 100%"
-					src="<?php echo $servername ?>/mvc/public/asset/news/<?php echo $row["thumbnail"] ?>"
-					alt="<?php echo $row["tieude"] ?>" data-pin-nopin="true">
-
-				</a>
-				<div class="media-body has-menu-dots">
-					<h3 class="news-right-title">
-						<a target="_self" title="<?php echo $row["tieude"] ?>"
-							href="<?php echo $servername ?>/news/<?php echo $row["slugtieude"] ?>-<?php echo $row["id"] ?>"><?php echo $row["tieude"] ?></a>
-					</h3>
-					<h5 class="news-posted">
-						<span class="origin"><a title="<?php echo $row["nguon"] ?>"
-							href="<?php echo $servername ?>/news/<?php echo $row["slugtieude"] ?>-<?php echo $row["id"] ?>"><?php echo $row["nguon"] ?></a></span>
-						<span><i class="fa fa-eye"></i><?php echo $row["luotxem"] ?></span>
-					</h5>
-				</div>
-			</div>
-		</div>
-    <?php } ?>
-    <?php  $index++; ?>
-		<?php } ?>
-	</div>
-</div>

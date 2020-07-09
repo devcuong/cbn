@@ -2,7 +2,7 @@
  require_once 'web/class/Server.php';
  require_once 'web/class/CutString.php';
  require_once 'web/class/Schema.php';
-class Home extends Controller
+class Schools extends Controller
 {
     
     public function __construct()
@@ -14,7 +14,7 @@ class Home extends Controller
     {
         // View
         $this->view("main-template", [
-            "Page" => "main-home"
+            "Page" => "schools"
         ]);
     }
 }
