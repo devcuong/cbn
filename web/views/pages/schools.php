@@ -8,26 +8,18 @@
 
 .general-info {
 	border: 1px solid #0275d8;
-	min-height: 222px;
 	display: flex;
 	font-family: Quicksand;
 	color: #4a4a4a;
 	margin-bottom: 10px;
 }
 
-.general-info .school-logo {
-	width: 20%;
-}
-
-.general-info .school-info {
-	width: 80%;
-}
 
 .general-info .school-name {
 	font-size: 20px;
 	font-weight: 600 !important;
 	color: #000;
-	margin-top: 10px;
+	margin-top: 0px;
 	margin-left: 4px;
 	margin-bottom: 0px;
 }
@@ -57,10 +49,28 @@
 }
 
 .school-info .school-rating {
-    position: relative;
-    top: -2px;
-    font-size: 0.85rem;
-    margin-left: 0.2rem;
+	position: relative;
+	top: -2px;
+	font-size: 0.85rem;
+	margin-left: 0.2rem;
+}
+.img-128{
+	width: 128px !important;
+	height: 128px !important;
+}
+@media screen and (max-width: 768px) {
+	.general-info {
+        display: none;
+    }
+}
+/*hiển thị mobile*/
+@media screen and (min-width: 768px) {
+	.general-mobile-view {
+        display: none;
+    }
+}
+.general-mobile-view{
+	
 }
 </style>
 <div class="container">
@@ -73,31 +83,35 @@
 	<div class="general-info">
 		<div class="school-logo">
 			<img alt=""
-				src="<?php echo $servername ?>/web/public/asset/schools/logo/logo-dhkt.png">
+				src="<?php echo $servername ?>/web/public/asset/schools/logo/logo-dhkt.png" class="img-128">
 		</div>
 		<div class="school-info">
 			<h2 class="school-name">
-				<a href="#">Trường Đại Học Ngân Hàng TP. HCM</a>
-			<span class="school-rating"> <span> <span
-					class="icon is-small has-text-warning"> <i class="fa fa-star checked"></i>
-				</span> <span class="icon is-small has-text-warning"> <i
-						class="fa fa-star checked"></i>
-				</span> <span class="icon is-small has-text-warning"> <i
-						class="fa fa-star checked"></i>
-				</span> <span class="icon is-small has-text-warning"> <i
-						class="fa fa-star"></i>
-				</span> <span class="icon is-small has-text-warning"> <i
-						class="fa fa-star"></i>
+				<a href="#">Trường Đại Học Ngân Hàng TP. HCM</a> <span
+					class="school-rating"> <span> <span
+						class="icon is-small has-text-warning"> <i
+							class="fa fa-star checked"></i>
+					</span> <span class="icon is-small has-text-warning"> <i
+							class="fa fa-star checked"></i>
+					</span> <span class="icon is-small has-text-warning"> <i
+							class="fa fa-star checked"></i>
+					</span> <span class="icon is-small has-text-warning"> <i
+							class="fa fa-star"></i>
+					</span> <span class="icon is-small has-text-warning"> <i
+							class="fa fa-star"></i>
+					</span>
+				</span> <span class="school-rating-count">(8)</span>
 				</span>
-			</span>
-			<span class="school-rating-count">(8)</span>
-			</span>
 			</h2>
 			<div class="school-edu">
 				<div class="edu-category">
 					<span class="edu-category"> <span class="icon"><i
 							class="fa fa-graduation-cap" aria-hidden="true"></i></span> Đại
 						học
+					</span>
+				</div>
+				<div class="school-infrastructure">
+					<span class="school-location"> <span class="icon"><i class="fa fa-cogs" aria-hidden="true"></i></span> Giáo viên bản xứ, Giáo viên Việt Nam, Máy lạnh, Máy chiếu, WiFi, Thư viện
 					</span>
 				</div>
 				<div class="school-location">
@@ -108,5 +122,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="general-mobile-view">
+		aaa
 	</div>
 </div>
