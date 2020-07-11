@@ -108,44 +108,95 @@
 		margin-left: 5px;
 		margin-right: 5px;
 	}
-   
+	.button.upload-review {
+		background-color: #f7941d;
+	}
+	.button.is-rounded {
+		border-radius: 0px;
+		padding-left: 1em;
+		padding-right: 1em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+	}
+	.button-review-mobile {
+		text-align: center;
+	}
+	.button-review-mobile .button-review {
+		box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+		opacity: 0.85;
+		border: none;
+		transition: 0.2s all;
+		color: #fff;
+	}
+	.button-review-mobile .button-review:hover {
+		background-color: #23d160;
+		border-color: transparent;
+		color: #fff;
+	}
+	.button.is-medium {
+		font-size: 1.25rem;
+	}
 }
 /*hiển thị mobile*/
 @media screen and (min-width: 768px) {
-	.general-mobile-view {
+	.general-mobile-view, .more-info-mobile, .button-review-mobile {
 		display: none;
 	}
-	.more-info-mobile {
-		display: none;
+	.button.upload-review {
+		background-color: #f7941d;
 	}
- .button.upload-review {
-        background-color: #f7941d;
-    }
-    .button.is-rounded {
-        border-radius: 0px;
-        padding-left: 1em;
-        padding-right: 1em;
-    	padding-top: 0.5em;
-    	padding-bottom: 0.5em;
-    }
-    .general-info .button-review {
-        position: absolute;
-        box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
-        opacity: 0.85;
-        border: none;
-        top: 6rem;
-        right: 1.5rem;
-        transition: 0.2s all;
-    	color: #fff;
-    }
-    .general-info .button-review:hover{
-        background-color: #23d160;
-        border-color: transparent;
-        color: #fff;
-    }
-    .button.is-medium {
-        font-size: 1.25rem;
-    }
+	.button.is-rounded {
+		border-radius: 0px;
+		padding-left: 1em;
+		padding-right: 1em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+	}
+	.general-info .button-review {
+		position: absolute;
+		box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+		opacity: 0.85;
+		border: none;
+		top: 6rem;
+		right: 1.5rem;
+		transition: 0.2s all;
+		color: #fff;
+	}
+	.general-info .button-review:hover {
+		background-color: #23d160;
+		border-color: transparent;
+		color: #fff;
+	}
+	.button.is-medium {
+		font-size: 1.25rem;
+	}
+}
+
+/*review*/
+.review-box {
+	box-sizing: border-box;
+}
+.review-avatar{
+	float: left;
+}
+/*.review-avatar{
+    width: 50px;
+    float: left;
+    text-align: center;
+    line-height: 16px;
+}
+.review-xborder{
+	display: none;
+    height: 20px;
+    border-right: 1px solid #ddd;
+    width: 100%;
+    right: -17px;
+}*/
+.review-content{
+	margin-left: 65px;
+    padding: 0px;
+    display: block;
+    background: #EFFBEF;
 }
 </style>
 <div class="container">
@@ -246,6 +297,67 @@
 						class="fa fa-map-marker" aria-hidden="true"></i></span> 12 Nguyễn
 					Văn Bảo, Phường 4, Gò Vấp, Hồ Chí Minh
 				</span>
+			</div>
+		</div>
+	</div>
+	<div class="button-review-mobile">
+		<button
+			class="button-review button is-success is-medium is-rounded upload-review">
+			<span class="icon"> <i class="fa fa-pencil" aria-hidden="true"></i>
+			</span> &nbsp;&nbsp; Viết review
+		</button>
+	</div>
+	<div class="review-section">
+		<div class="review-item review-box">
+			<div class="review-avatar">
+				<div class="review-xborder"></div>
+				<img alt="Binh Nguyen"
+					src="https://secure.gravatar.com/avatar/281900ded1468c7a46fdb098a12575d0?s=64&amp;d=mm&amp;r=g"
+					srcset="https://secure.gravatar.com/avatar/281900ded1468c7a46fdb098a12575d0?s=128&amp;d=mm&amp;r=g 2x"
+					class="avatar avatar-64 photo" height="64" width="64"
+					itemprop="image">
+			</div>
+			<div class="review-content">
+				<div class="review-header">
+					<div class="wc-comment-author wcai-uname-info wcai-not-clicked">
+						<a rel="nofollow" href="http://www.chiasefree.com" target="_blank">Binh
+							Nguyen</a>
+					</div>
+					<div class="badge" style="background-color: #7e3bd0">
+						<i class="fa fa-comments-o"></i> 1,124
+					</div>
+					<div class="wc-comment-link">
+						<i class="fa fa-share-alt wc-share-link wpf-cta"
+							aria-hidden="true" title="Share"></i><span
+							class="share_buttons_box"><a class="wc_tw" target="_blank"
+							href="https://twitter.com/intent/tweet?text=Th%E1%BA%A5y+n%C3%A2ng+l%C3%AAn+unlitimed+h%E1%BA%BFt+r+th%C3%AC+ph%E1%BA%A3i%0A...+&amp;url=https%3A%2F%2Fcanhme.com%2Fqc%2Fnhan-hoa-nang-cap-mien-phi-thong-so-hosting%2F%23comment-216557"
+							title=""><i class="fa fa-twitter wpf-cta" aria-hidden="true"></i><span>Share
+									On Twitter</span></a><a class="wc_go" target="_blank"
+							href="https://plus.google.com/share?url=https://canhme.com/qc/nhan-hoa-nang-cap-mien-phi-thong-so-hosting/"
+							title=""><i class="fa fa-google wpf-cta" aria-hidden="true"></i><span>Share
+									On Google</span></a></span><i id="wcai-comment_216557"
+							class="fas fa-info wpf-cta wcai-info wcai-not-clicked"></i>
+					</div>
+					<div class="wpdiscuz_clear"></div>
+				</div>
+				<div class="review-text">
+					<p>Thấy nâng lên unlitimed hết r thì phải</p>
+				</div>
+				<div class="review-footer">
+					<div class="wc-footer-left">
+						<span class="wc-reply-button wc-cta-button" title="Trả lời"><i
+							class="fa fa-reply" aria-hidden="true"></i> Trả lời</span>
+					</div>
+					<div class="wc-footer-right">
+						<div class="wc-comment-date">
+							<i class="fa fa-clock-o" aria-hidden="true"></i><a
+								href="https://canhme.com/qc/nhan-hoa-nang-cap-mien-phi-thong-so-hosting/#comment-216557">16
+								giờ trước</a>
+						</div>
+						<div class="wc-toggle"></div>
+					</div>
+					<div class="wpdiscuz_clear"></div>
+				</div>
 			</div>
 		</div>
 	</div>
