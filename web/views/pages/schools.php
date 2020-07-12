@@ -479,7 +479,7 @@
 						<div class="review-avatar">
 							<div class="review-xborder"></div>
 							<img alt="Binh Nguyen"
-								src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+								src="<?php echo $servername ?>/web/public/images/member-login-avatar.png"
 								class="avatar">
 						</div>
 						<div class="review-author">
@@ -520,7 +520,7 @@
 								<div class="reply-avatar">
 									<div class="reply-xborder"></div>
 									<img alt="Binh Nguyen"
-										src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+										src="<?php echo $servername ?>/web/public/images/member-login-avatar.png"
 										class="avatar">
 								</div>
 								<div class="reply-author">Binh Nguyen&nbsp;(abc)&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;đã&nbsp;<i class="fa fa-thumbs-down" aria-hidden="true"></i>
