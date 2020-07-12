@@ -176,8 +176,16 @@
 .review-box {
 	box-sizing: border-box;
 }
-.review-avatar{
+
+.review-avatar {
 	float: left;
+	margin-left: 5px;
+}
+
+.review-avatar .avatar {
+	box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
+	width: 50px;
+	height: 50px;
 }
 /*.review-avatar{
     width: 50px;
@@ -189,14 +197,97 @@
 	display: none;
     height: 20px;
     border-right: 1px solid #ddd;
-    width: 100%;
+    width: 100%;    
     right: -17px;
 }*/
-.review-content{
-	margin-left: 65px;
-    padding: 0px;
-    display: block;
-    background: #EFFBEF;
+.review-content {
+	padding: 0px;
+	display: block;
+	background: #E0ECF8;
+}
+
+.review-header {
+	border-bottom: 1px solid #DDDDDD;
+	margin-bottom: 7px;
+	height: 50px;
+	display: flex;
+}
+
+.review-text {
+	line-height: 20px;
+	text-align: left;
+	padding: 5px 10px;
+	min-height: 50px;
+}
+
+.review-footer {
+	font-size: 13px;
+	font-weight: normal;
+	padding: 2px 10px 10px 10px;
+	margin-top: 0px;
+	min-height: 28px;
+	text-align: left;
+}
+
+.review-footer a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.review-footer .reply-button {
+	background-color: #23d160;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	line-height: 1.4;
+	margin: 6px 0px 2px 15px;
+	color: #fff;
+	padding: 5px;
+}
+
+.review-footer .delete-button {
+	background-color: #f05555;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	line-height: 1.4;
+	margin: 6px 0px 2px 15px;
+	color: #fff;
+	padding: 5px;
+}
+
+.review-footer .delete-button:hover {
+	color: #fff;
+	text-decoration: none;
+	background-color: #0275d8;
+}
+
+.review-footer .reply-button:hover {
+	color: #fff;
+	text-decoration: none;
+	background-color: #f7941d;
+}
+
+.review-author {
+	color: #669900 !important;
+	align-items: center;
+	font-size: 1rem;
+	margin-left: 10px;
+	display: flex;
+	flex-grow: 1;
+}
+
+.review-author .school-rating{
+	color: #000;
+}
+
+.review-share-link {
+	font-size: 1rem;
+	display: flex;
+	align-items: center;
+	padding: 0 0.75rem;
+}
+
+.share-icon {
+	font-size: 13px;
+	padding: 3px 3px 3px 3px;
+	line-height: 15px;
 }
 </style>
 <div class="container">
@@ -309,54 +400,42 @@
 	</div>
 	<div class="review-section">
 		<div class="review-item review-box">
-			<div class="review-avatar">
-				<div class="review-xborder"></div>
-				<img alt="Binh Nguyen"
-					src="https://secure.gravatar.com/avatar/281900ded1468c7a46fdb098a12575d0?s=64&amp;d=mm&amp;r=g"
-					srcset="https://secure.gravatar.com/avatar/281900ded1468c7a46fdb098a12575d0?s=128&amp;d=mm&amp;r=g 2x"
-					class="avatar avatar-64 photo" height="64" width="64"
-					itemprop="image">
-			</div>
 			<div class="review-content">
 				<div class="review-header">
-					<div class="wc-comment-author wcai-uname-info wcai-not-clicked">
-						<a rel="nofollow" href="http://www.chiasefree.com" target="_blank">Binh
-							Nguyen</a>
+					<div class="review-avatar">
+						<div class="review-xborder"></div>
+						<img alt="Binh Nguyen"
+							src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+							class="avatar">
 					</div>
-					<div class="badge" style="background-color: #7e3bd0">
-						<i class="fa fa-comments-o"></i> 1,124
+					<div class="review-author">
+						Binh Nguyen&nbsp;(abc)<span class="school-rating"> <span> <span
+								class="icon is-small has-text-warning"> <i
+									class="fa fa-star checked"></i>
+							</span> <span class="icon is-small has-text-warning"> <i
+									class="fa fa-star checked"></i>
+							</span> <span class="icon is-small has-text-warning"> <i
+									class="fa fa-star checked"></i>
+							</span> <span class="icon is-small has-text-warning"> <i
+									class="fa fa-star"></i>
+							</span> <span class="icon is-small has-text-warning"> <i
+									class="fa fa-star"></i>
+							</span>
+						</span>
+						</span>
 					</div>
-					<div class="wc-comment-link">
-						<i class="fa fa-share-alt wc-share-link wpf-cta"
-							aria-hidden="true" title="Share"></i><span
-							class="share_buttons_box"><a class="wc_tw" target="_blank"
-							href="https://twitter.com/intent/tweet?text=Th%E1%BA%A5y+n%C3%A2ng+l%C3%AAn+unlitimed+h%E1%BA%BFt+r+th%C3%AC+ph%E1%BA%A3i%0A...+&amp;url=https%3A%2F%2Fcanhme.com%2Fqc%2Fnhan-hoa-nang-cap-mien-phi-thong-so-hosting%2F%23comment-216557"
-							title=""><i class="fa fa-twitter wpf-cta" aria-hidden="true"></i><span>Share
-									On Twitter</span></a><a class="wc_go" target="_blank"
-							href="https://plus.google.com/share?url=https://canhme.com/qc/nhan-hoa-nang-cap-mien-phi-thong-so-hosting/"
-							title=""><i class="fa fa-google wpf-cta" aria-hidden="true"></i><span>Share
-									On Google</span></a></span><i id="wcai-comment_216557"
-							class="fas fa-info wpf-cta wcai-info wcai-not-clicked"></i>
+					<div class="review-share-link">
+						<i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;Share
 					</div>
-					<div class="wpdiscuz_clear"></div>
 				</div>
 				<div class="review-text">
 					<p>Thấy nâng lên unlitimed hết r thì phải</p>
 				</div>
 				<div class="review-footer">
-					<div class="wc-footer-left">
-						<span class="wc-reply-button wc-cta-button" title="Trả lời"><i
-							class="fa fa-reply" aria-hidden="true"></i> Trả lời</span>
-					</div>
-					<div class="wc-footer-right">
-						<div class="wc-comment-date">
-							<i class="fa fa-clock-o" aria-hidden="true"></i><a
-								href="https://canhme.com/qc/nhan-hoa-nang-cap-mien-phi-thong-so-hosting/#comment-216557">16
-								giờ trước</a>
-						</div>
-						<div class="wc-toggle"></div>
-					</div>
-					<div class="wpdiscuz_clear"></div>
+					<a href="#"><span class="reply-button" title="Trả lời"><i
+							class="fa fa-reply" aria-hidden="true"></i>Trả lời</span></a> <a
+						href="#"><span class="delete-button" title="Xóa review"><i
+							class="fa fa-trash" aria-hidden="true"></i>Yều cầu Xóa</span></a>
 				</div>
 			</div>
 		</div>
