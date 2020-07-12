@@ -173,16 +173,20 @@
 }
 
 /*review*/
+.list-review .review-item{
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
 .review-box {
 	box-sizing: border-box;
 }
 
-.review-avatar {
+.review-avatar, .reply-avatar {
 	float: left;
 	margin-left: 5px;
 }
 
-.review-avatar .avatar {
+.review-avatar .avatar, .reply-avatar .avatar {
 	box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
 	width: 50px;
 	height: 50px;
@@ -200,20 +204,20 @@
     width: 100%;    
     right: -17px;
 }*/
-.review-content {
+.review-content, .reply-content {
 	padding: 0px;
 	display: block;
 	background: #E0ECF8;
 }
 
-.review-header {
+.review-header, .reply-header {
 	border-bottom: 1px solid #DDDDDD;
 	margin-bottom: 7px;
-	height: 50px;
+	align-items: stretch;
 	display: flex;
 }
 
-.review-text {
+.review-text, .reply-text {
 	line-height: 20px;
 	text-align: left;
 	padding: 5px 10px;
@@ -264,7 +268,7 @@
 	background-color: #f7941d;
 }
 
-.review-author {
+.review-author, .reply-author {
 	color: #669900 !important;
 	align-items: center;
 	font-size: 1rem;
@@ -272,8 +276,13 @@
 	display: flex;
 	flex-grow: 1;
 }
-
-.review-author .school-rating{
+.reply-author i.fa-thumbs-up{
+	color: red;
+}
+.reply-author i.fa-thumbs-down{
+	color: blue;
+}
+.review-author .school-rating {
 	color: #000;
 }
 
@@ -288,6 +297,11 @@
 	font-size: 13px;
 	padding: 3px 3px 3px 3px;
 	line-height: 15px;
+}
+/*reply*/
+.list-reply .reply-item {
+	margin-top: 10px;
+	margin-left: 50px;
 }
 </style>
 <div class="container">
@@ -399,43 +413,141 @@
 		</button>
 	</div>
 	<div class="review-section">
-		<div class="review-item review-box">
-			<div class="review-content">
-				<div class="review-header">
-					<div class="review-avatar">
-						<div class="review-xborder"></div>
-						<img alt="Binh Nguyen"
-							src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
-							class="avatar">
-					</div>
-					<div class="review-author">
-						Binh Nguyen&nbsp;(abc)<span class="school-rating"> <span> <span
-								class="icon is-small has-text-warning"> <i
-									class="fa fa-star checked"></i>
-							</span> <span class="icon is-small has-text-warning"> <i
-									class="fa fa-star checked"></i>
-							</span> <span class="icon is-small has-text-warning"> <i
-									class="fa fa-star checked"></i>
-							</span> <span class="icon is-small has-text-warning"> <i
-									class="fa fa-star"></i>
-							</span> <span class="icon is-small has-text-warning"> <i
-									class="fa fa-star"></i>
+		<div class="list-review">
+			<div class="review-item review-box">
+				<div class="review-content">
+					<div class="review-header">
+						<div class="review-avatar">
+							<div class="review-xborder"></div>
+							<img alt="Binh Nguyen"
+								src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+								class="avatar">
+						</div>
+						<div class="review-author">
+							Binh Nguyen Binh Nguyen&nbsp;(Binh Nguyen Binh Nguyen)<span class="school-rating"> <span> <span
+									class="icon is-small has-text-warning"> <i
+										class="fa fa-star checked"></i>
+								</span> <span class="icon is-small has-text-warning"> <i
+										class="fa fa-star checked"></i>
+								</span> <span class="icon is-small has-text-warning"> <i
+										class="fa fa-star checked"></i>
+								</span> <span class="icon is-small has-text-warning"> <i
+										class="fa fa-star"></i>
+								</span> <span class="icon is-small has-text-warning"> <i
+										class="fa fa-star"></i>
+								</span>
 							</span>
-						</span>
-						</span>
+							</span>
+						</div>
+						<div class="review-share-link">
+							<i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;Share
+						</div>
 					</div>
-					<div class="review-share-link">
-						<i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;Share
+					<div class="review-text">
+						<p>Thấy nâng lên unlitimed hết r thì phải</p>
+					</div>
+					<div class="review-footer">
+						<a href="#"><span class="reply-button" title="Trả lời"><i
+								class="fa fa-reply" aria-hidden="true"></i>Trả lời</span></a> <a
+							href="#"><span class="delete-button" title="Xóa review"><i
+								class="fa fa-trash" aria-hidden="true"></i>Yêu cầu Xóa</span></a>
 					</div>
 				</div>
-				<div class="review-text">
-					<p>Thấy nâng lên unlitimed hết r thì phải</p>
+				<div class="list-reply">
+					<div class="reply-item">
+						<div class="reply-content">
+							<div class="reply-header">
+								<div class="reply-avatar">
+									<div class="reply-xborder"></div>
+									<img alt="Binh Nguyen"
+										src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+										class="avatar">
+								</div>
+								<div class="reply-author">Binh Nguyen Binh Nguyen&nbsp;(Binh Nguyen Binh Nguyen) đã &nbsp;<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+								</div>
+							</div>
+							<div class="reply-text">
+								<p>Thấy nâng lên unlitimed hết r thì phải</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="review-footer">
-					<a href="#"><span class="reply-button" title="Trả lời"><i
-							class="fa fa-reply" aria-hidden="true"></i>Trả lời</span></a> <a
-						href="#"><span class="delete-button" title="Xóa review"><i
-							class="fa fa-trash" aria-hidden="true"></i>Yều cầu Xóa</span></a>
+			</div>
+			<div class="review-item review-box">
+				<div class="review-content">
+					<div class="review-header">
+						<div class="review-avatar">
+							<div class="review-xborder"></div>
+							<img alt="Binh Nguyen"
+								src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+								class="avatar">
+						</div>
+						<div class="review-author">
+							Binh Nguyen Binh Nguyen&nbsp;(Binh Nguyen Binh Nguyen)&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i>
+							<span class="school-rating"> <span> <span
+									class="icon is-small has-text-warning"> <i
+										class="fa fa-star checked"></i>
+								</span> <span class="icon is-small has-text-warning"> <i
+										class="fa fa-star checked"></i>
+								</span> <span class="icon is-small has-text-warning"> <i
+										class="fa fa-star checked"></i>
+								</span> <span class="icon is-small has-text-warning"> <i
+										class="fa fa-star"></i>
+								</span> <span class="icon is-small has-text-warning"> <i
+										class="fa fa-star"></i>
+								</span>
+							</span>
+							</span>
+						</div>
+						<div class="review-share-link">
+							<i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;Share
+						</div>
+					</div>
+					<div class="review-text">
+						<p>Thấy nâng lên unlitimed hết r thì phải</p>
+					</div>
+					<div class="review-footer">
+						<a href="#"><span class="reply-button" title="Trả lời"><i
+								class="fa fa-reply" aria-hidden="true"></i>Trả lời</span></a> <a
+							href="#"><span class="delete-button" title="Xóa review"><i
+								class="fa fa-trash" aria-hidden="true"></i>Yêu cầu Xóa</span></a>
+					</div>
+				</div>
+				<div class="list-reply">
+					<div class="reply-item">
+						<div class="reply-content">
+							<div class="reply-header">
+								<div class="reply-avatar">
+									<div class="reply-xborder"></div>
+									<img alt="Binh Nguyen"
+										src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+										class="avatar">
+								</div>
+								<div class="reply-author">Binh Nguyen&nbsp;(abc)&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;đã&nbsp;<i class="fa fa-thumbs-down" aria-hidden="true"></i>
+								</div>
+							</div>
+							<div class="reply-text">
+								<p>Thấy nâng lên unlitimed hết r thì phải</p>
+							</div>
+						</div>
+					</div>
+					<div class="reply-item">
+						<div class="reply-content">
+							<div class="reply-header">
+								<div class="reply-avatar">
+									<div class="reply-xborder"></div>
+									<img alt="Binh Nguyen"
+										src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+										class="avatar">
+								</div>
+								<div class="reply-author">Binh Nguyen&nbsp;(abc) đã&nbsp;<i class="fa fa-thumbs-down" aria-hidden="true"></i>
+								</div>
+							</div>
+							<div class="reply-text">
+								<p>Thấy nâng lên unlitimed hết r thì phải</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
