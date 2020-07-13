@@ -13,7 +13,9 @@
 	rel="stylesheet">
 <link href="<?php echo $servername ?>/web/public/css/style.css"
 	rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet" media="screen" />
 
 
 <style type="text/css">
@@ -24,6 +26,7 @@ body {
 .top-head-container {
 	background: #0275d8;
 	border-bottom: 1px solid #0275d8;
+	line-height: 1;
 }
 
 .bottom-foot-container {
@@ -72,16 +75,8 @@ body {
 		font-size: 1rem;
 		color: #00b7ff;
 	}
-	.school-info .school-rating {
-		font-weight: 600 !important;
-		font-size: 1rem;
-	}
-	.school-info .school-category {
-		font-weight: 600 !important;
-		font-size: 1rem;
-	}
-	.school-info .school-address {
-		font-weight: 600 !important;
+	.school-info .school-category, .school-info .school-address,
+		.school-info .school-rating {
 		font-size: 1rem;
 	}
 }
@@ -96,16 +91,8 @@ body {
 		font-size: 1.5rem;
 		color: #00b7ff;
 	}
-	.school-info .school-rating {
-		font-weight: 600 !important;
-		font-size: 1.5rem;
-	}
-	.school-info .school-category {
-		font-weight: 600 !important;
-		font-size: 1.5rem;
-	}
-	.school-info .school-address {
-		font-weight: 600 !important;
+	.school-info .school-category, .school-info .school-address,
+		.school-info .school-rating {
 		font-size: 1.5rem;
 	}
 	.col-banner {
@@ -128,6 +115,8 @@ body {
 
 @media ( min-width : 1200px) .container {
 	max-width
+	
+	
 	
 	
 	
@@ -229,6 +218,8 @@ body {
 	
 	
 	
+	
+	
 	1100
 	px
 	
@@ -279,8 +270,12 @@ body {
 	
 	
 	
+	
+	
 	!
 	important
+	
+	
 	
 	
 	
@@ -562,92 +557,123 @@ body {
 .new-review-container {
 	max-height: 342px;
 }
-/* width */
+
 ::-webkit-scrollbar {
 	width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
 	background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
 	background: #ddd;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
 
 .topnav {
-	overflow: hidden;
-	background-color: #0275d8;
-	height: 100%;
+  overflow: hidden;
 }
 
-/*.main-logo img{
-	display:none;
-	width: 20%;
-	padding: 0px;
-}*/
-@media ( min-width : 768px) {
-	.topnav a {
-		float: left;
-		display: block;
-		color: #f2f2f2;
-		text-align: center;
-		padding: 25px 16px;
-		text-decoration: none;
-		font-size: 17px;
-		height: 100%;
-	}
-	.topnav a:hover {
-		background-color: #2E9AFE;
-		color: white;
-		border-bottom: 1px solid #FFFFFF;
-	}
-	.topnav a.active {
-		background-color: #2E9AFE;
-		color: white;
-		border-bottom: 1px solid #FFFFFF;
-	}
-	.topnav .icon {
-		display: none;
-	}
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 25px 16px;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
-@media ( max-width : 768px) {
-	.topnav {
-		min-height: 20px;
-	}
-	.topnav a {
-		color: #fff;
-		display: none;
-	}
-	.topnav a.icon {
-		float: right;
-		display: block;
-	}
-	.topnav a.icon i {
-		color: #fff;
-	}
-	.topnav.responsive {
-		position: relative;
-	}
-	.topnav.responsive .icon {
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
-	.topnav.responsive a {
-		float: none;
-		display: block;
-		text-align: left;
-		text-decoration: none;
-	}
+.active {
+  border-top: 2px solid #fff;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 25px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #4682B4;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
 }
 
 @media screen and (min-width: 1088px) {
@@ -660,8 +686,13 @@ body {
 	align-items: stretch;
 	display: flex;
 	flex-shrink: 0;
+	padding-top: 0rem;
+    padding-bottom: 0rem;
 }
-
+.top-box-nav{
+	padding-left: 0;
+	padding-right: 0;
+}
 .navbar-brand .logo .logo__header {
 	margin-left: 0.5rem;
 }
@@ -742,13 +773,18 @@ body {
 						</div>
 					</div>
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-9 top-box-nav">
 					<div class="topnav" id="myTopnav">
 						<a href="#home" class="active">Home</a> <a href="#news">News</a> <a
-							href="#contact">Contact</a> <a href="#about">About</a> <a
-							href="javascript:void(0);" class="icon" onclick="showNav()"> <i
-							class="fa fa-bars"></i>
-						</a>
+							href="#contact">Contact</a>
+						<div class="dropdown">
+							<button class="dropbtn"><a style="padding: 0px" href="#">Dropdown <i class="fa fa-caret-down"></i></a></button>
+							<div class="dropdown-content">
+								<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
+							</div>
+						</div>
+						<a href="#about">About</a> <a href="javascript:void(0);"
+							style="font-size: 15px;" class="icon" onclick="showNav()">&#9776;</a>
 					</div>
 				</div>
 			</div>

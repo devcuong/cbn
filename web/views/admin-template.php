@@ -53,14 +53,7 @@ function changeToSlug(e) {
 		}
 	}
 
-// lấy slug tên công ty
-    function blurTenCongTy(){
-   	 var tenCongTy = document.getElementById("ten-cong-ty").value;
-   	 if(tenCongTy != ""){
-   	   	 var slugCongTy = changeToSlug(tenCongTy);
-      	  document.getElementById("slug-cong-ty").value = slugCongTy;
-    }
-    }
+
     // lấy slug tin tức
     function blurTieuDeTinTuc(){
      	 var tieuDeTinTuc = document.getElementById("tieu-de-tin-tuc").value;

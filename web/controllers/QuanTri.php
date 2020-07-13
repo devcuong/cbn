@@ -7,11 +7,13 @@ class QuanTri extends Controller
     
     // Khai báo model
     public $UserModel;
+    public $SchoolModel;
     
     public function __construct()
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $this->UserModel = $this->model("UserModel");
+        $this->SchoolModel = $this->model("SchoolModel");
     }
 
     public function Index()
@@ -78,42 +80,44 @@ class QuanTri extends Controller
     {
         if (isset($_SESSION["email"])) {
             if (isset($_POST["btn-submit"])) {
-                $tencongty = "";
-                $slugcongty = "";
-                $nganhnghe = "";
-                $nhanvien = "";
+                $tentruong = "";
+                $slugtruong = "";
+                $slugcategory = "";
+                $category="";
+                $website = "";
                 $diachi = "";
                 $fileName = "";
-                if (isset($_POST["ten-cong-ty"])) {
-                    $tencongty = trim($_POST["ten-cong-ty"]);
-                    $slugcongty = $_POST["slug-cong-ty"];
+                if (isset($_POST["ten-truong"])) {
+                    $tentruong = trim($_POST["ten-truong"]);
+                    $slugtruong = $_POST["slug-truong"];
                 }
-                if (isset($_POST["nganh-nghe"])) {
-                    $nganhnghe = trim($_POST["nganh-nghe"]);
+                if (isset($_POST["slug-category"])) {
+                    $slugcategory = trim($_POST["slug-category"]);
+                    $category = $_POST['category'];
                 }
-                if (isset($_POST["nhan-vien"])) {
-                    $nhanvien = trim($_POST["nhan-vien"]);
+                if (isset($_POST["website"])) {
+                    $website = trim($_POST["website"]);
                 }
                 if (isset($_POST["dia-chi"])) {
                     $diachi = trim($_POST["dia-chi"]);
                 }
-                if (isset($_FILES["logo-cong-ty"])) {
+                if (isset($_FILES["logo-truong"])) {
                     
                     // Nếu file upload không bị lỗi,
-                    if ($_FILES['logo-cong-ty']['error'] > 0) {
+                    if ($_FILES['logo-truong']['error'] > 0) {
                         echo 'File Upload Bị Lỗi';
                     } else {
-                        $fileName = $_FILES['logo-cong-ty']['name'];
-                        $duongDanHinhAnh = 'mvc/public/asset/companies/logo/' . $fileName;
+                        $fileName = $_FILES['logo-truong']['name'];
+                        $duongDanHinhAnh = 'web/public/asset/schools/logo/' . $fileName;
                         // Upload file
-                        move_uploaded_file($_FILES['logo-cong-ty']['tmp_name'], $duongDanHinhAnh);
+                        move_uploaded_file($_FILES['logo-truong']['tmp_name'], $duongDanHinhAnh);
                         
                         $createdDate = date("Y-m-d H:i:s");
                         // Kiểm tra công ty có hay chưa
-                        $daco = $this->SchoolModel->LayCongTyBangSlug($slugcongty);
+                        $daco = $this->SchoolModel->LaySchoolBangSlug($slugtruong);
                         if (mysqli_num_rows($daco) < 1) {
                             // Thêm công ty
-                            $kq = $this->SchoolModel->ThemCongTy($tencongty, $slugcongty, $fileName, $nganhnghe, $nhanvien, $diachi, $createdDate);
+                            $kq = $this->SchoolModel->ThemSchool($tentruong, $slugtruong, $category, $slugcategory, $fileName, $website, $diachi, $createdDate);
                             if ($kq) {
                                 // View
                                 $this->view("admin-template", [

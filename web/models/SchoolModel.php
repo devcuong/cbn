@@ -22,8 +22,8 @@ class SchoolModel extends DB{
         
         /*PHÂN TRANG*/
         // Lấy trường để phân trang
-        public function LaySchoolPhanTrang($soCongTyBoQua, $soCongTyMoiTrang){
-            $qr = "SELECT * FROM congty ORDER BY thoigian DESC LIMIT $soCongTyBoQua, $soCongTyMoiTrang" ;
+        public function LaySchoolPhanTrang($soSchoolBoQua, $soSchoolMoiTrang){
+            $qr = "SELECT * FROM school ORDER BY thoigian DESC LIMIT $soSchoolBoQua, $soSchoolMoiTrang" ;
             return mysqli_query($this->con, $qr);
         }
         /*HẾT PHÂN TRANG*/
@@ -40,7 +40,7 @@ class SchoolModel extends DB{
             if($ten != ""){
                 $qr = "SELECT * FROM school WHERE school LIKE '%$ten%' LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
             }else{
-                $qr = "SELECT * FROM congty LIMIT $soCongTyBoQua,$soCongTyMoiTrang";
+                $qr = "SELECT * FROM congty LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
             }
             return mysqli_query($this->con, $qr);
             //return $qr;
@@ -66,15 +66,15 @@ class SchoolModel extends DB{
         }
         
         /*THÊM CÔNG TY*/
-        public function ThemSchool($tencongty, $slugcongty, $fileName, $nganhnghe, $nhanvien, $diachi, $thoigian) {
-            $qr= "INSERT INTO congty (tencongty, slugcongty, logo, nganhnghe, nhanvien, diachi, thoigian) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        public function ThemSchool($tentruong, $slugtruong, $category, $slugcategory, $fileName, $website, $diachi, $thoigian) {
+            $qr= "INSERT INTO school (tenschool, slugschool, category, slugcategory, logo, website, diachi, thoigian) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($this->con);
             $result = 0;
             if(!mysqli_stmt_prepare($stmt, $qr)){
                 $result = "SQL statement failed";
             }else{
-                mysqli_stmt_bind_param($stmt, "sssssss", $tencongty, $slugcongty, $fileName, $nganhnghe, $nhanvien, $diachi, $thoigian);
-                $result =mysqli_stmt_execute($stmt);
+                mysqli_stmt_bind_param($stmt, "ssssssss", $tentruong, $slugtruong, $category, $slugcategory, $fileName, $website, $diachi, $thoigian);
+                $result = mysqli_stmt_execute($stmt);
             }
             return $result;
         }
