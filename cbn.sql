@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 13, 2020 lúc 02:22 PM
+-- Thời gian đã tạo: Th7 13, 2020 lúc 09:54 PM
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 7.3.12
 
@@ -25,6 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `review`
+--
+
+CREATE TABLE `review` (
+  `id` int(100) NOT NULL,
+  `reviewer` varchar(100) NOT NULL,
+  `member` int(11) NOT NULL,
+  `about` varchar(100) NOT NULL,
+  `sao` int(1) NOT NULL,
+  `noidung` text NOT NULL,
+  `school` int(11) NOT NULL,
+  `thoigian` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `school`
 --
 
@@ -42,6 +59,13 @@ CREATE TABLE `school` (
   `diachi` varchar(100) NOT NULL,
   `thoigian` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `school`
+--
+
+INSERT INTO `school` (`id`, `tenschool`, `slugschool`, `category`, `slugcategory`, `logo`, `website`, `luotdanhgia`, `tongsao`, `rate`, `diachi`, `thoigian`) VALUES
+(3, 'Bách Khoa - ĐHQG TP.HCM', 'bach-khoa-dhqg-tphcm', 'Đại học', 'dai-hoc', 'dhbk-dhqg.png', 'https://www.hcmut.edu.vn/vi', 1, 4, 4, '268 Lý Thường Kiệt, Phường 14, Quận 10, TP HCM', '2020-07-13 22:09:22');
 
 -- --------------------------------------------------------
 
@@ -67,6 +91,12 @@ INSERT INTO `user` (`id`, `email`, `password`) VALUES
 --
 
 --
+-- Chỉ mục cho bảng `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `school`
 --
 ALTER TABLE `school`
@@ -83,10 +113,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `school`
 --
 ALTER TABLE `school`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

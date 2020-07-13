@@ -99,12 +99,18 @@
 								<div class="school-name"><?php echo $row["tenschool"] ?></div>
 								<div class="school-rating d-flex">
 									<div class="star">
-										<span class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
+									<?php
+        $n = $row["rate"];
+        $whole = floor($row["rate"]);
+        for ($i = 1; $i <= $whole; $i ++) {
+            ?>
+            <span class="fa fa-star checked"></span>
+										<?php } ?>
+										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
+											<span class="fa fa-star"></span>
+										<?php } ?>
 									</div>
-									<div class="rating-count">(15)</div>
+									<div class="rating-count">(<?php echo $row["luotdanhgia"] ?>)</div>
 								</div>
 								<div class="school-category">
 									<span class="icon"><i class="fa fa-graduation-cap"
