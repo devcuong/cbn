@@ -1,7 +1,7 @@
 <?php
 class Server{
     // Properties
-    public $servername = "http://localhost/rvcongty";
+    public $servername = "http://localhost/cbn";
     
     // Methods
     function set_servername($servername) {
