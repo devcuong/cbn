@@ -17,7 +17,6 @@ class SchoolModel extends DB{
         public function LaySchoolBangSlug($slug){
             $qr = "SELECT * FROM school WHERE slugschool = '$slug'";
             return mysqli_query($this->con, $qr);
-            //return $qr;
         }
         
         /*PHÂN TRANG*/

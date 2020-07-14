@@ -33,39 +33,17 @@
 		<div class="col-md-4 no-padding col-new-review">
 			<div class="new-review container-scroll new-review-container">
 				<div class="list-new-review">
-					<div class="item-new-review">
-						<span class="user-name">Học viên&nbsp;</span>đã review <span
-							class="review-school-name">Công Nghiệp TPHCM &nbsp;</span> <span
-							class="review-rate">5<svg width="0.8em" height="0.8em"
-								viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor"
-								xmlns="http://www.w3.org/2000/svg">
-  <path
-									d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-</svg></span>
-						<div class="short-review">Cơ sở vật chất khá ổn, mát mẻ và thoải
-							mái Giáo viên nhiệt tình và có trình độ Tư vấn viên thân thiện và
-							nhiệt tình Cơ sở vật chất khá ổn, mát mẻ và thoải mái Giáo viên
-							nhiệt tình và có trình độ Tư vấn viên thân thiện và nhiệt tình</div>
+				<?php
+    while ($r = mysqli_fetch_array($data["15ReviewMoiNhat"])) {
+        ?>
+        <div class="item-new-review">
+						<span class="user-name"><?php echo $r["reviewer"] ?>&nbsp;</span>đã review <span
+							class="review-school-name"><?php echo $r["tenschool"] ?> &nbsp;</span> <span
+							class="review-rate">5<i class="fa fa-star" aria-hidden="true"></i>
+							</span>
+						<div class="short-review"><?php echo $r["noidung"] ?></div>
 					</div>
-					<div class="item-new-review">
-						<span class="user-name">Học viên&nbsp;</span>đã review <span
-							class="review-school-name">Công Nghiệp TPHCM &nbsp;</span> <span
-							class="review-rate">5<svg width="0.8em" height="0.8em"
-								viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor"
-								xmlns="http://www.w3.org/2000/svg">
-  <path
-									d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-</svg></span>
-						<div class="short-review">Cơ sở vật chất khá ổn, mát mẻ và thoải
-							mái Giáo viên nhiệt tình và có trình độ Tư vấn viên thân thiện và
-							nhiệt tình Cơ sở vật chất khá ổn, mát mẻ và thoải mái Giáo viên
-							nhiệt tình và có trình độ Tư vấn viên thân thiện và nhiệt tình</div>
-					</div>
-					<div class="item-new-review">cba</div>
-					<div class="item-new-review">cba</div>
-					<div class="item-new-review">cba</div>
-					<div class="item-new-review">cba</div>
-					<div class="item-new-review">cba</div>
+        <?php } ?>
 				</div>
 			</div>
 		</div>

@@ -48,6 +48,7 @@ class Home extends Controller
             $this->view("main-template", [
                 "Page" => "main-home",
                 "SchoolTrangHienTai" => $schoolTrangHienTai,
+                "15ReviewMoiNhat" => $this->ReviewModel->Lay15ReviewMoiNhat(),
                 "Title" => $title,
                 "Description" => $description,
                 "Keyword" => $keyword

@@ -312,16 +312,18 @@
 			<li class="breadcrumb-item active" aria-current="page">Rfgsdgsdgsdfgs</li>
 		</ol>
 	</nav>
+	<?php
+while ($row = mysqli_fetch_array($data["School"])) {
+    ?>
 	<div class="general-info">
 		<div class="school-logo">
 			<img alt=""
-				src="<?php echo $servername ?>/web/public/asset/schools/logo/logo-dhkt.png"
+				src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["logo"] ?>"
 				class="img-128">
 		</div>
 		<div class="school-info">
 			<h2 class="school-name">
-				<a href="#">Trường Đại Học Ngân Hàng TP. HCM Trường Đại Học Ngân
-					Hàng TP. HCM</a> <span class="school-rating"> <span> <span
+				<a href="#"><?php echo $row["tenschool"] ?></a> <span class="school-rating"> <span> <span
 						class="icon is-small has-text-warning"> <i
 							class="fa fa-star checked"></i>
 					</span> <span class="icon is-small has-text-warning"> <i
@@ -339,20 +341,18 @@
 			<div class="school-edu">
 				<div class="edu-category">
 					<span class="edu-category"> <span class="icon"><i
-							class="fa fa-graduation-cap" aria-hidden="true"></i></span> Đại
-						học
+							class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"] ?>
 					</span>
 				</div>
 				<div class="school-infrastructure">
 					<span class="school-location"> <span class="icon"><i
 							class="fa fa-rss" aria-hidden="true"></i> </span>
-						https://fontawesome.com/
+						<?php echo $row["website"] ?>
 					</span>
 				</div>
 				<div class="school-location">
 					<span class="school-location"> <span class="icon"><i
-							class="fa fa-map-marker" aria-hidden="true"></i></span> 12 Nguyễn
-						Văn Bảo, Phường 4, Gò Vấp, Hồ Chí Minh
+							class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"] ?>
 					</span>
 				</div>
 			</div>
@@ -366,13 +366,12 @@
 	<div class="general-mobile-view">
 		<div class="school-logo-mobile">
 			<img alt=""
-				src="<?php echo $servername ?>/web/public/asset/schools/logo/logo-dhkt.png"
+				src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["logo"] ?>"
 				class="img-128">
 		</div>
 		<div class="school-info-mobile">
 			<h2 class="school-name">
-				<a href="#">Trường Đại Học Ngân Hàng TP. HCM Trường Đại Học Ngân
-					Hàng TP. HCM</a>
+				<a href="#"><?php echo $row["tenschool"] ?></a>
 			</h2>
 			<div class="school-rating-count">Reviews - 8</div>
 			<div class="school-rating">
@@ -387,24 +386,23 @@
 		<div class="school-edu">
 			<div class="edu-category">
 				<span class="edu-category"> <span class="icon"><i
-						class="fa fa-graduation-cap" aria-hidden="true"></i></span> Đại
-					học
+						class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"] ?>
 				</span>
 			</div>
 			<div class="school-infrastructure">
 				<span class="school-location"> <span class="icon"><i
 						class="fa fa-rss" aria-hidden="true"></i> </span>
-					https://fontawesome.com/
+<?php echo $row["website"] ?>
 				</span>
 			</div>
 			<div class="school-location">
 				<span class="school-location"> <span class="icon"><i
-						class="fa fa-map-marker" aria-hidden="true"></i></span> 12 Nguyễn
-					Văn Bảo, Phường 4, Gò Vấp, Hồ Chí Minh
+						class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"] ?>
 				</span>
 			</div>
 		</div>
 	</div>
+	<?php } ?>
 	<div class="button-review-mobile">
 		<button
 			class="button-review button is-success is-medium is-rounded upload-review">

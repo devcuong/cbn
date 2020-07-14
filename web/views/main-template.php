@@ -522,7 +522,7 @@ body {
 }
 
 .list-new-review .item-new-review {
-	/*padding-bottom: 10px;*/
+	font-size: 0.8rem;
 	padding-top: 5px;
 	border-bottom: 1px dashed #0275d8;
 	min-height: 100px;
@@ -544,6 +544,10 @@ body {
 	color: #fff;
 	padding: 3px;
 	background: #0275d8;
+}
+
+.item-new-review .review-rate i{
+	font-size: 0.8rem;
 }
 
 .item-new-review .review-rate .bi-star-fill {
@@ -588,8 +592,8 @@ body {
   font-size: 1rem;
 }
 
-.active {
-  border-top: 2px solid #fff;
+.topnav .active {
+  border-top: 2px solid #f7941d;
 }
 
 .topnav .icon {
