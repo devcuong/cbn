@@ -39,7 +39,7 @@
         <div class="item-new-review">
 						<span class="user-name"><?php echo $r["reviewer"] ?>&nbsp;</span>đã review <span
 							class="review-school-name"><?php echo $r["tenschool"] ?> &nbsp;</span> <span
-							class="review-rate">5<i class="fa fa-star" aria-hidden="true"></i>
+							class="review-rate"><?php echo $r["sao"] ?><i class="fa fa-star" aria-hidden="true"></i>
 							</span>
 						<div class="short-review"><?php echo $r["noidung"] ?></div>
 					</div>

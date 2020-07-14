@@ -34,12 +34,12 @@ class School extends Controller
                 $cutString = new CutString();
                 
                 // Title
-                $title = "Review công ty ".$tenCongTy." - ".$cutString->get_first_num_of_words(trim($noiDungReview), 60);
+                $title = "Review công ty "." - ".$cutString->get_first_num_of_words(trim($noiDungReview), 60);
                 
                 // Description
-                $description = "Công ty ".$tenCongTy." - ".$noiDungReview;
+                $description = "Công ty "." - ".$noiDungReview;
                 
-                $keyword =  $title = "Review công ty $tenCongTy";
+                $keyword =  $title = "Review công ty";
                 
                 // View
                 $this->view("main-template", [

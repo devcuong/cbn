@@ -305,16 +305,16 @@
 }
 </style>
 <div class="container">
+	<?php
+while ($row = mysqli_fetch_array($data["School"])) {
+    ?>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#"><i class="fa fa-home"
 					aria-hidden="true"></i> Trang chủ</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Rfgsdgsdgsdfgs</li>
+			<li class="breadcrumb-item active" aria-current="page"><?php echo $row["category"] ?>&nbsp;<?php echo $row["tenschool"] ?></li>
 		</ol>
 	</nav>
-	<?php
-while ($row = mysqli_fetch_array($data["School"])) {
-    ?>
 	<div class="general-info">
 		<div class="school-logo">
 			<img alt=""
@@ -323,19 +323,18 @@ while ($row = mysqli_fetch_array($data["School"])) {
 		</div>
 		<div class="school-info">
 			<h2 class="school-name">
-				<a href="#"><?php echo $row["tenschool"] ?></a> <span class="school-rating"> <span> <span
-						class="icon is-small has-text-warning"> <i
-							class="fa fa-star checked"></i>
-					</span> <span class="icon is-small has-text-warning"> <i
-							class="fa fa-star checked"></i>
-					</span> <span class="icon is-small has-text-warning"> <i
-							class="fa fa-star checked"></i>
-					</span> <span class="icon is-small has-text-warning"> <i
-							class="fa fa-star"></i>
-					</span> <span class="icon is-small has-text-warning"> <i
-							class="fa fa-star"></i>
-					</span>
-				</span><span class="school-rating-count">(8)</span>
+				<a href="#"><?php echo $row["tenschool"] ?></a> <span class="school-rating">
+				<?php
+        $n = $row["rate"];
+        $whole = floor($row["rate"]);
+        for ($i = 1; $i <= $whole; $i ++) {
+            ?>
+            <span class="fa fa-star checked"></span>
+										<?php } ?>
+										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
+											<span class="fa fa-star"></span>
+										<?php } ?>
+				<span class="school-rating-count">(<?php echo mysqli_num_rows($data["School"]) ?>)</span>
 				</span>
 			</h2>
 			<div class="school-edu">
@@ -373,12 +372,18 @@ while ($row = mysqli_fetch_array($data["School"])) {
 			<h2 class="school-name">
 				<a href="#"><?php echo $row["tenschool"] ?></a>
 			</h2>
-			<div class="school-rating-count">Reviews - 8</div>
+			<div class="school-rating-count">Reviews - <?php echo mysqli_num_rows($data["School"]) ?></div>
 			<div class="school-rating">
-				Trung bình: <span> <i class="fa fa-star checked"></i><i
-					class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-					class="fa fa-star"></i><i class="fa fa-star"></i>
-				</span>
+				Trung bình: <?php
+        $n = $row["rate"];
+        $whole = floor($row["rate"]);
+        for ($i = 1; $i <= $whole; $i ++) {
+            ?>
+            <span class="fa fa-star checked"></span>
+										<?php } ?>
+										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
+											<span class="fa fa-star"></span>
+										<?php } ?>
 			</div>
 		</div>
 	</div>
@@ -412,6 +417,10 @@ while ($row = mysqli_fetch_array($data["School"])) {
 	</div>
 	<div class="review-section">
 		<div class="list-review">
+		 <?php
+    $rowIndex = 0;
+    while ($r = mysqli_fetch_array($data["Review"])) {
+        ?>
 			<div class="review-item review-box">
 				<div class="review-content">
 					<div class="review-header">
@@ -422,19 +431,16 @@ while ($row = mysqli_fetch_array($data["School"])) {
 								class="avatar">
 						</div>
 						<div class="review-author">
-							Binh Nguyen Binh Nguyen&nbsp;(Binh Nguyen Binh Nguyen)<span class="school-rating"> <span> <span
-									class="icon is-small has-text-warning"> <i
-										class="fa fa-star checked"></i>
-								</span> <span class="icon is-small has-text-warning"> <i
-										class="fa fa-star checked"></i>
-								</span> <span class="icon is-small has-text-warning"> <i
-										class="fa fa-star checked"></i>
-								</span> <span class="icon is-small has-text-warning"> <i
-										class="fa fa-star"></i>
-								</span> <span class="icon is-small has-text-warning"> <i
-										class="fa fa-star"></i>
-								</span>
-							</span>
+							<?php echo $r["review_reviewer"]?>&nbsp;(<?php echo $r["review_about"]?>)<span class="school-rating"> <?php
+        $n = $r["review_sao"];
+        $whole = floor($r["review_sao"]);
+        for ($i = 1; $i <= $whole; $i ++) {
+            ?>
+            <span class="fa fa-star checked"></span>
+										<?php } ?>
+										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
+											<span class="fa fa-star"></span>
+										<?php } ?>
 							</span>
 						</div>
 						<div class="review-share-link">
@@ -442,7 +448,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 						</div>
 					</div>
 					<div class="review-text">
-						<p>Thấy nâng lên unlitimed hết r thì phải</p>
+						<p><?php echo $r["review_noidung"]?></p>
 					</div>
 					<div class="review-footer">
 						<a href="#"><span class="reply-button" title="Trả lời"><i
@@ -452,25 +458,40 @@ while ($row = mysqli_fetch_array($data["School"])) {
 					</div>
 				</div>
 				<div class="list-reply">
+				       <?php
+            
+            $dataReply = $r["reply_data"];
+            $arrJson = json_decode($dataReply);
+            for ($i = 0; $i < count($arrJson); $i ++) {
+                ?>
 					<div class="reply-item">
 						<div class="reply-content">
 							<div class="reply-header">
 								<div class="reply-avatar">
 									<div class="reply-xborder"></div>
-									<img alt="Binh Nguyen"
+									<img alt="<?php echo $arrJson[$i]->replyer ?>"
 										src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
 										class="avatar">
 								</div>
-								<div class="reply-author">Binh Nguyen Binh Nguyen&nbsp;(Binh Nguyen Binh Nguyen) đã &nbsp;<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+								<div class="reply-author"><?php echo $arrJson[$i]->replyer ?>&nbsp;đã&nbsp;
+								<?php if (($arrJson[$i]->reaction)=="LIKE") {?>
+								<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+								<?php } else if(($arrJson[$i]->reaction)=="HATE") { ?>
+								<i class="fa fa-thumbs-down" aria-hidden="true"></i>
+								<?php }else{ ?>
+					đề nghị xóa X
+					<?php } ?>
 								</div>
 							</div>
 							<div class="reply-text">
-								<p>Thấy nâng lên unlitimed hết r thì phải</p>
+								<p><?php echo $arrJson[$i]->noidung ?></p>
 							</div>
 						</div>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
+			<?php } ?>
 			<div class="review-item review-box">
 				<div class="review-content">
 					<div class="review-header">
