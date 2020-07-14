@@ -64,7 +64,9 @@ body {
 	width: 100%;
 	border: 1px solid #ddd;
 }
-
+.school-info .school-name a{
+	text-decoration: none;
+}
 @media ( min-width : 768px) {
 	.item-wrapper {
 		width: 25%;
@@ -75,6 +77,7 @@ body {
 		font-size: 1rem;
 		color: #00b7ff;
 	}
+	
 	.school-info .school-category, .school-info .school-address,
 		.school-info .school-rating {
 		font-size: 1rem;

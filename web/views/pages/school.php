@@ -426,8 +426,8 @@ while ($row = mysqli_fetch_array($data["School"])) {
 					<div class="review-header">
 						<div class="review-avatar">
 							<div class="review-xborder"></div>
-							<img alt="Binh Nguyen"
-								src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+							<img alt="<?php echo $r["review_reviewer"]?>"
+								src="<?php echo $servername ?>/web/public/images/<?php echo $r["review_member"].".png"?>"
 								class="avatar">
 						</div>
 						<div class="review-author">
@@ -470,7 +470,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 								<div class="reply-avatar">
 									<div class="reply-xborder"></div>
 									<img alt="<?php echo $arrJson[$i]->replyer ?>"
-										src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
+										src="<?php echo $servername ?>/web/public/images/<?php echo $arrJson[$i]->member ?>.png"
 										class="avatar">
 								</div>
 								<div class="reply-author"><?php echo $arrJson[$i]->replyer ?>&nbsp;đã&nbsp;
@@ -492,83 +492,6 @@ while ($row = mysqli_fetch_array($data["School"])) {
 				</div>
 			</div>
 			<?php } ?>
-			<div class="review-item review-box">
-				<div class="review-content">
-					<div class="review-header">
-						<div class="review-avatar">
-							<div class="review-xborder"></div>
-							<img alt="Binh Nguyen"
-								src="<?php echo $servername ?>/web/public/images/member-login-avatar.png"
-								class="avatar">
-						</div>
-						<div class="review-author">
-							Binh Nguyen Binh Nguyen&nbsp;(Binh Nguyen Binh Nguyen)&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i>
-							<span class="school-rating"> <span> <span
-									class="icon is-small has-text-warning"> <i
-										class="fa fa-star checked"></i>
-								</span> <span class="icon is-small has-text-warning"> <i
-										class="fa fa-star checked"></i>
-								</span> <span class="icon is-small has-text-warning"> <i
-										class="fa fa-star checked"></i>
-								</span> <span class="icon is-small has-text-warning"> <i
-										class="fa fa-star"></i>
-								</span> <span class="icon is-small has-text-warning"> <i
-										class="fa fa-star"></i>
-								</span>
-							</span>
-							</span>
-						</div>
-						<div class="review-share-link">
-							<i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;Share
-						</div>
-					</div>
-					<div class="review-text">
-						<p>Thấy nâng lên unlitimed hết r thì phải</p>
-					</div>
-					<div class="review-footer">
-						<a href="#"><span class="reply-button" title="Trả lời"><i
-								class="fa fa-reply" aria-hidden="true"></i>Trả lời</span></a> <a
-							href="#"><span class="delete-button" title="Xóa review"><i
-								class="fa fa-trash" aria-hidden="true"></i>Yêu cầu Xóa</span></a>
-					</div>
-				</div>
-				<div class="list-reply">
-					<div class="reply-item">
-						<div class="reply-content">
-							<div class="reply-header">
-								<div class="reply-avatar">
-									<div class="reply-xborder"></div>
-									<img alt="Binh Nguyen"
-										src="<?php echo $servername ?>/web/public/images/member-login-avatar.png"
-										class="avatar">
-								</div>
-								<div class="reply-author">Binh Nguyen&nbsp;(abc)&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;đã&nbsp;<i class="fa fa-thumbs-down" aria-hidden="true"></i>
-								</div>
-							</div>
-							<div class="reply-text">
-								<p>Thấy nâng lên unlitimed hết r thì phải</p>
-							</div>
-						</div>
-					</div>
-					<div class="reply-item">
-						<div class="reply-content">
-							<div class="reply-header">
-								<div class="reply-avatar">
-									<div class="reply-xborder"></div>
-									<img alt="Binh Nguyen"
-										src="<?php echo $servername ?>/web/public/images/guest-avatar.png"
-										class="avatar">
-								</div>
-								<div class="reply-author">Binh Nguyen&nbsp;(abc) đã&nbsp;<i class="fa fa-thumbs-down" aria-hidden="true"></i>
-								</div>
-							</div>
-							<div class="reply-text">
-								<p>Thấy nâng lên unlitimed hết r thì phải</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

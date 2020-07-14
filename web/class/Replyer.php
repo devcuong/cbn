@@ -2,6 +2,7 @@
 class Replyer {
     // Properties
     public $replyer;
+    public $member;
     public $reaction;
     public $noidung;
     public $thoigian;
@@ -12,6 +13,13 @@ class Replyer {
     }
     function get_replyer() {
         return $this->replyer;
+    }
+    
+    function set_member($member) {
+        $this->member = $member;
+    }
+    function get_member() {
+        return $this->member;
     }
     
     function set_reaction($reaction){

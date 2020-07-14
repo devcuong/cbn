@@ -74,7 +74,7 @@
 									src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["logo"] ?>">
 							</div>
 							<div class="school-info">
-								<div class="school-name"><?php echo $row["tenschool"] ?></div>
+								<div class="school-name"><a href="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>"><?php echo $row["tenschool"] ?></a></div>
 								<div class="school-rating d-flex">
 									<div class="star">
 									<?php

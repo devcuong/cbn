@@ -2,7 +2,7 @@
 class ReviewModel extends DB{
     // Lấy review bằng id school
     public function LayReviewBangIdSchool($iDSchool){
-        $qr = "SELECT review.id AS review_id, review.reviewer AS review_reviewer, review.about AS review_about, review.sao AS review_sao, review.noidung AS review_noidung, review.school AS review_school, review.thoigian AS review_thoigian, reply.id AS reply_id, reply.review AS reply_review, reply.data AS reply_data FROM review LEFT JOIN reply on reply.review = review.id WHERE review.school = $iDSchool ORDER BY review.id DESC";
+        $qr = "SELECT review.id AS review_id, review.reviewer AS review_reviewer, review.member AS review_member, review.about AS review_about, review.sao AS review_sao, review.noidung AS review_noidung, review.school AS review_school, review.thoigian AS review_thoigian, reply.id AS reply_id, reply.review AS reply_review, reply.data AS reply_data FROM review LEFT JOIN reply on reply.review = review.id WHERE review.school = $iDSchool ORDER BY review.id DESC";
         return mysqli_query($this->con, $qr);
         //return $qr;
     }
@@ -42,7 +42,7 @@ class ReviewModel extends DB{
     
     // Lấy review để phân trang
     public function LayReviewPhanTrang($iDSchool ,$soReviewBoQua, $soReviewMoiTrang){
-        $qr = "SELECT review.id AS review_id, review.reviewer AS review_reviewer, review.about AS review_about, review.sao AS review_sao, review.noidung AS review_noidung, review.school AS review_school, review.thoigian AS review_thoigian, reply.id AS reply_id, reply.review AS reply_review, reply.data AS reply_data FROM review LEFT JOIN reply on reply.review = review.id WHERE review.school = $iDSchool ORDER BY review.id DESC LIMIT ".$soReviewBoQua.','.$soReviewMoiTrang;
+        $qr = "SELECT review.id AS review_id, review.reviewer AS review_reviewer, review.member AS review_member, review.about AS review_about, review.sao AS review_sao, review.noidung AS review_noidung, review.school AS review_school, review.thoigian AS review_thoigian, reply.id AS reply_id, reply.review AS reply_review, reply.data AS reply_data FROM review LEFT JOIN reply on reply.review = review.id WHERE review.school = $iDSchool ORDER BY review.id DESC LIMIT ".$soReviewBoQua.','.$soReviewMoiTrang;
         return mysqli_query($this->con, $qr);
         //return $qr;
     }
