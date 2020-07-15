@@ -547,18 +547,6 @@ while ($r = mysqli_fetch_array($data["Review"])) {
 						<div class="g-recaptcha"
 							data-sitekey="6LevlLEZAAAAAEGrjvk9tDC7xoUOmCeCRma6RY7-"
 							data-callback="onReviewCaptchaSuccess">
-							<div style="width: 304px; height: 78px;">
-								<div>
-									<iframe
-										src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdzGtkUAAAAAPbjiQfk8z3AbWKKjRWNE_MXxcOQ&amp;co=aHR0cHM6Ly9jb25ndHl0b3AuY29tOjQ0Mw..&amp;hl=vi&amp;v=nuX0GNR875hMLA1LR7ayD9tc&amp;size=normal&amp;cb=uwwj2jpj2opv"
-										width="304" height="78" role="presentation"
-										name="a-gvej9hi4phy3" frameborder="0" scrolling="no"
-										sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
-								</div>
-								<textarea id="g-recaptcha-response" name="g-recaptcha-response"
-									class="g-recaptcha-response"
-									style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-							</div>
 						</div>
 						<div class="form-group"><mark>Người đăng chịu trách nhiệm về tính xác thực của nội dung</mark></div>
 					</form>
@@ -572,5 +560,6 @@ while ($r = mysqli_fetch_array($data["Review"])) {
 		</div>
 	</div>
 	<script src="<?php echo $servername ?>/web/public/js/review.js" async
-	defer></script>
+ 	defer></script>
 </div>
+<script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
