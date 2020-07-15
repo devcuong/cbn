@@ -517,18 +517,18 @@ while ($r = mysqli_fetch_array($data["Review"])) {
 					<form id="review-form">
 						<div class="form-group">
 							<label for="reviewer" class="col-form-label">Tên Họ</label> <input
-								type="text" class="form-control" id="reviewer"
+								type="text" class="form-control" id="reviewer" name="reviewer"
 								placeholder="Tên người viết review (Mặc định là KHÁCH)">
 						</div>
 						<div class="form-group">
 							<label for="reviewer" class="col-form-label">Thông Tin</label> <input
-								type="text" class="form-control" id="about"
+								type="text" class="form-control" id="about" name="about"
 								placeholder="Học viên/Sinh viên/Phụ Huynh...">
 						</div>
 						<div class="form-group">
 							<label for="message-text" class="col-form-label">Review Trường <span
 								class="text-danger">(Bắt buộc)</span></label>
-							<textarea class="form-control" id="message-text"
+							<textarea class="form-control" id="content" name="content" 
 								placeholder="Hãy cung cấp thông tin thật chính xác"></textarea>
 						</div>
 						<div class="form-group">

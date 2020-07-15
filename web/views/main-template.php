@@ -768,6 +768,10 @@ body {
 		width: 4rem;
 	}
 }
+
+.form-control.is-invalid{
+	border:2px solid #dc3545;
+}
 </style>
 </head>
 <body>

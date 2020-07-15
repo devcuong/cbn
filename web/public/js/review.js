@@ -14,10 +14,10 @@
 
   const validateForm = (formId) => (event) => {
     event.preventDefault()
-    const form = $$('#' + formId)
-    const contentInput = form.content
+    const form = $$('#' + formId);
+    const contentInput = form.content;
     if (contentInput.value.length < 10) {
-      contentInput.classList.add('is-danger')
+      contentInput.classList.add('is-invalid')
       form.querySelector('.help').classList.remove('is-hidden')
     } else {
       form.submit()
