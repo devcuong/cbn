@@ -173,10 +173,11 @@
 }
 
 /*review*/
-.list-review .review-item{
+.list-review .review-item {
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
+
 .review-box {
 	box-sizing: border-box;
 }
@@ -276,12 +277,15 @@
 	display: flex;
 	flex-grow: 1;
 }
-.reply-author i.fa-thumbs-up{
+
+.reply-author i.fa-thumbs-up {
 	color: red;
 }
-.reply-author i.fa-thumbs-down{
+
+.reply-author i.fa-thumbs-down {
 	color: blue;
 }
+
 .review-author .school-rating {
 	color: #000;
 }
@@ -323,12 +327,13 @@ while ($row = mysqli_fetch_array($data["School"])) {
 		</div>
 		<div class="school-info">
 			<h2 class="school-name">
-				<a href="#"><?php echo $row["tenschool"] ?></a> <span class="school-rating">
+				<a href="#"><?php echo $row["tenschool"] ?></a> <span
+					class="school-rating">
 				<?php
-        $n = $row["rate"];
-        $whole = floor($row["rate"]);
-        for ($i = 1; $i <= $whole; $i ++) {
-            ?>
+    $n = $row["rate"];
+    $whole = floor($row["rate"]);
+    for ($i = 1; $i <= $whole; $i ++) {
+        ?>
             <span class="fa fa-star checked"></span>
 										<?php } ?>
 										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
@@ -340,18 +345,18 @@ while ($row = mysqli_fetch_array($data["School"])) {
 			<div class="school-edu">
 				<div class="edu-category">
 					<span class="edu-category"> <span class="icon"><i
-							class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"] ?>
+							class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"]?>
 					</span>
 				</div>
 				<div class="school-infrastructure">
 					<span class="school-location"> <span class="icon"><i
 							class="fa fa-rss" aria-hidden="true"></i> </span>
-						<?php echo $row["website"] ?>
+						<?php echo $row["website"]?>
 					</span>
 				</div>
 				<div class="school-location">
 					<span class="school-location"> <span class="icon"><i
-							class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"] ?>
+							class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"]?>
 					</span>
 				</div>
 			</div>
@@ -375,10 +380,10 @@ while ($row = mysqli_fetch_array($data["School"])) {
 			<div class="school-rating-count">Reviews - <?php echo mysqli_num_rows($data["School"]) ?></div>
 			<div class="school-rating">
 				Trung bình: <?php
-        $n = $row["rate"];
-        $whole = floor($row["rate"]);
-        for ($i = 1; $i <= $whole; $i ++) {
-            ?>
+    $n = $row["rate"];
+    $whole = floor($row["rate"]);
+    for ($i = 1; $i <= $whole; $i ++) {
+        ?>
             <span class="fa fa-star checked"></span>
 										<?php } ?>
 										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
@@ -391,18 +396,18 @@ while ($row = mysqli_fetch_array($data["School"])) {
 		<div class="school-edu">
 			<div class="edu-category">
 				<span class="edu-category"> <span class="icon"><i
-						class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"] ?>
+						class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"]?>
 				</span>
 			</div>
 			<div class="school-infrastructure">
 				<span class="school-location"> <span class="icon"><i
 						class="fa fa-rss" aria-hidden="true"></i> </span>
-<?php echo $row["website"] ?>
+<?php echo $row["website"]?>
 				</span>
 			</div>
 			<div class="school-location">
 				<span class="school-location"> <span class="icon"><i
-						class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"] ?>
+						class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"]?>
 				</span>
 			</div>
 		</div>
@@ -418,9 +423,9 @@ while ($row = mysqli_fetch_array($data["School"])) {
 	<div class="review-section">
 		<div class="list-review">
 		 <?php
-    $rowIndex = 0;
-    while ($r = mysqli_fetch_array($data["Review"])) {
-        ?>
+$rowIndex = 0;
+while ($r = mysqli_fetch_array($data["Review"])) {
+    ?>
 			<div class="review-item review-box">
 				<div class="review-content">
 					<div class="review-header">
@@ -431,11 +436,12 @@ while ($row = mysqli_fetch_array($data["School"])) {
 								class="avatar">
 						</div>
 						<div class="review-author">
-							<?php echo $r["review_reviewer"]?>&nbsp;(<?php echo $r["review_about"]?>)<span class="school-rating"> <?php
-        $n = $r["review_sao"];
-        $whole = floor($r["review_sao"]);
-        for ($i = 1; $i <= $whole; $i ++) {
-            ?>
+							<?php echo $r["review_reviewer"]?>&nbsp;(<?php echo $r["review_about"]?>)<span
+								class="school-rating"> <?php
+    $n = $r["review_sao"];
+    $whole = floor($r["review_sao"]);
+    for ($i = 1; $i <= $whole; $i ++) {
+        ?>
             <span class="fa fa-star checked"></span>
 										<?php } ?>
 										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
@@ -459,11 +465,11 @@ while ($row = mysqli_fetch_array($data["School"])) {
 				</div>
 				<div class="list-reply">
 				       <?php
-            
-            $dataReply = $r["reply_data"];
-            $arrJson = json_decode($dataReply);
-            for ($i = 0; $i < count($arrJson); $i ++) {
-                ?>
+    
+    $dataReply = $r["reply_data"];
+    $arrJson = json_decode($dataReply);
+    for ($i = 0; $i < count($arrJson); $i ++) {
+        ?>
 					<div class="reply-item">
 						<div class="reply-content">
 							<div class="reply-header">
@@ -494,4 +500,77 @@ while ($row = mysqli_fetch_array($data["School"])) {
 			<?php } ?>
 		</div>
 	</div>
+	<div class="modal" id="review-modal">
+		<form id="review-form"
+			action="<?php echo $servername ?>/companies/dang-review/"
+			method="POST">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title">Viết Review công ty <?php echo $row["tencongty"] ?></p>
+					<button class="delete button-close" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body">
+					<div class="field">
+						<label class="label">Tên họ</label>
+						<div class="control">
+							<input class="input" name="reviewer" type="text"
+								placeholder="Bạn có thể xưng tên thật hoặc không">
+						</div>
+					</div>
+					<div class="field">
+						<label class="label">Chức vụ</label>
+						<div class="control">
+							<input class="input" name="position" type="text"
+								placeholder="Dev/HR hay Manager">
+						</div>
+					</div>
+					<div class="field">
+						<label class="label">Review công ty <span class="has-text-danger">(Bắt
+								buộc)</span>
+						</label>
+						<div class="control">
+							<textarea required class="textarea" name="content"
+								placeholder="Mọi review cần mang tính khách quan, trung thực, không khuyến khích cảm xúc cá nhân (HR nhìn chảnh ...) (Tối thiểu 10 kí tự)"></textarea>
+						</div>
+						<p class="help is-danger is-hidden">Nội dung tối thiếu 10 kí tự</p>
+					</div>
+					<div class="field">
+						<label class="label">Cho điểm công ty</label>
+						<div class="control">
+							<div class="select">
+								<select name="score">
+									<option value="5">5 điểm - Công ty tuyệt cmn vời, đuổi cũng
+										không đi</option>
+									<option value="4">4 điểm - Quá tốt, nên làm lâu dài</option>
+									<option value="3" selected>3 điểm - Tạm được, cần thời gian
+										trải nghiệm</option>
+									<option value="2">2 điểm - Không tốt, chỉ nên làm lấy kinh
+										nghiệm</option>
+									<option value="1">1 điểm - Cực kỳ tệ, đang tính xin nghỉ</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<input type="hidden" name="companyId"
+						value="<?php echo $row["id"] ?>" /> <input type="hidden"
+						name="companyUrl"
+						value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" />
+					<div class="g-recaptcha"
+						data-sitekey="6LdzGtkUAAAAAPbjiQfk8z3AbWKKjRWNE_MXxcOQ"
+						data-callback="onReviewCaptchaSuccess"></div>
+					<p class="m-t-5">Người đăng chịu trách nhiệm về tính xác thực của
+						nội dung</p>
+				</section>
+				<footer class="modal-card-foot">
+					<button type="submit" disabled
+						class="button button-review-submit is-success">Đăng Review</button>
+					<button class="button button-close">Hủy bỏ</button>
+				</footer>
+			</div>
+		</form>
+		<button class="modal-close button-close is-large" aria-label="close"></button>
+	</div>
+	<script src="<?php echo $servername ?>/web/public/js/review.js" async
+	defer></script>
 </div>

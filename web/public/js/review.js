@@ -3,7 +3,8 @@
   const $$ = document.querySelector.bind(document)
 
   $$('.button-review').addEventListener('click', () => {
-    $$('#review-modal').classList.add('is-active')
+    /*$$('#review-modal').classList.add('is-active')*/
+	  alert("ok");
   })
 
   $('.modal-background, .button-close').forEach((element) => {
