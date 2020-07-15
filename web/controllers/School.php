@@ -99,15 +99,14 @@ class School extends Controller
     function DangReview()
     {
         $reviewerName = "";
-        $reviewerPosition = "";
-        $contactReviewer = "";
+        $reviewerAbout = "";
         $score = "";
     
-        // id công ty
-        $idCongTy = $_POST["companyId"];
+        // school id
+        $schoolId = $_POST["schoolId"];
     
-        // slug công ty
-        $companyUrl = $_POST["companyUrl"];
+        // school url
+        $schoolUrl = $_POST["schoolUrl"];
     
         // content
         $content = nl2br($_POST["content"]);
@@ -117,23 +116,15 @@ class School extends Controller
             if (trim($_POST['reviewer']) != "") {
                 $reviewerName = trim($_POST["reviewer"]);
             } else {
-                $reviewerName = "Ẩn Danh";
+                $reviewerName = "Khách";
             }
         }
         // position
-        if (isset($_POST['position'])) {
-            if (trim($_POST['position']) != "") {
-                $reviewerPosition = trim($_POST["position"]);
+        if (isset($_POST['about'])) {
+            if (trim($_POST['about']) != "") {
+                $reviewerAbout = trim($_POST["about"]);
             } else {
-                $reviewerPosition = "Dev";
-            }
-        }
-        // contact
-        if(isset($_POST['contact'])){
-            if (trim($_POST['contact']) != ""){
-                $contactReviewer = trim($_POST["contact"]);
-            }else {
-                $contactReviewer = "Không có contact";
+                $reviewerAbout = "Tìm hiểu trường";
             }
         }
     
@@ -144,13 +135,13 @@ class School extends Controller
     
         /*echo $createdDate;*/
     
-        $kq = $this->ReviewModel->ThemReview($reviewerName, $reviewerPosition, $score, $content, $idCongTy, $createdDate);
+        $kq = $this->ReviewModel->ThemReview($reviewerName, $reviewerAbout, $score, $content, $schoolId, $createdDate);
         if ($kq > 0) {
-            $kq2 = $this->CongTyModel->UpdateRateCongTy($idCongTy, $score, $createdDate);
+            $kq2 = $this->SchoolModel->UpdateRateSchool($schoolId, $score, $createdDate);
             echo $kq2;
             if ($kq2) {
                 ob_start();
-                header("Location: " . $companyUrl, 301);
+                header("Location: " . $schoolUrl, 301);
                 exit();
             }
         }
