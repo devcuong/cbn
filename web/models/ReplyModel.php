@@ -3,7 +3,7 @@ class ReplyModel extends DB{
     
    // Lấy reply bằng id review
     public function LayReplyBangIdReview($iDreview){
-        $qr = "SELECT * FROM reply WHERE idreview = ".$iDreview;
+        $qr = "SELECT * FROM reply WHERE review = ".$iDreview;
         return mysqli_query($this->con, $qr);
     }
     

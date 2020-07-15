@@ -92,10 +92,68 @@ class School extends Controller
             "Description" => $description,
             "Keyword" => $keyword
         ]);
-        // View
-        /*$this->view("main-template", [
-            "Page" => "school"
-        ]);*/
+
+    }
+    
+    // Đăng review
+    function DangReview()
+    {
+        $reviewerName = "";
+        $reviewerPosition = "";
+        $contactReviewer = "";
+        $score = "";
+    
+        // id công ty
+        $idCongTy = $_POST["companyId"];
+    
+        // slug công ty
+        $companyUrl = $_POST["companyUrl"];
+    
+        // content
+        $content = nl2br($_POST["content"]);
+    
+        // reviewer
+        if (isset($_POST['reviewer'])) {
+            if (trim($_POST['reviewer']) != "") {
+                $reviewerName = trim($_POST["reviewer"]);
+            } else {
+                $reviewerName = "Ẩn Danh";
+            }
+        }
+        // position
+        if (isset($_POST['position'])) {
+            if (trim($_POST['position']) != "") {
+                $reviewerPosition = trim($_POST["position"]);
+            } else {
+                $reviewerPosition = "Dev";
+            }
+        }
+        // contact
+        if(isset($_POST['contact'])){
+            if (trim($_POST['contact']) != ""){
+                $contactReviewer = trim($_POST["contact"]);
+            }else {
+                $contactReviewer = "Không có contact";
+            }
+        }
+    
+        // score
+        $score = intval($_POST["score"]);
+    
+        $createdDate = date("Y-m-d H:i:s");
+    
+        /*echo $createdDate;*/
+    
+        $kq = $this->ReviewModel->ThemReview($reviewerName, $reviewerPosition, $score, $content, $idCongTy, $createdDate);
+        if ($kq > 0) {
+            $kq2 = $this->CongTyModel->UpdateRateCongTy($idCongTy, $score, $createdDate);
+            echo $kq2;
+            if ($kq2) {
+                ob_start();
+                header("Location: " . $companyUrl, 301);
+                exit();
+            }
+        }
     }
 }
 ?>

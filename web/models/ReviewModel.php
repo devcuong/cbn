@@ -9,7 +9,7 @@ class ReviewModel extends DB{
     
     // Lấy review bằng id review
     public function LayReviewBangIdReview($iDReview){
-        $qr = "SELECT review.id AS review_id, review.reviewer AS review_reviewer, review.about AS review_about, review.sao AS review_sao, review.noidung AS review_noidung, review.thoigian AS review_thoigian, school.id AS school_id, school.tenschool AS school_tenschool, school.slugschool AS school_slugschool, school.category AS school_category, school.logo AS school_logo, school.website AS school_website, school.luotdanhgia AS school_luotdanhgia, school.rate AS school_rate, school.diachi AS school_diachi FROM review LEFT JOIN school ON review.school = school.id WHERE review.id = $iDReview";
+        $qr = "SELECT review.id AS review_id, review.reviewer AS review_reviewer,review.member AS review_member, review.about AS review_about, review.sao AS review_sao, review.noidung AS review_noidung, review.thoigian AS review_thoigian, school.id AS school_id, school.tenschool AS school_tenschool, school.slugschool AS school_slugschool, school.category AS school_category, school.logo AS school_logo, school.website AS school_website, school.luotdanhgia AS school_luotdanhgia, school.rate AS school_rate, school.diachi AS school_diachi FROM review LEFT JOIN school ON review.school = school.id WHERE review.id = $iDReview";
         return mysqli_query($this->con, $qr);
     }
     

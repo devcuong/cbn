@@ -290,19 +290,9 @@
 	color: #000;
 }
 
-.review-share-link {
-	font-size: 1rem;
-	display: flex;
-	align-items: center;
-	padding: 8px 16px;
-	margin: 5px;
-	background: #3b5998;
-	color: #fff;
-}
-
 .review-share-link:hover {
 	color: #fff;
-	text-decoration:none;
+	text-decoration: none;
 	background-color: darken(#3b5998, 10%);
 }
 
@@ -329,15 +319,17 @@ while ($row = mysqli_fetch_array($data["Review"])) {
     ?>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#"><i class="fa fa-home"
+			<li class="breadcrumb-item"><a href="<?php echo $servername ?>">
+			<i class="fa fa-home"
 					aria-hidden="true"></i> Trang chủ</a></li>
-			<li class="breadcrumb-item active" aria-current="page"><?php echo $row["school_category"] ?>&nbsp;<?php echo $row["school_tenschool"] ?></li>
+			<li class="breadcrumb-item"><a href="<?php echo $servername ?>/school/<?php echo $row["school_slugschool"] ?>-<?php echo $row["school_id"] ?>">Review <?php echo $row["school_category"] ?>&nbsp;<?php echo $row["school_tenschool"] ?></a></li>
+			<li class="breadcrumb-item active" aria-current="page">Review của <?php echo $row["review_reviewer"] ?></li>
 		</ol>
 	</nav>
 	<div class="general-info">
 		<div class="school-logo">
 			<img alt=""
-				src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["logo"] ?>"
+				src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["school_logo"] ?>"
 				class="img-128">
 		</div>
 		<div class="school-info">
@@ -424,26 +416,22 @@ while ($row = mysqli_fetch_array($data["Review"])) {
 	</div>
 	<div class="review-section">
 		<div class="list-review">
-		 <?php
-    $rowIndex = 0;
-    while ($r = mysqli_fetch_array($data["Review"])) {
-        ?>
 			<div class="review-item review-box">
 				<div class="review-content">
 					<div class="review-header">
 						<div class="review-avatar">
 							<div class="review-xborder"></div>
-							<img alt="<?php echo $r["review_reviewer"]?>"
-								src="<?php echo $servername ?>/web/public/images/<?php echo $r["review_member"].".png"?>"
+							<img alt="<?php echo $row["review_reviewer"]?>"
+								src="<?php echo $servername ?>/web/public/images/<?php echo $row["review_member"].".png"?>"
 								class="avatar">
 						</div>
 						<div class="review-author">
-							<?php echo $r["review_reviewer"]?>&nbsp;(<?php echo $r["review_about"]?>)<span
+							<?php echo $row["review_reviewer"]?>&nbsp;(<?php echo $row["review_about"]?>)<span
 								class="school-rating"> <?php
-        $n = $r["review_sao"];
-        $whole = floor($r["review_sao"]);
-        for ($i = 1; $i <= $whole; $i ++) {
-            ?>
+    $n = $row["review_sao"];
+    $whole = floor($row["review_sao"]);
+    for ($i = 1; $i <= $whole; $i ++) {
+        ?>
             <span class="fa fa-star checked"></span>
 										<?php } ?>
 										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
@@ -451,14 +439,9 @@ while ($row = mysqli_fetch_array($data["Review"])) {
 										<?php } ?>
 							</span>
 						</div>
-						<a
-							href="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>/review/<?php echo $r["review_id"] ?>"
-							class="review-share-link"> <i class="fa fa-paper-plane"
-							aria-hidden="true"></i> &nbsp;Share
-						</a>
 					</div>
 					<div class="review-text">
-						<p><?php echo $r["review_noidung"]?></p>
+						<p><?php echo $row["review_noidung"]?></p>
 					</div>
 					<div class="review-footer">
 						<a href="#"><span class="reply-button" title="Trả lời"><i
@@ -468,9 +451,10 @@ while ($row = mysqli_fetch_array($data["Review"])) {
 					</div>
 				</div>
 				<div class="list-reply">
+				<?php while($reply = mysqli_fetch_array($data["Reply"])){?>
 				       <?php
         
-        $dataReply = $r["reply_data"];
+        $dataReply = $reply["data"];
         $arrJson = json_decode($dataReply);
         for ($i = 0; $i < count($arrJson); $i ++) {
             ?>
@@ -499,12 +483,12 @@ while ($row = mysqli_fetch_array($data["Review"])) {
 						</div>
 					</div>
 					<?php } ?>
+					<?php } ?>
 				</div>
 			</div>
 
 		</div>
 	</div>
- 	<?php } ?>
  	<?php } ?>
 </div>
 <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
