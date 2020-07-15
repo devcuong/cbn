@@ -1,4 +1,5 @@
 <?php
+require_once 'web/class/CutString.php';
 class School extends Controller
 {
     // Model

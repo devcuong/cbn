@@ -325,13 +325,13 @@
 </style>
 <div class="container">
 	<?php
-while ($row = mysqli_fetch_array($data["School"])) {
+while ($row = mysqli_fetch_array($data["Review"])) {
     ?>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#"><i class="fa fa-home"
 					aria-hidden="true"></i> Trang chủ</a></li>
-			<li class="breadcrumb-item active" aria-current="page"><?php echo $row["category"] ?>&nbsp;<?php echo $row["tenschool"] ?></li>
+			<li class="breadcrumb-item active" aria-current="page"><?php echo $row["school_category"] ?>&nbsp;<?php echo $row["school_tenschool"] ?></li>
 		</ol>
 	</nav>
 	<div class="general-info">
@@ -342,11 +342,11 @@ while ($row = mysqli_fetch_array($data["School"])) {
 		</div>
 		<div class="school-info">
 			<h2 class="school-name">
-				<a href="#"><?php echo $row["tenschool"] ?></a> <span
+				<a href="#"><?php echo $row["school_tenschool"] ?></a> <span
 					class="school-rating">
 				<?php
-    $n = $row["rate"];
-    $whole = floor($row["rate"]);
+    $n = $row["school_rate"];
+    $whole = floor($row["school_rate"]);
     for ($i = 1; $i <= $whole; $i ++) {
         ?>
             <span class="fa fa-star checked"></span>
@@ -354,50 +354,44 @@ while ($row = mysqli_fetch_array($data["School"])) {
 										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
 											<span class="fa fa-star"></span>
 										<?php } ?>
-				<span class="school-rating-count">(<?php echo mysqli_num_rows($data["School"]) ?>)</span>
+				<span class="school-rating-count">(<?php echo mysqli_num_rows($data["Review"]) ?>)</span>
 				</span>
 			</h2>
 			<div class="school-edu">
 				<div class="edu-category">
 					<span class="edu-category"> <span class="icon"><i
-							class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"]?>
+							class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["school_category"]?>
 					</span>
 				</div>
 				<div class="school-infrastructure">
 					<span class="school-location"> <span class="icon"><i
 							class="fa fa-rss" aria-hidden="true"></i> </span>
-						<?php echo $row["website"]?>
+						<?php echo $row["school_website"]?>
 					</span>
 				</div>
 				<div class="school-location">
 					<span class="school-location"> <span class="icon"><i
-							class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"]?>
+							class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["school_diachi"]?>
 					</span>
 				</div>
 			</div>
 		</div>
-		<button
-			class="button-review button is-success is-medium is-rounded upload-review"
-			data-target="#review-modal" data-toggle="modal">
-			<span class="icon"> <i class="fa fa-pencil" aria-hidden="true"></i>
-			</span> &nbsp;&nbsp; Viết review
-		</button>
 	</div>
 	<div class="general-mobile-view">
 		<div class="school-logo-mobile">
 			<img alt=""
-				src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["logo"] ?>"
+				src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["school_logo"] ?>"
 				class="img-128">
 		</div>
 		<div class="school-info-mobile">
 			<h2 class="school-name">
-				<a href="#"><?php echo $row["tenschool"] ?></a>
+				<a href="#"><?php echo $row["school_tenschool"] ?></a>
 			</h2>
-			<div class="school-rating-count">Reviews - <?php echo mysqli_num_rows($data["School"]) ?></div>
+			<div class="school-rating-count">Reviews - <?php echo mysqli_num_rows($data["Review"]) ?></div>
 			<div class="school-rating">
 				Trung bình: <?php
-    $n = $row["rate"];
-    $whole = floor($row["rate"]);
+    $n = $row["school_rate"];
+    $whole = floor($row["school_rate"]);
     for ($i = 1; $i <= $whole; $i ++) {
         ?>
             <span class="fa fa-star checked"></span>
@@ -412,29 +406,21 @@ while ($row = mysqli_fetch_array($data["School"])) {
 		<div class="school-edu">
 			<div class="edu-category">
 				<span class="edu-category"> <span class="icon"><i
-						class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"]?>
+						class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["school_category"]?>
 				</span>
 			</div>
 			<div class="school-infrastructure">
 				<span class="school-location"> <span class="icon"><i
 						class="fa fa-rss" aria-hidden="true"></i> </span>
-<?php echo $row["website"]?>
+<?php echo $row["school_website"]?>
 				</span>
 			</div>
 			<div class="school-location">
 				<span class="school-location"> <span class="icon"><i
-						class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"]?>
+						class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["school_diachi"]?>
 				</span>
 			</div>
 		</div>
-	</div>
-
-	<div class="button-review-mobile">
-		<button
-			class="button-review button is-success is-medium is-rounded upload-review">
-			<span class="icon"> <i class="fa fa-pencil" aria-hidden="true"></i>
-			</span> &nbsp;&nbsp; Viết review
-		</button>
 	</div>
 	<div class="review-section">
 		<div class="list-review">
@@ -518,69 +504,6 @@ while ($row = mysqli_fetch_array($data["School"])) {
 
 		</div>
 	</div>
-	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">VIẾT REVIEW CHO
-						TRƯỜNG <?php echo $row["category"] ?> <?php echo $row["tenschool"] ?></h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form id="review-form"
-						action="<?php echo $servername ?>/school/dang-review">
-						<div class="form-group">
-							<label for="reviewer" class="col-form-label">Tên Họ</label> <input
-								type="text" class="form-control" id="reviewer" name="reviewer"
-								placeholder="Tên người viết review (Mặc định là KHÁCH)">
-						</div>
-						<div class="form-group">
-							<label for="reviewer" class="col-form-label">Thông Tin</label> <input
-								type="text" class="form-control" id="about" name="about"
-								placeholder="Học viên/Sinh viên/Phụ Huynh...">
-						</div>
-						<div class="form-group">
-							<label for="message-text" class="col-form-label">Review Trường <span
-								class="text-danger">(Bắt buộc)</span></label>
-							<textarea class="form-control" id="content" name="content"
-								placeholder="Hãy cung cấp thông tin thật chính xác"></textarea>
-						</div>
-						<div class="form-group">
-							<label for="reviewer" class="col-form-label">Bạn cho trường mấy
-								điểm</label> <select class="form-control" id="score"
-								name="score">
-								<option value="5">5 điểm - Tuyệt vời</option>
-								<option value="4">4 điểm - Quá tốt</option>
-								<option value="3" selected>3 điểm - Tạm được</option>
-								<option value="2">2 điểm - Không tốt</option>
-								<option value="1">1 điểm - Cực kỳ tệ</option>
-							</select>
-						</div>
-						<input type="hidden" name="schoolId" value=""> <input
-							type="hidden" name="schoolUrl" value="">
-						<div class="g-recaptcha"
-							data-sitekey="6LevlLEZAAAAAEGrjvk9tDC7xoUOmCeCRma6RY7-"
-							data-callback="onReviewCaptchaSuccess"></div>
-						<div class="form-group">
-							<mark>Người đăng chịu trách nhiệm về tính xác thực của nội dung</mark>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Hủy Bỏ</button>
-					<button type="button" class="btn btn-primary button-review-submit"
-						disabled>Đăng Review</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="<?php echo $servername ?>/web/public/js/review.js" async
-		defer></script>
  	<?php } ?>
  	<?php } ?>
 </div>
