@@ -362,7 +362,8 @@ while ($row = mysqli_fetch_array($data["School"])) {
 			</div>
 		</div>
 		<button
-			class="button-review button is-success is-medium is-rounded upload-review">
+			class="button-review button is-success is-medium is-rounded upload-review"
+			data-target="#review-modal" data-toggle="modal">
 			<span class="icon"> <i class="fa fa-pencil" aria-hidden="true"></i>
 			</span> &nbsp;&nbsp; Viết review
 		</button>
@@ -500,76 +501,75 @@ while ($r = mysqli_fetch_array($data["Review"])) {
 			<?php } ?>
 		</div>
 	</div>
-	<div class="modal" id="review-modal">
-		<form id="review-form"
-			action="<?php echo $servername ?>/companies/dang-review/"
-			method="POST">
-			<div class="modal-background"></div>
-			<div class="modal-card">
-				<header class="modal-card-head">
-					<p class="modal-card-title">Viết Review công ty <?php echo $row["tencongty"] ?></p>
-					<button class="delete button-close" aria-label="close"></button>
-				</header>
-				<section class="modal-card-body">
-					<div class="field">
-						<label class="label">Tên họ</label>
-						<div class="control">
-							<input class="input" name="reviewer" type="text"
-								placeholder="Bạn có thể xưng tên thật hoặc không">
+	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">VIẾT REVIEW CHO
+						TRƯỜNG</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="review-form">
+						<div class="form-group">
+							<label for="reviewer" class="col-form-label">Tên Họ</label> <input
+								type="text" class="form-control" id="reviewer"
+								placeholder="Tên người viết review (Mặc định là KHÁCH)">
 						</div>
-					</div>
-					<div class="field">
-						<label class="label">Chức vụ</label>
-						<div class="control">
-							<input class="input" name="position" type="text"
-								placeholder="Dev/HR hay Manager">
+						<div class="form-group">
+							<label for="reviewer" class="col-form-label">Thông Tin</label> <input
+								type="text" class="form-control" id="about"
+								placeholder="Học viên/Sinh viên/Phụ Huynh...">
 						</div>
-					</div>
-					<div class="field">
-						<label class="label">Review công ty <span class="has-text-danger">(Bắt
-								buộc)</span>
-						</label>
-						<div class="control">
-							<textarea required class="textarea" name="content"
-								placeholder="Mọi review cần mang tính khách quan, trung thực, không khuyến khích cảm xúc cá nhân (HR nhìn chảnh ...) (Tối thiểu 10 kí tự)"></textarea>
+						<div class="form-group">
+							<label for="message-text" class="col-form-label">Review Trường <span
+								class="text-danger">(Bắt buộc)</span></label>
+							<textarea class="form-control" id="message-text"
+								placeholder="Hãy cung cấp thông tin thật chính xác"></textarea>
 						</div>
-						<p class="help is-danger is-hidden">Nội dung tối thiếu 10 kí tự</p>
-					</div>
-					<div class="field">
-						<label class="label">Cho điểm công ty</label>
-						<div class="control">
-							<div class="select">
-								<select name="score">
-									<option value="5">5 điểm - Công ty tuyệt cmn vời, đuổi cũng
-										không đi</option>
-									<option value="4">4 điểm - Quá tốt, nên làm lâu dài</option>
-									<option value="3" selected>3 điểm - Tạm được, cần thời gian
-										trải nghiệm</option>
-									<option value="2">2 điểm - Không tốt, chỉ nên làm lấy kinh
-										nghiệm</option>
-									<option value="1">1 điểm - Cực kỳ tệ, đang tính xin nghỉ</option>
-								</select>
+						<div class="form-group">
+							<label for="reviewer" class="col-form-label">Bạn cho trường mấy
+								điểm</label> <select class="form-control" id="score"
+								name="score">
+								<option value="5">5 điểm - Tuyệt vời</option>
+								<option value="4">4 điểm - Quá tốt</option>
+								<option value="3" selected>3 điểm - Tạm được</option>
+								<option value="2">2 điểm - Không tốt</option>
+								<option value="1">1 điểm - Cực kỳ tệ</option>
+							</select>
+						</div>
+						<input type="hidden" name="schoolId" value=""> <input
+							type="hidden" name="schoolUrl" value="">
+						<div class="g-recaptcha"
+							data-sitekey="6LevlLEZAAAAAEGrjvk9tDC7xoUOmCeCRma6RY7-"
+							data-callback="onReviewCaptchaSuccess">
+							<div style="width: 304px; height: 78px;">
+								<div>
+									<iframe
+										src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdzGtkUAAAAAPbjiQfk8z3AbWKKjRWNE_MXxcOQ&amp;co=aHR0cHM6Ly9jb25ndHl0b3AuY29tOjQ0Mw..&amp;hl=vi&amp;v=nuX0GNR875hMLA1LR7ayD9tc&amp;size=normal&amp;cb=uwwj2jpj2opv"
+										width="304" height="78" role="presentation"
+										name="a-gvej9hi4phy3" frameborder="0" scrolling="no"
+										sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+								</div>
+								<textarea id="g-recaptcha-response" name="g-recaptcha-response"
+									class="g-recaptcha-response"
+									style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
 							</div>
 						</div>
-					</div>
-					<input type="hidden" name="companyId"
-						value="<?php echo $row["id"] ?>" /> <input type="hidden"
-						name="companyUrl"
-						value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" />
-					<div class="g-recaptcha"
-						data-sitekey="6LdzGtkUAAAAAPbjiQfk8z3AbWKKjRWNE_MXxcOQ"
-						data-callback="onReviewCaptchaSuccess"></div>
-					<p class="m-t-5">Người đăng chịu trách nhiệm về tính xác thực của
-						nội dung</p>
-				</section>
-				<footer class="modal-card-foot">
-					<button type="submit" disabled
-						class="button button-review-submit is-success">Đăng Review</button>
-					<button class="button button-close">Hủy bỏ</button>
-				</footer>
+						<div class="form-group"><mark>Người đăng chịu trách nhiệm về tính xác thực của nội dung</mark></div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Hủy Bỏ</button>
+					<button type="button" class="btn btn-primary button-review-submit" disabled>Đăng Review</button>
+				</div>
 			</div>
-		</form>
-		<button class="modal-close button-close is-large" aria-label="close"></button>
+		</div>
 	</div>
 	<script src="<?php echo $servername ?>/web/public/js/review.js" async
 	defer></script>

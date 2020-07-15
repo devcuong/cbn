@@ -17,6 +17,8 @@
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
 	rel="stylesheet" media="screen" />
 <script src="<?php echo $servername ?>/web/public/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $servername ?>/web/public/js/jquery-ui.min.js"></script>
+
 	<script
 		src="https://www.layoutit.com/builder/v4/layoutit/src/js/popper.min.js"></script>
 	<script src="<?php echo $servername ?>/web/public/js/bootstrap.min.js"></script>
