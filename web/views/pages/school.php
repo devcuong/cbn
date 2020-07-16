@@ -477,10 +477,10 @@ while ($row = mysqli_fetch_array($data["School"])) {
 						<p><?php echo $r["review_noidung"]?></p>
 					</div>
 					<div class="review-footer">
-						<a href="#" data-target="#reply-modal" data-toggle="modal" class="link-comment" data-id="<?php echo $r["review_id"] ?>"><span class="reply-button" title="Trả lời"><i
+						<a href="#" data-target="#reply-modal" data-toggle="modal" class="link-comment" data-id="<?php echo $r["review_id"] ?>" data-prefill=""><span class="reply-button" title="Trả lời"><i
 								class="fa fa-reply" aria-hidden="true"></i>Trả lời</span></a> <a
-							href="#"><span class="delete-button" title="Xóa review"><i
-								class="fa fa-trash" aria-hidden="true"></i>Yêu cầu Xóa</span></a>
+							href="#" class="link-comment" data-prefill="Xóa review này dùm !" data-target="#reply-modal" data-toggle="modal"><span class="delete-button" title="Xóa review"><i
+								class="fa fa-trash" aria-hidden="true" ></i>Yêu cầu Xóa</span></a>
 					</div>
 				</div>
 				 <?php if(isset($r["reply_data"])){ ?>
@@ -588,6 +588,12 @@ while ($row = mysqli_fetch_array($data["School"])) {
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
+			<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
 				<div class="modal-body">
 					<form id="comment-form"
 						action="<?php echo $servername ?>/school/dang-reply" method="POST">
@@ -604,7 +610,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 						</div>
 						<div class="form-group">
 							<label for="reviewer" class="col-form-label">Bày tỏ thái độ</label> <select class="form-control" name="review-reaction" id="review-reaction">
-								<option value="LIKE" selected>👍 Like</option>
+								<option value="LIKE" selected="selected">👍 Like</option>
 								<option value="HATE">👎 DisLike</option>
 								<option value="DELETE">❌ Xóa giùm</option>
 							</select>
