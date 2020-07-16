@@ -2,7 +2,7 @@
   const $ = document.querySelectorAll.bind(document)
   const $$ = document.querySelector.bind(document)
 
-  $$('.button-review').addEventListener('click', () => {
+  /*$$('.button-review').addEventListener('click', () => {
     $$('#review-modal').classList.add('is-active')
   })
 
@@ -10,7 +10,7 @@
     element.addEventListener('click', () => {
       $('.modal.is-active').forEach((e) => e.classList.remove('is-active'))
     })
-  })
+  })*/
 
   const validateForm = (formId) => (event) => {
     event.preventDefault()

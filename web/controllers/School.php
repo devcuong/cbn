@@ -140,7 +140,7 @@ class School extends Controller
     
         /*echo $createdDate;*/
     
-        $kq = $this->ReviewModel->ThemReview($reviewerName, $reviewerAbout, $score, $content, $schoolId, $createdDate);
+        $kq = $this->ReviewModel->ThemReview($reviewerName, $memberId, $reviewerAbout, $score, $content, $schoolId, $createdDate);
         if ($kq > 0) {
             $kq2 = $this->SchoolModel->UpdateRateSchool($schoolId, $score, $createdDate);
             echo $kq2;
@@ -150,6 +150,57 @@ class School extends Controller
                 exit();
             }
         }
+    }
+    
+    // Đăng reply
+    function DangReply()
+    {
+        $data = "";
+        $reviewer = "";
+        $arrData = [];
+        $kq = false;
+        // reviewer
+        if (isset($_POST['reviewer'])) {
+            if (trim($_POST['reviewer']) != "") {
+                $reviewer = trim($_POST["reviewer"]);
+            } else {
+                $reviewer = "Ẩn Danh";
+            }
+        }
+        // content
+        $content = $_POST["content"];
+        // id công ty
+        $idCongTy = $_POST["companyId"];
+        // slug công ty
+        $companyUrl = $_POST["companyUrl"];
+        // id Review
+        $idReview = $_POST["reviewId"];
+        // reaction
+        $reaction = $_POST["reaction"];
+        
+        $replyer = new Replyer();
+        $replyer->replyer = $reviewer;
+        $replyer->reaction = $reaction;
+        $replyer->noidung = $content;
+        
+        $createdDate = date("Y-m-d H:i:s");
+        $replyer->thoigian = $createdDate;
+        $replyKiemTra = $this->ReplyModel->LayReplyBangIdReview($idReview);
+        if (mysqli_num_rows($replyKiemTra) > 0) {
+            while ($r = mysqli_fetch_array($replyKiemTra)) {
+                $data = $r["data"];
+            }
+            $arrData = json_decode($data);
+            array_push($arrData, $replyer);
+            $kq = $this->ReplyModel->CapNhatReplyBangIdReview($idCongTy, $idReview, json_encode($arrData, JSON_UNESCAPED_UNICODE));
+            echo $kq;
+        } else {
+            array_push($arrData, $replyer);
+            $kq = $this->ReplyModel->ThemReplyTheoIdReview($idCongTy, $idReview, json_encode($arrData, JSON_UNESCAPED_UNICODE));
+        }
+        ob_start();
+        header("Location: " . $companyUrl, 301);
+        exit();
     }
 }
 ?>

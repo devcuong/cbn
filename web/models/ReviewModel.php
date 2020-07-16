@@ -27,7 +27,7 @@ class ReviewModel extends DB{
         if(!mysqli_stmt_prepare($stmt, $qr)){
             echo "SQL statement failed";
         }else{
-            mysqli_stmt_bind_param($stmt, "sssssss", $reviewer, $member, $sao, $noidung, $school, $thoigian);
+            mysqli_stmt_bind_param($stmt, "sssssss", $reviewer, $member, $about, $sao, $noidung, $school, $thoigian);
             $result = mysqli_stmt_execute($stmt);
         }
         return $result;

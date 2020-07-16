@@ -4,7 +4,8 @@
 
   $('.link-comment').forEach((element) => {
     element.addEventListener('click', () => {
-      const contactModal = $$('#comment-modal')
+      //alert("ok");
+      const contactModal = $$('#reply-modal')
       contactModal.classList.add('is-active')
 
       const data = element.dataset
@@ -13,7 +14,7 @@
       const reaction = data.reaction
 
       const idInput = $$('#review-id')
-      const reviewContent = $$('#review-content')
+      const reviewContent = $$('#reply-content')
       const reviewReaction = $$('#review-reaction')
 
       idInput.value = reviewId
@@ -22,18 +23,18 @@
     })
   })
 
-  $('.modal-background, .button-close').forEach((element) => {
+  /*$('.modal-background, .button-close').forEach((element) => {
     element.addEventListener('click', () => {
       $('.modal.is-active').forEach((e) => e.classList.remove('is-active'))
     })
-  })
+  })*/
 
   const validateForm = (formId) => (event) => {
     event.preventDefault()
     const form = $$('#' + formId)
     const contentInput = form.content
     if (contentInput.value.length < 10) {
-      contentInput.classList.add('is-danger')
+      contentInput.classList.add('is-invalid')
       form.querySelector('.help').classList.remove('is-hidden')
     } else {
       form.submit()

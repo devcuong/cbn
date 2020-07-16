@@ -125,6 +125,7 @@
 		box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
 		opacity: 0.85;
 		border: none;
+        outline:none;
 		transition: 0.2s all;
 		color: #fff;
 	}
@@ -157,6 +158,7 @@
 		box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
 		opacity: 0.85;
 		border: none;
+		outline: none;
 		top: 6rem;
 		right: 1.5rem;
 		transition: 0.2s all;
@@ -329,7 +331,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
     ?>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#"><i class="fa fa-home"
+			<li class="breadcrumb-item"><a href="<?php echo $servername ?>"><i class="fa fa-home"
 					aria-hidden="true"></i> Trang chủ</a></li>
 			<li class="breadcrumb-item active" aria-current="page"><?php echo $row["category"] ?>&nbsp;<?php echo $row["tenschool"] ?></li>
 		</ol>
@@ -354,7 +356,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 										<?php for ($i=1; $i<=(5-$whole);$i++){ ?>
 											<span class="fa fa-star"></span>
 										<?php } ?>
-				<span class="school-rating-count">(<?php echo mysqli_num_rows($data["School"]) ?>)</span>
+				<span class="school-rating-count">(<?php echo $row["luotdanhgia"] ?>)</span>
 				</span>
 			</h2>
 			<div class="school-edu">
@@ -431,7 +433,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 
 	<div class="button-review-mobile">
 		<button
-			class="button-review button is-success is-medium is-rounded upload-review">
+			class="button-review button is-success is-medium is-rounded upload-review" data-target="#review-modal" data-toggle="modal">
 			<span class="icon"> <i class="fa fa-pencil" aria-hidden="true"></i>
 			</span> &nbsp;&nbsp; Viết review
 		</button>
@@ -475,15 +477,15 @@ while ($row = mysqli_fetch_array($data["School"])) {
 						<p><?php echo $r["review_noidung"]?></p>
 					</div>
 					<div class="review-footer">
-						<a href="#"><span class="reply-button" title="Trả lời"><i
+						<a href="#" data-target="#reply-modal" data-toggle="modal" class="link-comment" data-id="<?php echo $r["review_id"] ?>"><span class="reply-button" title="Trả lời"><i
 								class="fa fa-reply" aria-hidden="true"></i>Trả lời</span></a> <a
 							href="#"><span class="delete-button" title="Xóa review"><i
 								class="fa fa-trash" aria-hidden="true"></i>Yêu cầu Xóa</span></a>
 					</div>
 				</div>
+				 <?php if(isset($r["reply_data"])){ ?>
 				<div class="list-reply">
 				       <?php
-        
         $dataReply = $r["reply_data"];
         $arrJson = json_decode($dataReply);
         for ($i = 0; $i < count($arrJson); $i ++) {
@@ -514,6 +516,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 					</div>
 					<?php } ?>
 				</div>
+				<?php } ?>
 			</div>
 
 		</div>
@@ -532,7 +535,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 				</div>
 				<div class="modal-body">
 					<form id="review-form"
-						action="<?php echo $servername ?>/school/dang-review">
+						action="<?php echo $servername ?>/school/dang-review" method="POST">
 						<div class="form-group">
 							<label for="reviewer" class="col-form-label">Tên Họ</label> <input
 								type="text" class="form-control" id="reviewer" name="reviewer"
@@ -560,8 +563,8 @@ while ($row = mysqli_fetch_array($data["School"])) {
 								<option value="1">1 điểm - Cực kỳ tệ</option>
 							</select>
 						</div>
-						<input type="hidden" name="schoolId" value=""> <input
-							type="hidden" name="schoolUrl" value="">
+						<input type="hidden" name="schoolId" value="<?php echo $row["id"] ?>"> <input
+							type="hidden" name="schoolUrl" value="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>">
 						<div class="g-recaptcha"
 							data-sitekey="6LevlLEZAAAAAEGrjvk9tDC7xoUOmCeCRma6RY7-"
 							data-callback="onReviewCaptchaSuccess"></div>
@@ -581,6 +584,52 @@ while ($row = mysqli_fetch_array($data["School"])) {
 	</div>
 	<script src="<?php echo $servername ?>/web/public/js/review.js" async
 		defer></script>
+	<div class="modal fade" id="reply-modal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<form id="comment-form"
+						action="<?php echo $servername ?>/school/dang-reply" method="POST">
+						<div class="form-group">
+							<label for="reviewer" class="col-form-label">Tên Họ</label> <input
+								type="text" class="form-control" id="reviewer" name="reviewer"
+								placeholder="Tên người viết review (Mặc định là KHÁCH)">
+						</div>
+						<div class="form-group">
+							<label for="message-text" class="col-form-label">Nội dung trả lời<span
+								class="text-danger">&nbsp(Bắt buộc)</span></label>
+							<textarea class="form-control" id="reply-content" name="reply-content"
+								placeholder="Hãy cung cấp thông tin thật chính xác"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="reviewer" class="col-form-label">Bày tỏ thái độ</label> <select class="form-control" name="review-reaction" id="review-reaction">
+								<option value="LIKE" selected>👍 Like</option>
+								<option value="HATE">👎 DisLike</option>
+								<option value="DELETE">❌ Xóa giùm</option>
+							</select>
+						</div>
+						<div class="g-recaptcha"
+							data-sitekey="6LelELIZAAAAALqW3G4h7Zj2gafuc2iagDhT6rf9"
+							data-callback="onCommentCaptchaSuccess"></div>
+						<input type="hidden" name="schoolId"
+					value="<?php echo $row["id"] ?>" /> <input type="hidden"
+					name="schoolUrl"
+					value="<?php echo 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" />
+				<input type="hidden" id="review-id" name="reviewId" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Hủy Bỏ</button>
+					<button type="button" class="btn btn-primary button-comment-submit"
+						disabled>Trả lời ngay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="<?php echo $servername ?>/web/public/js/comment.js" async
+	defer></script>
  	<?php } ?>
  	<?php } ?>
 </div>
