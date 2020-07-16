@@ -5,9 +5,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap 4, from LayoutIt!</title>
+<title>Bootstrap 4</title>
 <meta name="description"
-	content="Source code generated using layoutit.com">
+	content="Source code generated">
 <meta name="author" content="LayoutIt!">
 <link href="<?php echo $servername ?>/web/public/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="<?php echo $servername ?>/web/public/js/jquery-ui.min.js"></script>
 
 	<script
-		src="https://www.layoutit.com/builder/v4/layoutit/src/js/popper.min.js"></script>
+		src="<?php echo $servername ?>/web/public/js/popper.min.js"></script>
 	<script src="<?php echo $servername ?>/web/public/js/bootstrap.min.js"></script>
 	<script src="<?php echo $servername ?>/web/public/js/scripts.js"></script>
 

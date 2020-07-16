@@ -22,8 +22,8 @@ class ReplyModel extends DB{
     }
     
     // Thêm reply
-    public function ThemReplyTheoIdReview($congTy,$iDreview, $data){
-        $qr = "INSERT INTO reply(congty, idreview, data) VALUES(?, ?, ?)";
+    public function ThemReplyTheoIdReview($schoolId,$reviewId, $data){
+        $qr = "INSERT INTO reply(school, review, data) VALUES(?, ?, ?)";
         $stmt = mysqli_stmt_init($this->con);
         $result = 0;
         if(!mysqli_stmt_prepare($stmt, $qr)){

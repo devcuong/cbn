@@ -599,13 +599,13 @@ while ($row = mysqli_fetch_array($data["School"])) {
 						action="<?php echo $servername ?>/school/dang-reply" method="POST">
 						<div class="form-group">
 							<label for="reviewer" class="col-form-label">Tên Họ</label> <input
-								type="text" class="form-control" id="reviewer" name="reviewer"
-								placeholder="Tên người viết review (Mặc định là KHÁCH)">
+								type="text" class="form-control" id="replyer" name="replyer"
+								placeholder="Tên người viết trả lời (Mặc định là KHÁCH)">
 						</div>
 						<div class="form-group">
 							<label for="message-text" class="col-form-label">Nội dung trả lời<span
 								class="text-danger">&nbsp(Bắt buộc)</span></label>
-							<textarea class="form-control" id="reply-content" name="reply-content"
+							<textarea class="form-control" id="content" name="content"
 								placeholder="Hãy cung cấp thông tin thật chính xác"></textarea>
 						</div>
 						<div class="form-group">

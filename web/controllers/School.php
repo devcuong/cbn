@@ -156,50 +156,48 @@ class School extends Controller
     function DangReply()
     {
         $data = "";
-        $reviewer = "";
+        $replyer = "KHÁCH";
         $arrData = [];
         $kq = false;
         // reviewer
-        if (isset($_POST['reviewer'])) {
-            if (trim($_POST['reviewer']) != "") {
-                $reviewer = trim($_POST["reviewer"]);
-            } else {
-                $reviewer = "Ẩn Danh";
+        if (isset($_POST['replyer'])) {
+            if (trim($_POST['replyer']) != "") {
+                $replyer = trim($_POST["replyer"]);
             }
         }
         // content
         $content = $_POST["content"];
-        // id công ty
-        $idCongTy = $_POST["companyId"];
-        // slug công ty
-        $companyUrl = $_POST["companyUrl"];
+        // id school
+        $schoolId = $_POST["schoolId"];
+        // slug school
+        $schoolUrl = $_POST["schoolUrl"];
         // id Review
-        $idReview = $_POST["reviewId"];
+        $reviewId = $_POST["reviewId"];
         // reaction
         $reaction = $_POST["reaction"];
         
         $replyer = new Replyer();
-        $replyer->replyer = $reviewer;
+        $replyer->replyer = $replyer;
         $replyer->reaction = $reaction;
         $replyer->noidung = $content;
         
         $createdDate = date("Y-m-d H:i:s");
         $replyer->thoigian = $createdDate;
-        $replyKiemTra = $this->ReplyModel->LayReplyBangIdReview($idReview);
+        $replyKiemTra = $this->ReplyModel->LayReplyBangIdReview($reviewId);
         if (mysqli_num_rows($replyKiemTra) > 0) {
             while ($r = mysqli_fetch_array($replyKiemTra)) {
                 $data = $r["data"];
             }
             $arrData = json_decode($data);
             array_push($arrData, $replyer);
-            $kq = $this->ReplyModel->CapNhatReplyBangIdReview($idCongTy, $idReview, json_encode($arrData, JSON_UNESCAPED_UNICODE));
+            $kq = $this->ReplyModel->CapNhatReplyBangIdReview($schoolId, $reviewId, json_encode($arrData, JSON_UNESCAPED_UNICODE));
             echo $kq;
         } else {
             array_push($arrData, $replyer);
-            $kq = $this->ReplyModel->ThemReplyTheoIdReview($idCongTy, $idReview, json_encode($arrData, JSON_UNESCAPED_UNICODE));
+            $kq = $this->ReplyModel->ThemReplyTheoIdReview($schoolId, $reviewId, json_encode($arrData, JSON_UNESCAPED_UNICODE));
         }
         ob_start();
-        header("Location: " . $companyUrl, 301);
+        header("Location: " . $schoolUrl, 301);
         exit();
     }
 }

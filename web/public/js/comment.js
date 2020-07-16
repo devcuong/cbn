@@ -11,7 +11,6 @@
       const data = element.dataset
       const reviewId = data.id
       const prefillContent = data.prefill
-      const reaction = data.reaction
 
       const idInput = $$('#review-id')
       const reviewContent = $$('#reply-content')
@@ -19,7 +18,6 @@
 
       idInput.value = reviewId
       reviewContent.value = prefillContent
-      reviewReaction.value = reaction
     })
   })
 
