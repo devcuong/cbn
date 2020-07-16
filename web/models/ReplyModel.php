@@ -8,14 +8,14 @@ class ReplyModel extends DB{
     }
     
     // Update reply có sẵn
-    public function CapNhatReplyBangIdReview($congTy,$iDreview, $data){
-        $qr = "UPDATE reply SET congty = ?,data = ? WHERE idreview = ?";
+    public function CapNhatReplyBangIdReview($data, $review){
+        $qr = "UPDATE reply SET data = ? WHERE review = ?";
         $stmt = mysqli_stmt_init($this->con);
         $result = 0;
         if(!mysqli_stmt_prepare($stmt, $qr)){
             echo "SQL statement failed";
         }else{
-            mysqli_stmt_bind_param($stmt, "sss",$congTy, $data, $iDreview);
+            mysqli_stmt_bind_param($stmt, "ss", $data, $review);
             $result= mysqli_stmt_execute($stmt);
         }
         return $result;
@@ -29,7 +29,7 @@ class ReplyModel extends DB{
         if(!mysqli_stmt_prepare($stmt, $qr)){
             echo "SQL statement failed";
         }else{
-            mysqli_stmt_bind_param($stmt, "sss",$congTy, $iDreview, $data);
+            mysqli_stmt_bind_param($stmt, "sss",$schoolId, $reviewId, $data);
             $result = mysqli_stmt_execute($stmt);
         }
         return $result;

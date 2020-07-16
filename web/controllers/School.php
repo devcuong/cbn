@@ -1,5 +1,6 @@
 <?php
 require_once 'web/class/CutString.php';
+require 'web/class/Replyer.php';
 class School extends Controller
 {
     // Model
@@ -156,7 +157,8 @@ class School extends Controller
     function DangReply()
     {
         $data = "";
-        $replyer = "KHÁCH";
+        $replyerName = "Khách";
+        $member = "0";
         $arrData = [];
         $kq = false;
         // reviewer
@@ -165,8 +167,10 @@ class School extends Controller
                 $replyer = trim($_POST["replyer"]);
             }
         }
+        // member id
+        $member = $_POST["member-id"];
         // content
-        $content = $_POST["content"];
+        $content = trim($_POST["content"]);
         // id school
         $schoolId = $_POST["schoolId"];
         // slug school
@@ -174,15 +178,16 @@ class School extends Controller
         // id Review
         $reviewId = $_POST["reviewId"];
         // reaction
-        $reaction = $_POST["reaction"];
+        $reaction = $_POST["review-reaction"];
         
         $replyer = new Replyer();
-        $replyer->replyer = $replyer;
+        $replyer->replyer = $replyerName;
+        $replyer->member = $member;
         $replyer->reaction = $reaction;
         $replyer->noidung = $content;
-        
         $createdDate = date("Y-m-d H:i:s");
         $replyer->thoigian = $createdDate;
+        
         $replyKiemTra = $this->ReplyModel->LayReplyBangIdReview($reviewId);
         if (mysqli_num_rows($replyKiemTra) > 0) {
             while ($r = mysqli_fetch_array($replyKiemTra)) {
@@ -190,8 +195,8 @@ class School extends Controller
             }
             $arrData = json_decode($data);
             array_push($arrData, $replyer);
-            $kq = $this->ReplyModel->CapNhatReplyBangIdReview($schoolId, $reviewId, json_encode($arrData, JSON_UNESCAPED_UNICODE));
-            echo $kq;
+            //var_dump($arrData);
+            $kq = $this->ReplyModel->CapNhatReplyBangIdReview(json_encode($arrData, JSON_UNESCAPED_UNICODE), $reviewId);
         } else {
             array_push($arrData, $replyer);
             $kq = $this->ReplyModel->ThemReplyTheoIdReview($schoolId, $reviewId, json_encode($arrData, JSON_UNESCAPED_UNICODE));

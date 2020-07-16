@@ -5,19 +5,21 @@
   $('.link-comment').forEach((element) => {
     element.addEventListener('click', () => {
       //alert("ok");
-      const contactModal = $$('#reply-modal')
-      contactModal.classList.add('is-active')
+      /*const contactModal = $$('#reply-modal')
+      contactModal.classList.add('is-active')*/
 
       const data = element.dataset
       const reviewId = data.id
       const prefillContent = data.prefill
+      const reaction = data.reaction
 
       const idInput = $$('#review-id')
-      const reviewContent = $$('#reply-content')
+      const reviewContent = $$('#review-content')
       const reviewReaction = $$('#review-reaction')
 
       idInput.value = reviewId
       reviewContent.value = prefillContent
+      reviewReaction.value = reaction
     })
   })
 
