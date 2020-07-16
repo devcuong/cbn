@@ -98,8 +98,9 @@ class School extends Controller
     // Đăng review
     function DangReview()
     {
-        $reviewerName = "";
-        $reviewerAbout = "";
+        $reviewerName = "Khách";
+        $memberId = 0;
+        $reviewerAbout = "Tìm hiểu trường";
         $score = "";
     
         // school id
@@ -115,16 +116,20 @@ class School extends Controller
         if (isset($_POST['reviewer'])) {
             if (trim($_POST['reviewer']) != "") {
                 $reviewerName = trim($_POST["reviewer"]);
-            } else {
-                $reviewerName = "Khách";
             }
         }
+        
+        // member Id
+        if(isset($_POST['member'])){
+            if(trim($_POST[""]) != ""){
+                $memberId = trim($_POST["member"]);
+            }
+        }
+        
         // position
         if (isset($_POST['about'])) {
             if (trim($_POST['about']) != "") {
                 $reviewerAbout = trim($_POST["about"]);
-            } else {
-                $reviewerAbout = "Tìm hiểu trường";
             }
         }
     
