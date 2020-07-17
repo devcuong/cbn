@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 14, 2020 lúc 06:57 PM
+-- Thời gian đã tạo: Th7 17, 2020 lúc 10:27 AM
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 7.3.12
 
@@ -32,7 +32,6 @@ CREATE TABLE `reply` (
   `id` int(11) NOT NULL,
   `school` int(11) NOT NULL,
   `review` int(11) NOT NULL,
-  `member` int(11) NOT NULL,
   `data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -40,8 +39,9 @@ CREATE TABLE `reply` (
 -- Đang đổ dữ liệu cho bảng `reply`
 --
 
-INSERT INTO `reply` (`id`, `school`, `review`, `member`, `data`) VALUES
-(1, 3, 1, 0, '[{\"replyer\":\"Ẩn danh\",\"reaction\":\"LIKE\",\"noidung\":\"Bác nói đúng vãi, tặng 1 like\",\"thoigian\":\"2020-03-01 15:59:41\"},{\"replyer\":\"Ẩn danh\",\"reaction\":\"LIKE\",\"noidung\":\"Review nhảm nhí, dislike\",\"thoigian\":\"2020-03-01 16:10:56\"}]');
+INSERT INTO `reply` (`id`, `school`, `review`, `data`) VALUES
+(1, 3, 1, '[{\"replyer\":\"Ẩn danh\",\"member\":\"0\",\"reaction\":\"LIKE\",\"noidung\":\"Bác nói đúng vãi, tặng 1 like\",\"thoigian\":\"2020-03-01 15:59:41\"},{\"replyer\":\"Ẩn danh\",\"member\":\"0\",\"reaction\":\"LIKE\",\"noidung\":\"Review nhảm nhí, dislike\",\"thoigian\":\"2020-03-01 16:10:56\"}]'),
+(13, 3, 2, '[{\"replyer\":\"Khách\",\"member\":\"0\",\"reaction\":\"LIKE\",\"noidung\":\"Khởi tố vụ án chiếm đoạt tài liệu bí mật nhà nước\",\"thoigian\":\"2020-07-17 02:25:46\"},{\"replyer\":\"Khách\",\"member\":\"0\",\"reaction\":\"HATE\",\"noidung\":\"Thúy Nga Chửi Rủa Trấn Thành Xối Xả Vì Dám Nói Minh Ế Thâm Niên | Hài Trấn Thành 2018\",\"thoigian\":\"2020-07-17 02:57:45\"},{\"replyer\":\"Khách\",\"member\":\"0\",\"reaction\":\"DELETE\",\"noidung\":\"Bằng ĐẠI HỌC có quan trọng không anh? | Nguyễn Hữu Trí | Đài tiếng nói ông Quéo #1\",\"thoigian\":\"2020-07-17 02:59:12\"}]');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,8 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`id`, `reviewer`, `member`, `about`, `sao`, `noidung`, `school`, `thoigian`) VALUES
-(1, 'Ẩn Danh', 0, 'Đang học', 4, 'mình mới pv tuần trước. chưa biết kq thế nào nhưng thấy tác phong đón tiếp cũng chuyên nghiệp, có hai vòng , vòng 1 là technical, vòng 2 pv với nhân sự, kq hai vòng là độc lập và sẽ được đánh giá chung thành thang điểm dựa trên 10 tiêu chí, từ đó được đưa vào hệ thống đánh giá rank lương cho ứng viên và ko phụ thuộc về mặt con người\r\n', 3, '2020-07-13 22:09:22');
+(1, 'Ẩn Danh', 0, 'Đang học', 4, 'mình mới pv tuần trước. chưa biết kq thế nào nhưng thấy tác phong đón tiếp cũng chuyên nghiệp, có hai vòng , vòng 1 là technical, vòng 2 pv với nhân sự, kq hai vòng là độc lập và sẽ được đánh giá chung thành thang điểm dựa trên 10 tiêu chí, từ đó được đưa vào hệ thống đánh giá rank lương cho ứng viên và ko phụ thuộc về mặt con người\r\n', 3, '2020-07-13 22:09:22'),
+(2, 'Khách', 0, 'Tìm hiểu trường', 3, 'Trường mọi thứ đều ok', 3, '2020-07-16 21:54:44');
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,7 @@ CREATE TABLE `school` (
 --
 
 INSERT INTO `school` (`id`, `tenschool`, `slugschool`, `category`, `slugcategory`, `logo`, `website`, `luotdanhgia`, `tongsao`, `rate`, `diachi`, `thoigian`) VALUES
-(3, 'Bách Khoa - ĐHQG TP.HCM', 'bach-khoa-dhqg-tphcm', 'Đại học', 'dai-hoc', 'dhbk-dhqg.png', 'https://www.hcmut.edu.vn/vi', 1, 4, 4, '268 Lý Thường Kiệt, Phường 14, Quận 10, TP HCM', '2020-07-13 22:09:22');
+(3, 'Bách Khoa - ĐHQG TP.HCM', 'bach-khoa-dhqg-tphcm', 'Đại học', 'dai-hoc', 'dhbk-dhqg.png', 'https://www.hcmut.edu.vn/vi', 2, 7, 3.5, '268 Lý Thường Kiệt, Phường 14, Quận 10, TP HCM', '2020-07-16 21:54:44');
 
 -- --------------------------------------------------------
 
@@ -150,13 +151,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `school`
