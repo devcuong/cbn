@@ -18,9 +18,9 @@ class School extends Controller
     }
 
     function Index($a, $b, $c=null, $d=null)
-    {
+    {   
         $trangReviewHienTai = 1;
-        $soReviewMoiTrang = 1;
+        $soReviewMoiTrang = 10;
         if($c != null){
             $pageOrView = $urlSchool = explode("-", $c);
             if($c != "review"){
@@ -86,7 +86,8 @@ class School extends Controller
         
         // Phân trang
         $cutString = new CutString();
-        $navigate = $cutString->get_nav_render($trangReviewHienTai, $soTrang, "/school");
+        $server = new Server();
+        $navigate = $cutString->get_nav_render($trangReviewHienTai, $soTrang, $server->servername."/".$a."/".$b);
        
         // View
         $this->view("main-template", [

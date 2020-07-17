@@ -64,11 +64,13 @@ body {
 
 .school-logo {
 	text-align: center;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
 }
 
 .school-logo img {
 	width: 100%;
-	border: 1px solid #ddd;
 }
 .school-info .school-name a{
 	text-decoration: none;
@@ -771,6 +773,55 @@ body {
 
 .form-control.is-invalid{
 	border:2px solid #dc3545;
+}
+
+.pagination-list {
+	flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: flex-start;
+    order: 1;
+	align-items: center;
+    display: flex;
+text-align: center;
+	list-style: none;
+}
+
+.pagination-link[disabled], .pagination-next[disabled], .pagination-previous[disabled] {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+    box-shadow: none;
+    color: #7a7a7a;
+    opacity: .5;
+	cursor: not-allowed;
+	min-width: 2.25em;
+}
+
+.pagination-link{
+    font-size: 1em;
+    padding-left: .5em;
+    padding-right: .5em;
+    justify-content: center;
+    margin: .25rem;
+    text-align: center;
+-moz-appearance: none;
+    -webkit-appearance: none;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.25em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding-bottom: calc(.375em - 1px);
+    padding-left: calc(.625em - 1px);
+    padding-right: calc(.625em - 1px);
+    padding-top: calc(.375em - 1px);
+    position: relative;
+    vertical-align: top;
+}
 }
 </style>
 </head>

@@ -448,7 +448,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 			</span> &nbsp;&nbsp; Viết review
 		</button>
 	</div>
-	<div class="review-section">
+	<div class="review-section">	
 		<div class="list-review">
 		 <?php
     $rowIndex = 0;
