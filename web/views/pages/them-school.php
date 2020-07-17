@@ -64,7 +64,7 @@
 				function changeCategory(){
 					$("#category").val($("#category").val() + "||" + $( "#choice-category option:selected" ).text());
 					$("#slug-category").val($("#slug-category").val() + "-" + $( "#choice-category option:selected" ).val());
-				}
+		}
 			</script>
 	</div>
 	<div class="form-group">
@@ -80,6 +80,7 @@
 		<script type="text/javascript">
 				function themDiaChi(){
 					$("#dia-chi").val($("#dia-chi").val() + "||" + $("#add-dc").val());
+					$("#add-dc").val("");
 				}
 			</script>
 	</div>
