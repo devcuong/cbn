@@ -39,7 +39,7 @@ class CutString{
             if ($current == 1) {
                 $nav = $nav."<li><a class='pagination-link' disabled>ĐẦU</a></li>";
             } else {
-                $nav = $nav."<li ><a class='pagination-link' href='" . $route . "/'>ĐẦU</a></li>";
+                $nav = $nav."<li ><a class='pagination-link' href='" . $route ."'>ĐẦU</a></li>";
             }
             $i = ($current > 5 ? $current - 4 : 1);
             if ($i != 1) {
@@ -49,14 +49,14 @@ class CutString{
                 if ($i == $current) {
                     $nav = $nav."<li><a class='pagination-link is-current'>" . $i . "</a></li>";
                 } else {
-                    $nav = $nav."<li><a class='pagination-link' href='" . $route . "/" . $i . "'>" . $i . "</a></li>";
+                    $nav = $nav."<li><a class='pagination-link' href='" . $route . $i . "'>" . $i . "</a></li>";
                 }
                 if ($i == $current + 4 && $i < $pages) {
                     $nav =$nav."<li><a class='pagination-link'>...</a></li>";
                 }
             }
             if ($current != $pages) {
-                $nav = $nav."<li><a class='pagination-link' href='" . $route . "/".$pages."'>CUỐI</a></li>";
+                $nav = $nav."<li><a class='pagination-link' href='" . $route.$pages."'>CUỐI</a></li>";
             } else {
                 $nav = $nav."<li><a class='pagination-link' disabled>CUỐI</a></li>";
             }

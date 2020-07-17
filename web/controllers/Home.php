@@ -22,7 +22,7 @@ class Home extends Controller
     {
         if ($a == NULL) {
             $trangHienTai = 1;
-            $schoolMoiTrang = 12;
+            $schoolMoiTrang = 16;
             if (isset($_GET["page"])) {
                 $trangHienTai = $_GET["page"];
             }
@@ -34,6 +34,11 @@ class Home extends Controller
             $soTrang = ceil($soSchool / $schoolMoiTrang);
             
             $schoolTrangHienTai = $this->SchoolModel->LaySchoolPhanTrang($soSchoolBoQua, $schoolMoiTrang);
+            
+            // Phân trang
+            $cutString = new CutString();
+            $server = new Server();
+            $navigate = $cutString->get_nav_render($trangHienTai, $soTrang, "?page=");
             
             // Title
             $title = "Review lương bổng, đãi ngộ, tuyển dụng, sếp của các công ty - CongTyTop";
@@ -48,6 +53,7 @@ class Home extends Controller
             $this->view("main-template", [
                 "Page" => "main-home",
                 "SchoolTrangHienTai" => $schoolTrangHienTai,
+                "Nav" => $navigate,
                 "15ReviewMoiNhat" => $this->ReviewModel->Lay15ReviewMoiNhat(),
                 "Title" => $title,
                 "Description" => $description,

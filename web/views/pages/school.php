@@ -172,6 +172,9 @@
 	.button.is-medium {
 		font-size: 1.25rem;
 	}
+	.school-logo{
+	   min-height: 0px;
+	}
 }
 
 /*review*/

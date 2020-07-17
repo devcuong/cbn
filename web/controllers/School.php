@@ -87,7 +87,7 @@ class School extends Controller
         // Phân trang
         $cutString = new CutString();
         $server = new Server();
-        $navigate = $cutString->get_nav_render($trangReviewHienTai, $soTrang, $server->servername."/".$a."/".$b);
+        $navigate = $cutString->get_nav_render($trangReviewHienTai, $soTrang, $server->servername."/$a/".$b."/");
        
         // View
         $this->view("main-template", [
