@@ -125,7 +125,7 @@
 		box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
 		opacity: 0.85;
 		border: none;
-        outline:none;
+		outline: none;
 		transition: 0.2s all;
 		color: #fff;
 	}
@@ -288,9 +288,10 @@
 	color: blue;
 }
 
-.reply-author i.fa-times{
+.reply-author i.fa-times {
 	color: #000;
 }
+
 .review-author .school-rating {
 	color: #000;
 }
@@ -307,7 +308,7 @@
 
 .review-share-link:hover {
 	color: #fff;
-	text-decoration:none;
+	text-decoration: none;
 	background-color: darken(#3b5998, 10%);
 }
 
@@ -327,9 +328,10 @@
 	text-transform: uppercase;
 	color: #0275d8;
 }
-.textarea:not([rows]) {
-    max-height: 600px;
-    min-height: 120px;
+
+.textarea:not ([rows] ) {
+	max-height: 600px;
+	min-height: 120px;
 }
 </style>
 <div class="container">
@@ -338,8 +340,8 @@ while ($row = mysqli_fetch_array($data["School"])) {
     ?>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="<?php echo $servername ?>"><i class="fa fa-home"
-					aria-hidden="true"></i> Trang chủ</a></li>
+			<li class="breadcrumb-item"><a href="<?php echo $servername ?>"><i
+					class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
 			<li class="breadcrumb-item active" aria-current="page"><?php echo $row["category"] ?>&nbsp;<?php echo $row["tenschool"] ?></li>
 		</ol>
 	</nav>
@@ -440,7 +442,8 @@ while ($row = mysqli_fetch_array($data["School"])) {
 
 	<div class="button-review-mobile">
 		<button
-			class="button-review button is-success is-medium is-rounded upload-review" data-target="#review-modal" data-toggle="modal">
+			class="button-review button is-success is-medium is-rounded upload-review"
+			data-target="#review-modal" data-toggle="modal">
 			<span class="icon"> <i class="fa fa-pencil" aria-hidden="true"></i>
 			</span> &nbsp;&nbsp; Viết review
 		</button>
@@ -484,19 +487,25 @@ while ($row = mysqli_fetch_array($data["School"])) {
 						<p><?php echo $r["review_noidung"]?></p>
 					</div>
 					<div class="review-footer">
-						<a href="#" data-target="#reply-modal" data-toggle="modal" class="link-comment" data-reaction="LIKE" data-id="<?php echo $r["review_id"] ?>" data-prefill=""><span class="reply-button" title="Trả lời"><i
-								class="fa fa-reply" aria-hidden="true"></i>Trả lời</span></a> 
-						<a href="#" class="link-comment" data-reaction="DELETE" data-prefill="Xóa review này dùm !" data-target="#reply-modal" data-toggle="modal"><span class="delete-button" title="Xóa review"><i
-								class="fa fa-trash" aria-hidden="true" ></i>Yêu cầu Xóa</span></a>
+						<a href="#" data-target="#reply-modal" data-toggle="modal"
+							class="link-comment" data-reaction="LIKE"
+							data-id="<?php echo $r["review_id"] ?>" data-prefill=""><span
+							class="reply-button" title="Trả lời"><i class="fa fa-reply"
+								aria-hidden="true"></i>Trả lời</span></a> <a href="#"
+							class="link-comment" data-reaction="DELETE"
+							data-prefill="Xóa review này dùm !" data-target="#reply-modal"
+							data-toggle="modal"><span class="delete-button"
+							title="Xóa review"><i class="fa fa-trash" aria-hidden="true"></i>Yêu
+								cầu Xóa</span></a>
 					</div>
 				</div>
 				 <?php if(isset($r["reply_data"])){ ?>
 				<div class="list-reply">
 				       <?php
-        $dataReply = $r["reply_data"];
-        $arrJson = json_decode($dataReply);
-        for ($i = 0; $i < count($arrJson); $i ++) {
-            ?>
+            $dataReply = $r["reply_data"];
+            $arrJson = json_decode($dataReply);
+            for ($i = 0; $i < count($arrJson); $i ++) {
+                ?>
 					<div class="reply-item">
 						<div class="reply-content">
 							<div class="reply-header">
@@ -512,7 +521,8 @@ while ($row = mysqli_fetch_array($data["School"])) {
 								<?php } else if(($arrJson[$i]->reaction)=="HATE") { ?>
 								<i class="fa fa-thumbs-down" aria-hidden="true"></i>
 								<?php }else{ ?>
-					đề nghị xóa review này&nbsp;<i class="fa fa-times" aria-hidden="true"></i>
+					đề nghị xóa review này&nbsp;<i class="fa fa-times"
+										aria-hidden="true"></i>
 					<?php } ?>
 								</div>
 							</div>
@@ -528,6 +538,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 
 		</div>
 	</div>
+	
 	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
@@ -542,7 +553,8 @@ while ($row = mysqli_fetch_array($data["School"])) {
 				</div>
 				<div class="modal-body">
 					<form id="review-form"
-						action="<?php echo $servername ?>/school/dang-review" method="POST">
+						action="<?php echo $servername ?>/school/dang-review"
+						method="POST">
 						<div class="form-group">
 							<label for="reviewer" class="col-form-label">Tên Họ</label> <input
 								type="text" class="form-control" id="reviewer" name="reviewer"
@@ -556,7 +568,8 @@ while ($row = mysqli_fetch_array($data["School"])) {
 						<div class="form-group">
 							<label for="message-text" class="col-form-label">Review Trường <span
 								class="text-danger">(Bắt buộc)</span></label>
-							<textarea class="form-control textarea" id="content" name="content"
+							<textarea class="form-control textarea" id="content"
+								name="content"
 								placeholder="Hãy cung cấp thông tin thật chính xác"></textarea>
 						</div>
 						<div class="form-group">
@@ -570,10 +583,11 @@ while ($row = mysqli_fetch_array($data["School"])) {
 								<option value="1">1 điểm - Cực kỳ tệ</option>
 							</select>
 						</div>
-						<input type="hidden" name="schoolId" value="<?php echo $row["id"] ?>"> 
-						<input type="hidden" name="member" value="<?php echo $r["review_member"]?>">
-						<input
-							type="hidden" name="schoolUrl" value="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>">
+						<input type="hidden" name="schoolId"
+							value="<?php echo $row["id"] ?>"> <input type="hidden"
+							name="member" value="<?php echo $r["review_member"]?>"> <input
+							type="hidden" name="schoolUrl"
+							value="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>">
 						<div class="g-recaptcha"
 							data-sitekey="6LevlLEZAAAAAEGrjvk9tDC7xoUOmCeCRma6RY7-"
 							data-callback="onReviewCaptchaSuccess"></div>
@@ -597,9 +611,10 @@ while ($row = mysqli_fetch_array($data["School"])) {
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
-			<div class="modal-header">
+				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel"></h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
@@ -614,10 +629,13 @@ while ($row = mysqli_fetch_array($data["School"])) {
 						<div class="form-group">
 							<label for="message-text" class="col-form-label">Nội dung trả lời<span
 								class="text-danger">&nbsp(Bắt buộc)</span></label>
-							<textarea class="form-control textarea" id="review-content" name="content"></textarea>
+							<textarea class="form-control textarea" id="review-content"
+								name="content"></textarea>
 						</div>
 						<div class="form-group">
-							<label for="reviewer" class="col-form-label">Bày tỏ thái độ</label> <select class="form-control" name="review-reaction" id="review-reaction">
+							<label for="reviewer" class="col-form-label">Bày tỏ thái độ</label>
+							<select class="form-control" name="review-reaction"
+								id="review-reaction">
 								<option value="LIKE" selected="selected">👍 Like</option>
 								<option value="HATE">👎 DisLike</option>
 								<option value="DELETE">❌ Xóa giùm</option>
@@ -627,11 +645,11 @@ while ($row = mysqli_fetch_array($data["School"])) {
 							data-sitekey="6LelELIZAAAAALqW3G4h7Zj2gafuc2iagDhT6rf9"
 							data-callback="onCommentCaptchaSuccess"></div>
 						<input type="hidden" name="schoolId"
-					value="<?php echo $row["id"] ?>" /> <input type="hidden"
-					name="schoolUrl"
-					value="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>" />
-						<input type="hidden" id="review-id" name="reviewId" />
-						<input type="hidden" id="member-id" name="member-id" value="0">
+							value="<?php echo $row["id"] ?>" /> <input type="hidden"
+							name="schoolUrl"
+							value="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>" />
+						<input type="hidden" id="review-id" name="reviewId" /> <input
+							type="hidden" id="member-id" name="member-id" value="0">
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -644,8 +662,11 @@ while ($row = mysqli_fetch_array($data["School"])) {
 		</div>
 	</div>
 	<script src="<?php echo $servername ?>/web/public/js/comment.js" async
-	defer></script>
+		defer></script>
  	<?php } ?>
  	<?php } ?>
 </div>
+<div class="container">
+		<?php echo $data["Nav"] ?>
+	</div>
 <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>

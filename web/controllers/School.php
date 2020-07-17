@@ -1,6 +1,7 @@
 <?php
-require_once 'web/class/CutString.php';
+require 'web/class/CutString.php';
 require 'web/class/Replyer.php';
+require 'web/class/Server.php';
 class School extends Controller
 {
     // Model
@@ -19,7 +20,7 @@ class School extends Controller
     function Index($a, $b, $c=null, $d=null)
     {
         $trangReviewHienTai = 1;
-        $soReviewMoiTrang = 15;
+        $soReviewMoiTrang = 1;
         if($c != null){
             $pageOrView = $urlSchool = explode("-", $c);
             if($c != "review"){
@@ -34,6 +35,7 @@ class School extends Controller
                 $rp = $this->ReplyModel->LayReplyBangIdReview($d);
                 
                 $cutString = new CutString();
+                
                 
                 // Title
                 $title = "Review công ty "." - ".$cutString->get_first_num_of_words(trim($noiDungReview), 60);
@@ -82,13 +84,16 @@ class School extends Controller
         // Keyword
         $keyword = "review công ty $tencongty, review cong ty $tencongty, công ty review $tencongty, cong ty review $tencongty, review công việc $tencongty, review cong viec $tencongty, review mức lương $tencongty, review muc luong $tencongty, review sếp $tencongty, review sep $tencongty";
         
+        // Phân trang
+        $cutString = new CutString();
+        $navigate = $cutString->get_nav_render($trangReviewHienTai, $soTrang, "/school");
+       
         // View
         $this->view("main-template", [
             "Page" => "school",
             "School" => $schoolLater,
             "Review" => $reviewTrangHienTai,
-            "SoTrang" => $soTrang,
-            "TrangHienTai" => $trangReviewHienTai,
+            "Nav" => $navigate,
             "Title" => $title,
             "Description" => $description,
             "Keyword" => $keyword

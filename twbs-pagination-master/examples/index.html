@@ -20,7 +20,8 @@
             totalPages: 35,
             visiblePages: 10,
             onPageClick: function (event, page) {
-                console.info(page + ' (from options)');
+                /*console.info(page + ' (from options)');*/
+                alert("this is page number: "+page);
             }
         }).on('page', function (event, page) {
             console.info(page + ' (from event listening)');
