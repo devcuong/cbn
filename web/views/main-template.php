@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bootstrap 4</title>
 <meta name="description" content="Source code generated">
 <meta name="author" content="LayoutIt!">
@@ -12,13 +12,13 @@
 	rel="stylesheet">
 <link href="<?php echo $servername ?>/web/public/css/style.css"
 	rel="stylesheet">
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-	rel="stylesheet" media="screen" />
 <link rel="stylesheet" as="style"
 	href="<?php echo $servername ?>/web/public/css/jquery-ui.min.css">
 <link rel="preload stylesheet" as="style"
 	href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet" media="screen" />
 <script src="<?php echo $servername ?>/web/public/js/jquery.min.js"></script>
 <script type="text/javascript"
 	src="<?php echo $servername ?>/web/public/js/jquery-ui.min.js"></script>
@@ -35,7 +35,7 @@ body {
 }
 
 .top-head-container {
-	background: #0275d8;
+	    background: linear-gradient(97deg,#00b9f2 35%,#0e7ccd 62%,#0275d8 81%);
 	border-bottom: 1px solid #0275d8;
 	line-height: 1;
 }
@@ -77,11 +77,10 @@ body {
 .school-logo img {
 	width: 100%;
 }
-
-.school-info .school-name a {
-	text-decoration: none;
+.item-wrapper a{
+    text-decoration: none;
+	color: #000;
 }
-
 @media ( min-width : 768px) {
 	.item-wrapper {
 		width: 25%;
@@ -433,7 +432,7 @@ body {
 	border-radius: 30px !important;
 	overflow: hidden;
 	background-color: #fff;
-	border: 1px solid #ced4da;
+/* 	border: 1px solid #ced4da; */
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
@@ -606,20 +605,19 @@ body {
 .topnav {
 	overflow: hidden;
 }
-
+.topnav .active{
+    background: #0275d8	;
+}
 .topnav a {
 	float: left;
 	display: block;
 	color: #f2f2f2;
 	text-align: center;
-	padding: 25px 16px;
+	padding: 27px 16px;
 	text-decoration: none;
 	font-size: 1rem;
 }
 
-.topnav .active {
-	border-top: 2px solid #f7941d;
-}
 
 .topnav .icon {
 	display: none;
@@ -635,7 +633,7 @@ body {
 	border: none;
 	outline: none;
 	color: white;
-	padding: 25px 16px;
+	padding: 27px 16px;
 	background-color: inherit;
 	font-family: inherit;
 	margin: 0;
@@ -673,18 +671,15 @@ body {
 	display: block;
 }
 
-@media screen and (max-width: 600px) {
-	.topnav a:not (:first-child ), .dropdown .dropbtn {
+@media screen and (max-width: 768px) {
+	.topnav a, .dropdown .dropbtn {
 		display: none;
 	}
 	.topnav a.icon {
 		float: right;
 		display: block;
 	}
-}
-
-@media screen and (max-width: 600px) {
-	.topnav.responsive {
+    .topnav.responsive {
 		position: relative;
 	}
 	.topnav.responsive a.icon {
@@ -709,6 +704,7 @@ body {
 		text-align: left;
 	}
 }
+
 
 @media screen and (min-width: 1088px) {
 	.navbar>.container .navbar-brand {
@@ -877,7 +873,8 @@ body {
 							</div>
 						</div>
 						<a href="#about">About</a> <a href="javascript:void(0);"
-							style="font-size: 15px;" class="icon" onclick="showNav()">&#9776;</a>
+							style="font-size: 15px;" class="icon" onclick="showNav()"><i class="fa fa-bars" aria-hidden="true"></i>
+</a>
 					</div>
 				</div>
 			</div>

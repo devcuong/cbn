@@ -92,14 +92,17 @@ class QuanTri extends Controller
                     $slugtruong = $_POST["slug-truong"];
                 }
                 if (isset($_POST["slug-category"])) {
-                    $slugcategory = trim($_POST["slug-category"]);
-                    $category = $_POST['category'];
+                    $str = $_POST["slug-category"];
+                    $slugcategory = ltrim(trim($str), $str[0]); ;
+                    $str =  $_POST['category'];
+                    $category = ltrim(trim($str), $str[0]);
                 }
                 if (isset($_POST["website"])) {
                     $website = trim($_POST["website"]);
                 }
                 if (isset($_POST["dia-chi"])) {
-                    $diachi = trim($_POST["dia-chi"]);
+                    $str =  $_POST["dia-chi"];
+                    $diachi = ltrim(trim($str), $str[0]);
                 }
                 if (isset($_FILES["logo-truong"])) {
                     

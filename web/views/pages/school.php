@@ -407,7 +407,14 @@ while ($row = mysqli_fetch_array($data["School"])) {
 				</div>
 				<div class="school-location">
 					<span class="school-location"> <span class="icon"><i
-							class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $row["diachi"]?>
+							class="fa fa-map-marker" aria-hidden="true"></i></span><?php $allDiaChi = $row["diachi"];
+									       $lstDiaChi = explode("||",$allDiaChi);
+									       if(count($lstDiaChi) > 1){
+									           echo "Nhiều địa điểm";
+									       }else{
+									           echo $allDiaChi;
+									       }
+									       ?>
 					</span>
 				</div>
 			</div>

@@ -29,20 +29,25 @@ class SchoolModel extends DB{
         
         /*TÌM KIẾM*/
         /*Lấy trường theo ký tự trong tên*/
-        public function LayTruongTheoKyTu($ten){
+        public function LaySchoolTheoKyTu($ten){
             $qr = "SELECT * FROM school WHERE tenschool LIKE '%$ten%' LIMIT 10";
+            return mysqli_query($this->con, $qr);
+        }
+        /*Lấy toàn bộ trường theo ký tự trong tên*/
+        public function LayTatCaSchoolTheoKyTu($ten){
+            $qr = "SELECT * FROM school WHERE tenschool LIKE '%$ten%'";
             return mysqli_query($this->con, $qr);
         }
         /*Tìm trường theo từ khóa và phân trang*/
         public function PhanTrangSchoolTheoTuKhoa($soSchoolBoQua, $soSchoolMoiTrang, $ten){
             $qr = "";
             if($ten != ""){
-                $qr = "SELECT * FROM school WHERE school LIKE '%$ten%' LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
+                $qr = "SELECT * FROM school WHERE slugschool LIKE '%$ten%' LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
             }else{
-                $qr = "SELECT * FROM congty LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
+                $qr = "SELECT * FROM school LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
             }
-            return mysqli_query($this->con, $qr);
-            //return $qr;
+           return mysqli_query($this->con, $qr);
+           //return $qr;
         }
         /*HẾT TÌM KIẾM*/
         // Update rate school
