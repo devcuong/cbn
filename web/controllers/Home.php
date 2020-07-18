@@ -12,7 +12,6 @@ class Home extends Controller
     public function __construct()
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        
         // Model
         $this->ReviewModel = $this->model("ReviewModel");
         $this->SchoolModel = $this->model("SchoolModel");

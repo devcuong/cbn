@@ -30,10 +30,10 @@ class SchoolModel extends DB{
         /*TÌM KIẾM*/
         /*Lấy trường theo ký tự trong tên*/
         public function LayTruongTheoKyTu($ten){
-            $qr = "SELECT * FROM school WHERE tenschool LIKE '%$ten%'";
+            $qr = "SELECT * FROM school WHERE tenschool LIKE '%$ten%' LIMIT 10";
             return mysqli_query($this->con, $qr);
         }
-        /*Tìm công ty theo từ khóa và phân trang*/
+        /*Tìm trường theo từ khóa và phân trang*/
         public function PhanTrangSchoolTheoTuKhoa($soSchoolBoQua, $soSchoolMoiTrang, $ten){
             $qr = "";
             if($ten != ""){
@@ -54,7 +54,7 @@ class SchoolModel extends DB{
             }
             return $result;
         }
-        // Update rate công ty giảm
+        // Update rate school giảm
         public function UpdateRateSchoolXoaReview($iD, $score){
             $qr = "UPDATE school SET luotdanhgia = luotdanhgia - 1, tongsao = tongsao - $score, rate = tongsao/luotdanhgia WHERE id = $iD";
             $result = false;
@@ -64,7 +64,7 @@ class SchoolModel extends DB{
             return $result;
         }
         
-        /*THÊM CÔNG TY*/
+        /*THÊM TRƯỜNG*/
         public function ThemSchool($tentruong, $slugtruong, $category, $slugcategory, $fileName, $website, $diachi, $thoigian) {
             $qr= "INSERT INTO school (tenschool, slugschool, category, slugcategory, logo, website, diachi, thoigian) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($this->con);
@@ -82,9 +82,9 @@ class SchoolModel extends DB{
             return $this->con->insert_id;
         }
         
-        /*XÓA CÔNG TY*/
-        public function XoaCongTy($idCongTy){
-            $qr = "DELETE FROM congty WHERE id = '$idCongTy'";
+        /*XÓA TRƯỜNG*/
+        public function XoaTruong($idSchool){
+            $qr = "DELETE FROM school WHERE id = '$idSchool'";
             $result = false;
             if(mysqli_query($this->con, $qr)){
                 $result = true;
@@ -92,9 +92,9 @@ class SchoolModel extends DB{
             return $result;
         }
         
-        /*CẬP NHẬT SLUG CÔNG TY*/
+        /*CẬP NHẬT SLUG SCHOOL*/
         public function CapNhatSlug($id, $slug){
-            $qr = "UPDATE congty SET slugcongty = '$slug' WHERE id = $id";
+            $qr = "UPDATE school SET slugschool = '$slug' WHERE id = $id";
             $result = false;
             if(mysqli_query($this->con, $qr)){
                 $result = true;
