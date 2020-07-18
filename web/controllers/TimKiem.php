@@ -9,13 +9,11 @@ class TimKiem extends Controller
         $this->SchoolModel = $this->model("SchoolModel");
     }
     // Tìm kiếm công ty
-    public function Companies()
+    public function schools()
     {
         if (isset($_POST["tenschool"])) {
             $tuKhoa = trim($_POST["tenschool"]);
-            $allKetQua = $this->SchoolModel->LayCongTyTheoKyTu($tuKhoa);
-            // $resultArrayKetQua = $allKetQua -> fetch_all(MYSQLI_ASSOC);
-            // echo $_POST["tencongty"]."-"."ok";
+            $allKetQua = $this->SchoolModel->LayTruongTheoKyTu($tuKhoa);
             $parameters = array();
             while ($row = $allKetQua->fetch_assoc()) {
                 $parameters[] = $row;

@@ -1,3 +1,40 @@
+<style>
+.image.is-32x32 {
+    height: 32px;
+    width: 32px;
+}
+.image {
+    position: relative;
+}
+.image img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+.autocomplete-suggestion {
+	display: flex;
+	align-items: center;
+	padding: 0.4rem;
+}
+
+.autocomplete-suggestion b {
+	font-weight: 700;
+	color: #209cee;
+}
+
+.autocomplete-suggestion .company-logo {
+	margin-right: 0.25rem;
+	display: flex;
+	align-items: center;
+	border: 1px solid #c2c2c2;
+}
+.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+	background: #F5FCFF !important;
+	font-weight: bold !important;
+	color: #000 !important;
+	border: none;
+}
+</style>
 <div class="container">
 	<div class="row top-banner">
 		<div class="col-md-8 col-banner">
@@ -13,7 +50,7 @@
 									<form action="<?php echo $servername ?>/tim-kiem/trang-ket-qua"
 										method="POST">
 										<div class="input-group box-search">
-											<input name="company-search" id="company-search"
+											<input name="school-search" id="school-search"
 												class="input form-control ui-autocomplete-input" type="text"
 												placeholder="Tìm trường học" autocomplete="off">
 											<div class="input-group-append">
@@ -239,3 +276,72 @@
 		</div>
 	</div>
 </div>
+<script>
+    jQuery.ui.autocomplete.prototype._resizeMenu = function() {
+        this.menu.element.outerWidth(this.element.outerWidth())
+    }, $(function() {
+        $("#school-search").autocomplete({
+            source: function(e, t) {
+                var keyWord = e.term;
+                $.ajax({
+                    type: "post",
+                    url: SiteName+"/tim-kiem/schools",
+                    dataType: "json",
+                    data: {
+                    	tenschool: e.term
+                    },
+                    success: function(e) {
+                        t($.map(e, function(e) {
+                            var t = SiteName+"/school/" + e.slugcongty + "-" + e.id + "/";
+                            return {
+                                label: e.tenschool,
+                                url: t,
+                                image: e.logo,
+                                slug: e.slugschool,
+                                term: keyWord
+                            }
+                        }))
+                    }
+                })
+            },
+            minlength: 2,
+            select: function(e, t) {
+                window.location.href = t.item.url
+            },
+            open: function() {},
+            close: function() {}
+        })
+	 $("#school-search").data( "ui-autocomplete" )._renderItem = function( div, item ) {
+          	 
+        	div.addClass('autocomplete-suggestions');
+            var $childDiv = $('<div>');
+            var $img = $('<img>');
+			var	$figure = $('<figure>');
+			var $span = $('<span>');
+			// image
+			$figure.addClass("company-logo image is-32x32");
+			// tên công ty
+			$span.addClass("company-name");
+			// suggest result
+			$childDiv.addClass("autocomplete-suggestion");
+            $img.attr({
+              src: SiteName+'/web/public/asset/schools/logo/' + item.image,
+              alt: item.label,
+            });
+            $childDiv.attr('data-value', item.label);
+            $childDiv.attr('data-slug', item.slug);
+            //$li.append('<a href="#">');
+            //image
+            $figure.append($img);
+            //text
+            var search = item.term.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            const re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+            var normalLabel =  item.label;
+            var boldLabel = normalLabel.replace(re, "<b>$1</b>");
+            $span.append(boldLabel);
+            $childDiv.append($figure).append($span);    
+            return $childDiv.appendTo(div);
+          };
+        
+    });
+    </script>

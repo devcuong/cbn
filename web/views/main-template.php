@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bootstrap 4</title>
-<meta name="description"
-	content="Source code generated">
+<meta name="description" content="Source code generated">
 <meta name="author" content="LayoutIt!">
 <link href="<?php echo $servername ?>/web/public/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -16,13 +15,19 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
 	rel="stylesheet" media="screen" />
+<link rel="stylesheet" as="style"
+	href="<?php echo $servername ?>/web/public/css/jquery-ui.min.css">
+<link rel="preload stylesheet" as="style"
+	href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.css">
 <script src="<?php echo $servername ?>/web/public/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo $servername ?>/web/public/js/jquery-ui.min.js"></script>
+<script type="text/javascript"
+	src="<?php echo $servername ?>/web/public/js/jquery-ui.min.js"></script>
 
-	<script
-		src="<?php echo $servername ?>/web/public/js/popper.min.js"></script>
-	<script src="<?php echo $servername ?>/web/public/js/bootstrap.min.js"></script>
-	<script src="<?php echo $servername ?>/web/public/js/scripts.js"></script>
+<script src="<?php echo $servername ?>/web/public/js/popper.min.js"></script>
+<script src="<?php echo $servername ?>/web/public/js/bootstrap.min.js"></script>
+<script src="<?php echo $servername ?>/web/public/js/scripts.js"></script>
+<script type="text/javascript"
+	src="<?php echo $servername ?>/web/public/js/config.js"></script>
 
 <style type="text/css">
 body {
@@ -64,17 +69,19 @@ body {
 
 .school-logo {
 	text-align: center;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
+	min-height: 200px;
+	display: flex;
+	align-items: center;
 }
 
 .school-logo img {
 	width: 100%;
 }
-.school-info .school-name a{
+
+.school-info .school-name a {
 	text-decoration: none;
 }
+
 @media ( min-width : 768px) {
 	.item-wrapper {
 		width: 25%;
@@ -85,7 +92,6 @@ body {
 		font-size: 1rem;
 		color: #00b7ff;
 	}
-	
 	.school-info .school-category, .school-info .school-address,
 		.school-info .school-rating {
 		font-size: 1rem;
@@ -126,6 +132,8 @@ body {
 
 @media ( min-width : 1200px) .container {
 	max-width
+	
+	
 	
 	
 	
@@ -231,6 +239,8 @@ body {
 	
 	
 	
+	
+	
 	1100
 	px
 	
@@ -283,8 +293,12 @@ body {
 	
 	
 	
+	
+	
 	!
 	important
+	
+	
 	
 	
 	
@@ -557,7 +571,7 @@ body {
 	background: #0275d8;
 }
 
-.item-new-review .review-rate i{
+.item-new-review .review-rate i {
 	font-size: 0.8rem;
 }
 
@@ -590,105 +604,110 @@ body {
 }
 
 .topnav {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 25px 16px;
-  text-decoration: none;
-  font-size: 1rem;
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 25px 16px;
+	text-decoration: none;
+	font-size: 1rem;
 }
 
 .topnav .active {
-  border-top: 2px solid #f7941d;
+	border-top: 2px solid #f7941d;
 }
 
 .topnav .icon {
-  display: none;
+	display: none;
 }
 
-
 .dropdown {
-  float: left;
-  overflow: hidden;
+	float: left;
+	overflow: hidden;
 }
 
 .dropdown .dropbtn {
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 25px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+	font-size: 1rem;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 25px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
 }
 
 .dropdown-content {
-  display: none;
-  position: fixed;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+	display: none;
+	position: fixed;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #4682B4;
-  color: white;
+	background-color: #4682B4;
+	color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+	background-color: #ddd;
+	color: black;
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child), .dropdown .dropbtn {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
+	.topnav a:not (:first-child ), .dropdown .dropbtn {
+		display: none;
+	}
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .topnav.responsive .dropdown {float: none;}
-  .topnav.responsive .dropdown-content {position: relative;}
-  .topnav.responsive .dropdown .dropbtn {
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
+	.topnav.responsive {
+		position: relative;
+	}
+	.topnav.responsive a.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+	.topnav.responsive .dropdown {
+		float: none;
+	}
+	.topnav.responsive .dropdown-content {
+		position: relative;
+	}
+	.topnav.responsive .dropdown .dropbtn {
+		display: block;
+		width: 100%;
+		text-align: left;
+	}
 }
 
 @media screen and (min-width: 1088px) {
@@ -702,12 +721,14 @@ body {
 	display: flex;
 	flex-shrink: 0;
 	padding-top: 0rem;
-    padding-bottom: 0rem;
+	padding-bottom: 0rem;
 }
-.top-box-nav{
+
+.top-box-nav {
 	padding-left: 0;
 	padding-right: 0;
 }
+
 .navbar-brand .logo .logo__header {
 	margin-left: 0.5rem;
 }
@@ -771,56 +792,57 @@ body {
 	}
 }
 
-.form-control.is-invalid{
-	border:2px solid #dc3545;
+.form-control.is-invalid {
+	border: 2px solid #dc3545;
 }
 
 .pagination-list {
 	flex-wrap: wrap;
-    flex-grow: 1;
-    flex-shrink: 1;
-    justify-content: flex-start;
-    order: 1;
+	flex-grow: 1;
+	flex-shrink: 1;
+	justify-content: flex-start;
+	order: 1;
 	align-items: center;
-    display: flex;
-text-align: center;
+	display: flex;
+	text-align: center;
 	list-style: none;
 }
 
-.pagination-link[disabled], .pagination-next[disabled], .pagination-previous[disabled] {
-    background-color: #dbdbdb;
-    border-color: #dbdbdb;
-    box-shadow: none;
-    color: #7a7a7a;
-    opacity: .5;
+.pagination-link[disabled], .pagination-next[disabled],
+	.pagination-previous[disabled] {
+	background-color: #dbdbdb;
+	border-color: #dbdbdb;
+	box-shadow: none;
+	color: #7a7a7a;
+	opacity: .5;
 	cursor: not-allowed;
 	min-width: 2.25em;
 }
 
-.pagination-link{
-    font-size: 1em;
-    padding-left: .5em;
-    padding-right: .5em;
-    justify-content: center;
-    margin: .25rem;
-    text-align: center;
--moz-appearance: none;
-    -webkit-appearance: none;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: none;
-    display: inline-flex;
-    font-size: 1rem;
-    height: 2.25em;
-    justify-content: flex-start;
-    line-height: 1.5;
-    padding-bottom: calc(.375em - 1px);
-    padding-left: calc(.625em - 1px);
-    padding-right: calc(.625em - 1px);
-    padding-top: calc(.375em - 1px);
-    position: relative;
-    vertical-align: top;
+.pagination-link {
+	font-size: 1em;
+	padding-left: .5em;
+	padding-right: .5em;
+	justify-content: center;
+	margin: .25rem;
+	text-align: center;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	align-items: center;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-shadow: none;
+	display: inline-flex;
+	font-size: 1rem;
+	height: 2.25em;
+	justify-content: flex-start;
+	line-height: 1.5;
+	padding-bottom: calc(.375em - 1px);
+	padding-left: calc(.625em - 1px);
+	padding-right: calc(.625em - 1px);
+	padding-top: calc(.375em - 1px);
+	position: relative;
+	vertical-align: top;
 }
 }
 </style>
@@ -846,7 +868,10 @@ text-align: center;
 						<a href="#home" class="active">Home</a> <a href="#news">News</a> <a
 							href="#contact">Contact</a>
 						<div class="dropdown">
-							<button class="dropbtn"><a style="padding: 0px" href="#">Dropdown <i class="fa fa-caret-down"></i></a></button>
+							<button class="dropbtn">
+								<a style="padding: 0px" href="#">Dropdown <i
+									class="fa fa-caret-down"></i></a>
+							</button>
 							<div class="dropdown-content">
 								<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
 							</div>
