@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 17, 2020 lúc 07:36 PM
+-- Thời gian đã tạo: Th7 18, 2020 lúc 04:01 PM
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 7.3.12
 
@@ -66,7 +66,10 @@ CREATE TABLE `review` (
 
 INSERT INTO `review` (`id`, `reviewer`, `member`, `about`, `sao`, `noidung`, `school`, `thoigian`) VALUES
 (1, 'Ẩn Danh', 0, 'Đang học', 4, 'mình mới pv tuần trước. chưa biết kq thế nào nhưng thấy tác phong đón tiếp cũng chuyên nghiệp, có hai vòng , vòng 1 là technical, vòng 2 pv với nhân sự, kq hai vòng là độc lập và sẽ được đánh giá chung thành thang điểm dựa trên 10 tiêu chí, từ đó được đưa vào hệ thống đánh giá rank lương cho ứng viên và ko phụ thuộc về mặt con người\r\n', 3, '2020-07-13 22:09:22'),
-(2, 'Khách', 0, 'Tìm hiểu trường', 3, 'Trường mọi thứ đều ok', 3, '2020-07-16 21:54:44');
+(2, 'Khách', 0, 'Tìm hiểu trường', 3, 'Trường mọi thứ đều ok', 3, '2020-07-16 21:54:44'),
+(3, 'Khách', 0, 'Tìm hiểu trường', 3, 'Không có review nào à', 0, '2020-07-18 14:45:48'),
+(4, 'Khách', 0, 'Tìm hiểu trường', 3, 'Không có review nào à', 0, '2020-07-18 14:46:25'),
+(5, 'Khách', 0, 'Tìm hiểu trường', 3, 'Không có review nào à', 0, '2020-07-18 14:46:30');
 
 -- --------------------------------------------------------
 
@@ -160,7 +163,7 @@ ALTER TABLE `reply`
 -- AUTO_INCREMENT cho bảng `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `school`
