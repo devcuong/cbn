@@ -128,7 +128,7 @@ class School extends Controller
         
         // member Id
         if(isset($_POST['member'])){
-            if(trim($_POST[""]) != ""){
+            if(trim($_POST["member"]) != ""){
                 $memberId = trim($_POST["member"]);
             }
         }
