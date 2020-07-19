@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 19, 2020 lúc 12:09 AM
+-- Thời gian đã tạo: Th7 19, 2020 lúc 11:22 AM
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 7.3.12
 
@@ -85,7 +85,7 @@ CREATE TABLE `school` (
   `luotdanhgia` int(11) NOT NULL,
   `tongsao` int(11) NOT NULL,
   `rate` float NOT NULL,
-  `diachi` varchar(100) NOT NULL,
+  `diachi` text NOT NULL,
   `thoigian` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -95,10 +95,10 @@ CREATE TABLE `school` (
 
 INSERT INTO `school` (`id`, `tenschool`, `slugschool`, `category`, `slugcategory`, `logo`, `website`, `luotdanhgia`, `tongsao`, `rate`, `diachi`, `thoigian`) VALUES
 (3, 'Bách Khoa - ĐHQG TP.HCM', 'bach-khoa-dhqg-tphcm', 'Đại học', 'dai-hoc', 'dhbk-dhqg.png', 'https://www.hcmut.edu.vn/vi', 2, 7, 3.5, '268 Lý Thường Kiệt, Phường 14, Quận 10, TP HCM', '2020-07-16 21:54:44'),
-(4, 'Newsky', 'newsky', 'Trung Tâm Tiếng Anh', 'trung-tam-tieng-anh', 'newsky.png', 'http://newsky.edu.vn/', 0, 0, 0, '292 Âu Cơ, Phường 10, Q.Tân Bình, Tp.HCM  Vui lòng giữ nguồn: http://newsky.edu.vn/lien-he/', '2020-07-17 23:19:34'),
+(4, 'Newsky', 'newsky', 'Trung Tâm Tiếng Anh', 'trung-tam-tieng-anh', 'newsky.png', 'http://newsky.edu.vn/', 0, 0, 0, '292 Âu Cơ, Phường 10, Q.Tân Bình, Tp.HCM ', '2020-07-17 23:19:34'),
 (5, 'kanata', 'kanata', 'Trung Tâm Tiếng Hàn', 'trung-tam-tieng-han', 'katana.png', 'kanata.edu.vn', 0, 0, 0, '384/19 Nam Kỳ Khởi Nghĩa, Phường 8, Quận 3, TP.HCM', '2020-07-17 23:30:59'),
 (6, 'SHZ', 'shz', 'Trung Tâm Tiếng Trung', 'trung-tam-tieng-trung', 'shz.png', 'https://hoavanshz.com/', 0, 0, 0, '247 Nguyễn Thị Minh Khai, P Nguyễn Cư Trinh, Quận 1', '2020-07-17 23:36:42'),
-(9, 'Trường Đại Học Luật TP.HCM', 'truong-dai-hoc-luat-tphcm', 'Đại Học', 'dai-hoc', 'logo-truongluat.png', 'http://www.hcmulaw.edu.vn/', 0, 0, 0, 'Số 02, Nguyễn Tất Thành, phường 12, quận 4, Tp. Hồ Chí Minh.||Số 123 Quốc lộ 13, phường Hiệp Bình Ch', '2020-07-19 04:40:29');
+(10, 'Trường Đại Học Luật TP.HCM', 'truong-dai-hoc-luat-tphcm', 'Đại Học-Kỹ Năng Nghiệp Vụ', 'dai-hoc-ky-nang-nghiep-vu', 'logo-truongluat.png', 'http://www.hcmulaw.edu.vn/', 0, 0, 0, 'Số 02, Nguyễn Tất Thành, phường 12, quận 4, Tp. Hồ Chí Minh.||Số 123 Quốc lộ 13, phường Hiệp Bình Chánh\r\n', '2020-07-19 09:33:00');
 
 -- --------------------------------------------------------
 
@@ -167,7 +167,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT cho bảng `school`
 --
 ALTER TABLE `school`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
