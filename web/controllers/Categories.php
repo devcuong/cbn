@@ -19,23 +19,20 @@ class Categories extends Controller
     {
         $trangHienTai = 1;
         $schoolMoiTrang = 16;
-        $tuKhoa = "";
+        $category = "";
         if ($c != null) {
             $trangHienTai = $c;
         }
-        if (isset($_POST["school-search"])) {
-            $tuKhoa = trim($_POST["school-search"]);
-        }
-        if ($d != null) {
-            $tuKhoa = $d;
+        if ($b != null) {
+            $category = $b;
         }
         $soSchoolBoQua = ($trangHienTai - 1) * $schoolMoiTrang;
         // Tất cả school
-        $schoolTimDuoc = $this->SchoolModel->LaySchoolTheoKyTu($tuKhoa);
+        $schoolTimDuoc = $this->SchoolModel->LaySchoolTheoCategory($category);
         $soSchool = mysqli_num_rows($schoolTimDuoc);
         $soTrang = ceil($soSchool / $schoolMoiTrang);
         $schoolTrangHienTai = "";
-        $schoolTrangHienTai = $this->SchoolModel->PhanTrangSchoolTheoTuKhoa($soSchoolBoQua, $schoolMoiTrang, $tuKhoa);
+        $schoolTrangHienTai = $this->SchoolModel->PhanTrangSchoolTheoCategory($soSchoolBoQua, $schoolMoiTrang, $category);
 
         // Phân trang
         $cutString = new CutString();
@@ -50,12 +47,11 @@ class Categories extends Controller
     
         // View
         $this->view("main-template", [
-            "Page" => "trang-ket-qua",
+            "Page" => "categories",
             "SoTrang" => $soTrang,
             "TrangHienTai" => $trangHienTai,
             "SchoolTrangHienTai" => $schoolTrangHienTai,
             "Nav" => $navigate,
-            "Keyword" => $tuKhoa,
             "Title" => $title,
             "Description" => $description
         ]);

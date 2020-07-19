@@ -33,12 +33,17 @@ class SchoolModel extends DB{
             $qr = "SELECT * FROM school WHERE tenschool LIKE '%$ten%' LIMIT 10";
             return mysqli_query($this->con, $qr);
         }
+        /*Lấy trường theo categories*/
+        public function LaySchoolTheoCategory($category){
+            $qr = "SELECT * FROM school WHERE slugcategory LIKE '%$category%'";
+            return mysqli_query($this->con, $qr);
+        }
         /*Lấy toàn bộ trường theo ký tự trong tên*/
         public function LayTatCaSchoolTheoKyTu($ten){
             $qr = "SELECT * FROM school WHERE tenschool LIKE '%$ten%'";
             return mysqli_query($this->con, $qr);
         }
-        /*Tìm trường theo từ khóa và phân trang*/
+        /*Tìm trường theo từ khóa tên trường và phân trang*/
         public function PhanTrangSchoolTheoTuKhoa($soSchoolBoQua, $soSchoolMoiTrang, $ten){
             $qr = "";
             if($ten != ""){
@@ -47,7 +52,16 @@ class SchoolModel extends DB{
                 $qr = "SELECT * FROM school LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
             }
            return mysqli_query($this->con, $qr);
-           //return $qr;
+        }
+        /*Tìm trường theo category và phân trang*/
+        public function PhanTrangSchoolTheoCategory($soSchoolBoQua, $soSchoolMoiTrang, $category){
+            $qr = "";
+            if($category!= ""){
+                $qr = "SELECT * FROM school WHERE slugcategory LIKE '%$category%' LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
+            }else{
+                $qr = "SELECT * FROM school LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
+            }
+            return mysqli_query($this->con, $qr);
         }
         /*HẾT TÌM KIẾM*/
         // Update rate school

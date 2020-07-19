@@ -121,6 +121,10 @@ body {
 	}
 }
 
+.school-info .school-category{
+	font-weight: bold;
+}
+
 .item-wrapper:hover {
 	background: #f1f2f2;
 	border-bottom: 2px solid #3273dc;
@@ -515,25 +519,7 @@ body {
 	padding-left: 1.25rem;
 }
 
-.item-list {
-	text-align: center;
-}
 
-.item-list .item-nav {
-	display: inline-block;
-	border: 1px solid #ddd;
-	margin-bottom: 5px;
-	border-radius: 15px;
-	box-shadow: 2px 1px 2px #ddd;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-
-.item-list .item-nav:hover {
-	background: #f1f2f2;
-	border: 1px solid #3273dc;
-	cursor: pointer;
-}
 
 .no-padding {
 	padding-left: 0px;
@@ -864,18 +850,21 @@ body {
 				</div>
 				<div class="col-md-9 top-box-nav">
 					<div class="topnav" id="myTopnav">
-						<a href="#home" class="active">Home</a> <a href="#news">News</a> <a
-							href="#contact">Contact</a>
+						<a href="#home" class="active">Trang chủ</a> 
+						<a href="#phothong">Phổ thông</a> 
+						<a href="#dh-cd">ĐH - CĐ</a>
+						<a href="#duhoc">Du học</a>
+						<a href="#mamnon">Mầm Non</a>
 						<div class="dropdown">
 							<button class="dropbtn">
-								<a style="padding: 0px" href="#">Dropdown <i
+								<a style="padding: 0px" href="#">Ngắn hạn<i
 									class="fa fa-caret-down"></i></a>
 							</button>
 							<div class="dropdown-content">
 								<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
 							</div>
 						</div>
-						<a href="#about">About</a> <a href="javascript:void(0);"
+						 <a href="javascript:void(0);"
 							style="font-size: 15px;" class="icon" onclick="showNav()"><i class="fa fa-bars" aria-hidden="true"></i>
 </a>
 					</div>
