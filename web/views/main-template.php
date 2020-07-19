@@ -853,11 +853,11 @@ body {
 				<div class="col-md-3 top-box-mobile">
 					<div class="navbar-brand">
 						<div class="logo" data-no-instant="">
-							<a href="//congtytop.com"> <img class="logo__img"
+							<a href="<?php echo $servername ?>"> <img class="logo__img"
 								src="//congtytop.com/mvc/public/images/logo.png" alt="">
 							</a>
 							<h1 class="logo__header has-text-white is-size-5">
-								<a href="<?php echo $servername ?>"> <b>CÔNG TY TOP</b></a>
+								<a href="<?php echo $servername ?>"> <b>RV TR</b></a>
 							</h1>
 						</div>
 					</div>

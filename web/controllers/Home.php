@@ -17,9 +17,8 @@ class Home extends Controller
         $this->SchoolModel = $this->model("SchoolModel");
     }
 
-    function Index($a = NULL)
+    function Index()
     {
-        if ($a == NULL) {
             $trangHienTai = 1;
             $schoolMoiTrang = 16;
             if (isset($_GET["page"])) {
@@ -58,7 +57,6 @@ class Home extends Controller
                 "Description" => $description,
                 "Keyword" => $keyword
             ]);
-        }
     }
 }
 ?>
