@@ -33,6 +33,7 @@
 		<div class="custom-select" style="width: 200px;">
 			<select name="choice-category" id="choice-category"
 				onchange="changeCategory()">
+				<option value="">Hãy lựa chọn</option>
 				<option value="dai-hoc">Đại Học</option>
 				<option value="cao-dang">Cao Đẳng</option>
 				<option value="nghe">Nghề</option>
@@ -40,6 +41,7 @@
 				<option value="thcs">THCS</option>
 				<option value="tieu-hoc">Tiểu Học</option>
 				<option value="mam-non">Mầm Non</option>
+				<option value="ky-nang-nghiep-vu">Kỹ Năng Nghiệp Vụ</option>
 				<option value="tieng-anh">Trung Tâm Tiếng Anh</option>
 				<option value="tieng-han">Trung Tâm Tiếng Hàn</option>
 				<option value="tieng-nhat">Trung Tâm Tiếng Nhật</option>
@@ -62,7 +64,7 @@
 		<input type="text" class="form-control" id="slug-category" name="slug-category" value="" />
 			<script type="text/javascript">
 				function changeCategory(){
-					$("#category").val($("#category").val() + "||" + $( "#choice-category option:selected" ).text());
+					$("#category").val($("#category").val() + "-" + $( "#choice-category option:selected" ).text());
 					$("#slug-category").val($("#slug-category").val() + "-" + $( "#choice-category option:selected" ).val());
 		}
 			</script>

@@ -10,7 +10,7 @@
 <meta name="author" content="LayoutIt!">
 <link href="<?php echo $servername ?>/web/public/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="<?php echo $servername ?>/web/public/css/style.css"
+<link href="<?php echo $servername ?>/web/public/css/css"
 	rel="stylesheet">
 <link rel="stylesheet" as="style"
 	href="<?php echo $servername ?>/web/public/css/jquery-ui.min.css">
@@ -32,6 +32,9 @@
 <style type="text/css">
 body {
 	font-family: 'Quicksand', sans-serif;
+	font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .top-head-container {
@@ -83,7 +86,7 @@ body {
 }
 @media ( min-width : 768px) {
 	.item-wrapper {
-		width: 25%;
+		width: 20%;
 		border-bottom: 0.1px solid #e8e8eb;
 	}
 	.school-info .school-name {
@@ -93,7 +96,7 @@ body {
 	}
 	.school-info .school-category, .school-info .school-address,
 		.school-info .school-rating {
-		font-size: 1rem;
+		font-size: 1em;
 	}
 }
 

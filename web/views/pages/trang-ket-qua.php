@@ -163,9 +163,7 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 			<div class="right-social">
 				<div class="wrapper-social row">

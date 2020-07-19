@@ -141,14 +141,7 @@ figure{
 								<div class="school-category">
 									<span class="icon"><i class="fa fa-graduation-cap"
 										aria-hidden="true"></i> </span> <span class="text">
-									<?php $allCategory = $row["category"];
-									       $lstCategory = explode("||",$allCategory);
-									       $strCategory = "";
-									       for($i=0 ; $i<count($lstCategory); $i++){
-									           $strCategory .= $lstCategory[$i]."-";
-									       }
-									       echo $strCategory;
-									?>
+									<?php echo $row["category"] ?>
 									</span>
 
 								</div>
@@ -192,6 +185,18 @@ figure{
 							<div class="item-nav">
 								<span class="tag-icon"><i class="fa fa-tag" aria-hidden="true"></i>
 </span> <span class="tag-text">Nghề</span>
+							</div>
+							<div class="item-nav">
+								<span class="tag-icon"><i class="fa fa-tag" aria-hidden="true"></i>
+</span> <span class="tag-text">THPT</span>
+							</div>
+							<div class="item-nav">
+								<span class="tag-icon"><i class="fa fa-tag" aria-hidden="true"></i>
+</span> <span class="tag-text">THCS</span>
+							</div>
+							<div class="item-nav">
+								<span class="tag-icon"><i class="fa fa-tag" aria-hidden="true"></i>
+</span> <span class="tag-text">Tiểu Học</span>
 							</div>
 							<div class="item-nav">
 								<span class="tag-icon"><i class="fa fa-tag" aria-hidden="true"></i>
@@ -321,7 +326,7 @@ figure{
                     },
                     success: function(e) {
                         t($.map(e, function(e) {
-                            var t = SiteName+"/school/" + e.slugcongty + "-" + e.id + "/";
+                            var t = SiteName+"/school/" + e.slugschool + "-" + e.id + "/";
                             return {
                                 label: e.tenschool,
                                 url: t,

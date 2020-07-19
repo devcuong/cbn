@@ -358,6 +358,9 @@ px
 
 
 }
+.school-location{
+	display: block;
+}
 </style>
 <div class="container">
 	<?php
@@ -399,23 +402,20 @@ while ($row = mysqli_fetch_array($data["School"])) {
 							class="fa fa-graduation-cap" aria-hidden="true"></i></span><?php echo $row["category"]?>
 					</span>
 				</div>
-				<div class="school-infrastructure">
-					<span class="school-location"> <span class="icon"><i
+				<div class="school-website">
+					<span class="school-website"> <span class="icon"><i
 							class="fa fa-rss" aria-hidden="true"></i> </span>
 						<?php echo $row["website"]?>
 					</span>
 				</div>
 				<div class="school-location">
-					<span class="school-location"> <span class="icon"><i
-							class="fa fa-map-marker" aria-hidden="true"></i></span><?php $allDiaChi = $row["diachi"];
-									       $lstDiaChi = explode("||",$allDiaChi);
-									       if(count($lstDiaChi) > 1){
-									           echo "Nhiều địa điểm";
-									       }else{
-									           echo $allDiaChi;
-									       }
-									       ?>
+					<?php $lstDiaChi = explode("||", $row["diachi"]);
+					for($i = 0; $i < count($lstDiaChi); $i++){ ?>
+					   <span class="school-location"> <span class="icon"><i
+							class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $lstDiaChi[$i]; ?>
 					</span>
+					<?php }
+					?>
 				</div>
 			</div>
 		</div>
