@@ -196,7 +196,19 @@ body {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	:
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -309,8 +321,20 @@ body {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	!
 	important
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -765,12 +789,13 @@ body {
 	}
 	.navbar-brand .logo .logo__header a {
 		font-size: 1rem;
+		text-decoration: none;
 	}
 	.navbar-brand .logo .logo__header {
 		margin-bottom: 0px;
 	}
 	.navbar-brand .logo .logo__header {
-		margin-top: 0px;
+		margin-top: 5px;
 	}
 	.top-box-mobile {
 		background-color: #585858;
@@ -841,42 +866,65 @@ body {
 	position: relative;
 	vertical-align: top;
 }
-.tt-header-top {
-    height: 25px;
-    background-color: #424242;
-    color: #fff;
-    font-size: 90%;
+
+.mr-auto {
+	margin-right: auto !important;
 }
-.tt-header-top .page-link-out {
-    margin-bottom: 0px;
-    padding: 0px;
-    list-style: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-size: 90%;
-    color: #fff;
-    line-height: 25px;
+
+@media screen and (min-width: 768px) {
+	.tt-header-top {
+		height: 25px;
+		background-color: #424242;
+		color: #fff;
+		font-size: 90%;
+	}
+	.tt-header-top  a {
+		color: #fff;
+	}
+	.tt-header-top .page-link-out {
+		margin-bottom: 0px;
+		padding: 0px;
+		list-style: none;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		font-size: 90%;
+		color: #fff;
+		line-height: 25px;
+	}
+	.member-log {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.tt-header-top {
+		display: none;
+	}
+	.member-log a {
+		color: #fff;
+	}
 }
 </style>
 </head>
 <body>
 	<div class="tt-header-top">
 		<div class="container d-flex align-items-center">
-			<div class="page-link-out is-hidden-touch">
+			<div class="page-link-out mr-auto">
 				<span class="d-none d-md-inline-block">Góp ý:</span> <a
 					href="mailto:company@congtytop.com"
 					title="Góp ý company@congtytop.com"> <i
-					class="fa fa-envelope mr-1 d-md-none"></i> company@congtytop.com
+					class="fa fa-envelope mr-1 d-md-none"></i> school@reviewtruong.com
 				</a>
 			</div>
 			<div class="page-link-out ng-scope" ng-controller="dang-nhap as ctrl">
-				<a href="//congtytop.com" title="Đăng nhập" class="ng-scope">Đăng
-					nhập</a> <span class="ng-scope">/</span> <a href="//congtytop.com"
-					title="Đăng ký" class="ng-scope">Đăng ký</a>
+				<a href="<?php echo $servername ?>" title="Đăng nhập"
+					class="ng-scope">Đăng nhập</a> <span class="ng-scope">/</span> <a
+					href="<?php echo $servername ?>" title="Đăng ký" class="ng-scope">Đăng
+					ký</a>
 			</div>
 		</div>
 	</div>
@@ -884,14 +932,22 @@ body {
 		<div class="container">
 			<div class="row top-nav">
 				<div class="col-md-3 top-box-mobile">
-					<div class="navbar-brand">
-						<div class="logo" data-no-instant="">
-							<a href="<?php echo $servername ?>"> <img class="logo__img"
-								src="//congtytop.com/mvc/public/images/logo.png" alt="">
-							</a>
-							<h1 class="logo__header has-text-white is-size-5">
-								<a href="<?php echo $servername ?>"> <b>RV TR</b></a>
-							</h1>
+					<div class="container d-flex align-items-center">
+						<div class="navbar-brand mr-auto">
+							<div class="logo d-flex" data-no-instant="">
+								<a href="<?php echo $servername ?>"> <img class="logo__img"
+									src="//congtytop.com/mvc/public/images/logo.png" alt="">
+								</a>
+								<h1 class="logo__header has-text-white is-size-5">
+									<a href="<?php echo $servername ?>"> <b>RV TR</b></a>
+								</h1>
+							</div>
+						</div>
+						<div class="page-link-out member-log"
+							ng-controller="dang-nhap as ctrl">
+							<a href="<?php echo $servername ?>" title="Đăng nhập">Đăng nhập</a>
+							<span class="ng-scope">/</span> <a
+								href="<?php echo $servername ?>" title="Đăng ký">Đăng ký</a>
 						</div>
 					</div>
 				</div>
