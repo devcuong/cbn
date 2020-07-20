@@ -18,7 +18,7 @@ class Categories extends Controller
     function Index($a, $b=NULL, $c=NULL)
     {
         $trangHienTai = 1;
-        $schoolMoiTrang = 16;
+        $schoolMoiTrang = 20;
         $category = "";
         if ($c != null) {
             $trangHienTai = $c;

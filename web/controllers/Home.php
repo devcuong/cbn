@@ -20,7 +20,7 @@ class Home extends Controller
     function Index()
     {
             $trangHienTai = 1;
-            $schoolMoiTrang = 16;
+            $schoolMoiTrang = 15;
             if (isset($_GET["page"])) {
                 $trangHienTai = $_GET["page"];
             }

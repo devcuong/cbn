@@ -228,6 +228,7 @@
 	text-align: left;
 	padding: 5px 10px;
 	min-height: 50px;
+	font-weight: 500;
 }
 
 .review-footer {

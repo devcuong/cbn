@@ -9,20 +9,22 @@ class SchoolModel extends DB{
         
         // Lấy trường bởi id
         public function LaySchoolBangId($iD){
-            $qr = "SELECT * FROM school WHERE id = '$iD'";
+            $qr = "SELECT * FROM school WHERE id = ".mysqli_real_escape_string($this->con, $iD);
             return mysqli_query($this->con, $qr);
         }
         
         // Lấy trường bằng slug
         public function LaySchoolBangSlug($slug){
-            $qr = "SELECT * FROM school WHERE slugschool = '$slug'";
+            $qr = "SELECT * FROM school WHERE slugschool = ".mysqli_real_escape_string($this->con, $slug);
             return mysqli_query($this->con, $qr);
         }
         
         /*PHÂN TRANG*/
         // Lấy trường để phân trang
         public function LaySchoolPhanTrang($soSchoolBoQua, $soSchoolMoiTrang){
-            $qr = "SELECT * FROM school ORDER BY thoigian DESC LIMIT $soSchoolBoQua, $soSchoolMoiTrang" ;
+            $boQua = (int)$soSchoolBoQua;
+            $moiTrang = (int)$soSchoolMoiTrang;
+            $qr = "SELECT * FROM school ORDER BY thoigian DESC LIMIT $boQua, $moiTrang" ;
             return mysqli_query($this->con, $qr);
         }
         /*HẾT PHÂN TRANG*/
@@ -30,17 +32,17 @@ class SchoolModel extends DB{
         /*TÌM KIẾM*/
         /*Lấy trường theo ký tự trong tên*/
         public function LaySchoolTheoKyTu($ten){
-            $qr = "SELECT * FROM school WHERE tenschool LIKE '%$ten%' LIMIT 10";
+            $qr = "SELECT * FROM school WHERE tenschool LIKE '%".mysqli_real_escape_string($this->con, $ten)."%' LIMIT 10";
             return mysqli_query($this->con, $qr);
         }
         /*Lấy trường theo categories*/
         public function LaySchoolTheoCategory($category){
-            $qr = "SELECT * FROM school WHERE slugcategory LIKE '%$category%'";
+            $qr = "SELECT * FROM school WHERE slugcategory LIKE '%".mysqli_real_escape_string($this->con, $category)."%'";
             return mysqli_query($this->con, $qr);
         }
         /*Lấy toàn bộ trường theo ký tự trong tên*/
         public function LayTatCaSchoolTheoKyTu($ten){
-            $qr = "SELECT * FROM school WHERE tenschool LIKE '%$ten%'";
+            $qr = "SELECT * FROM school WHERE tenschool LIKE '%".mysqli_real_escape_string($this->con, $ten)."%'";
             return mysqli_query($this->con, $qr);
         }
         /*Tìm trường theo từ khóa tên trường và phân trang*/
@@ -56,10 +58,12 @@ class SchoolModel extends DB{
         /*Tìm trường theo category và phân trang*/
         public function PhanTrangSchoolTheoCategory($soSchoolBoQua, $soSchoolMoiTrang, $category){
             $qr = "";
+            $boQua = (int)$soSchoolBoQua;
+            $moiTrang = (int)$soSchoolMoiTrang;
             if($category!= ""){
-                $qr = "SELECT * FROM school WHERE slugcategory LIKE '%$category%' LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
+                $qr = "SELECT * FROM school WHERE slugcategory LIKE '%".mysqli_real_escape_string($this->con, $category)."%' LIMIT $boQua,$moiTrang";
             }else{
-                $qr = "SELECT * FROM school LIMIT $soSchoolBoQua,$soSchoolMoiTrang";
+                $qr = "SELECT * FROM school LIMIT $boQua,$moiTrang";
             }
             return mysqli_query($this->con, $qr);
         }

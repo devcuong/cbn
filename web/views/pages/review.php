@@ -170,6 +170,10 @@
 	.button.is-medium {
 		font-size: 1.25rem;
 	}
+    
+	.school-logo {
+		min-height: 0px;
+	}
 }
 
 /*review*/
@@ -223,9 +227,11 @@
 	text-align: left;
 	padding: 5px 10px;
 	min-height: 50px;
+	font-weight: 500;
 }
 
 .review-footer {
+	display:none;
 	font-size: 13px;
 	font-weight: normal;
 	padding: 2px 10px 10px 10px;

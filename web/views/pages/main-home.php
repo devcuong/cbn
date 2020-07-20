@@ -84,8 +84,8 @@ figure{
     while ($r = mysqli_fetch_array($data["15ReviewMoiNhat"])) {
         ?>
         <div class="item-new-review">
-						<span class="user-name"><?php echo $r["reviewer"] ?>&nbsp;</span>đã review <span
-							class="review-school-name"><?php echo $r["tenschool"] ?> &nbsp;</span> <span
+						<span class="user-name"><?php echo $r["reviewer"] ?>&nbsp;</span>đã review <a href="<?php echo $servername ?>/school/<?php echo $r["slugschool"] ?>-<?php echo $r["id"] ?>"><span
+							class="review-school-name"><?php echo $r["tenschool"] ?> &nbsp;</span></a> <span
 							class="review-rate"><?php echo $r["sao"] ?><i class="fa fa-star" aria-hidden="true"></i>
 							</span>
 						<div class="short-review"><?php echo $r["noidung"] ?></div>

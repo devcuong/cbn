@@ -1,13 +1,66 @@
 <?php require_once 'web/core/Config.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bootstrap 4</title>
-<meta name="description" content="Source code generated">
-<meta name="author" content="LayoutIt!">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="<?php echo $data["Description"]; ?>">
+
+<meta name="keywords" content="<?php echo $data["Keyword"]; ?>">
+
+<meta property="og:title" content="<?php echo $data["Title"]; ?>">
+<meta property="og:description"
+	content="<?php echo $data["Description"]; ?>">
+<meta property="og:type" content="website">
+
+<meta property="og:url"
+	content="<?php
+$url = "https" . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+echo $url?>">
+<link rel="canonical" href="<?php echo $url ?>">
+<?php if(isset($data["StringSchema"])) {?>
+<script type="application/ld+json">
+<?php echo $data["StringSchema"];?>
+</script>
+<?php } ?>
+
+<meta property="og:image"
+	content="<?php
+$url = "https" . "://$_SERVER[HTTP_HOST]";
+echo $url?>/web/public/images/banner.png">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="Công ty TOP">
+<title><?php echo $data["Title"]; ?></title>
+<link rel="apple-touch-icon" sizes="57x57"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180"
+	href="<?php echo $servername ?>/web/public/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"
+	href="<?php echo $servername ?>/web/public/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="<?php echo $servername ?>/web/public/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96"
+	href="<?php echo $servername ?>/web/public/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="<?php echo $servername ?>/web/public/favicon/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage"
+	content="<?php echo $servername ?>/web/public/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 <link href="<?php echo $servername ?>/web/public/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="<?php echo $servername ?>/web/public/css/css"
@@ -202,7 +255,15 @@ body {
 	
 	
 	
+	
+	
+	
+	
 	:
+	
+	
+	
+	
 	
 	
 	
@@ -327,8 +388,16 @@ body {
 	
 	
 	
+	
+	
+	
+	
 	!
 	important
+	
+	
+	
+	
 	
 	
 	
@@ -584,7 +653,9 @@ body {
 .item-new-review .review-school-name {
 	color: #FE2E2E;
 }
-
+.item-new-review a{
+	text-decoration: none;
+}
 .item-new-review .review-rate {
 	color: #fff;
 	padding: 3px;
@@ -777,8 +848,8 @@ body {
 @media screen and (max-width: 768px) {
 	.navbar-brand {
 		margin-right: 0px;
-		text-align: center;
 		min-height: 1.5rem;
+		margin: auto;
 	}
 	.navbar-brand .logo {
 		justify-content: center;
@@ -908,15 +979,23 @@ body {
 		color: #fff;
 	}
 }
+
+.tt-header-top {
+	display: none;
+}
+
+.member-log {
+	display: none;
+}
 </style>
 </head>
-<body>
+<body oncontextmenu="return false">
 	<div class="tt-header-top">
 		<div class="container d-flex align-items-center">
 			<div class="page-link-out mr-auto">
 				<span class="d-none d-md-inline-block">Góp ý:</span> <a
-					href="mailto:company@congtytop.com"
-					title="Góp ý company@congtytop.com"> <i
+					href="#"
+					title="Góp ý #"> <i
 					class="fa fa-envelope mr-1 d-md-none"></i> school@reviewtruong.com
 				</a>
 			</div>
@@ -933,7 +1012,8 @@ body {
 			<div class="row top-nav">
 				<div class="col-md-3 top-box-mobile">
 					<div class="container d-flex align-items-center">
-						<div class="navbar-brand mr-auto">
+						<div class="navbar-brand">
+							<!-- mr-auto -->
 							<div class="logo d-flex" data-no-instant="">
 								<a href="<?php echo $servername ?>"> <img class="logo__img"
 									src="//congtytop.com/mvc/public/images/logo.png" alt="">
@@ -1040,22 +1120,13 @@ body {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<div class="header intro-faq">Giới thiệu</div>
-					<div class="bottom-item">
-						<a href="#">Về rev tr</a>
-					</div>
-					<div class="bottom-item">
-						<a href="#">Giải đáp thắc mắc</a>
-					</div>
+					<div class="header">Email: school@reviewtruong.com</div>
 				</div>
 				<div class="col-md-3">
-					<div class="header tnc">Điều khoản sử dụng</div>
 				</div>
 				<div class="col-md-3">
-					<div class="header menu">Danh mục</div>
 				</div>
 				<div class="col-md-3">
-					<div class="header social">Mạng xã hội</div>
 				</div>
 			</div>
 		</div>
@@ -1069,6 +1140,15 @@ body {
 		    x.className = "topnav";
 		  }
 		}
+	$('body').bind('cut copy paste', function (e) {
+		 $("#error").fadeIn("slow");
+		 setTimeout(function(){
+		  $("#error").fadeOut("slow");
+		 },2000);
+		 
+		 return false;
+		});
+
 	</script>
 </body>
 </html>

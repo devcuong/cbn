@@ -116,7 +116,7 @@ class QuanTri extends Controller
                         move_uploaded_file($_FILES['logo-truong']['tmp_name'], $duongDanHinhAnh);
                         
                         $createdDate = date("Y-m-d H:i:s");
-                        // Kiểm tra công ty có hay chưa
+                        // Kiểm tra trường có hay chưa
                         $daco = $this->SchoolModel->LaySchoolBangSlug($slugtruong);
                         if (mysqli_num_rows($daco) < 1) {
                             // Thêm công ty
