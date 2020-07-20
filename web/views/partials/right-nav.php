@@ -5,6 +5,7 @@
 
 .item-list a {
 	text-decoration: none;
+	color: #000;
 }
 
 .item-list .item-nav {

@@ -62,7 +62,7 @@ figure{
 										<div class="input-group box-search">
 											<input name="school-search" id="school-search"
 												class="input form-control ui-autocomplete-input" type="text"
-												placeholder="Tìm trường học" autocomplete="off">
+												placeholder="Tìm trường bạn quan tâm / Tìm là có" autocomplete="off">
 											<div class="input-group-append">
 												<button class="btn" type="submit">
 													<i class="fa fa-search" aria-hidden="true"></i>

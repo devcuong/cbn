@@ -628,6 +628,10 @@ body {
 	margin: 0;
 }
 
+.dropdown .dropbtn i{
+    margin-left: 2px;
+}
+
 .dropdown-content {
 	display: none;
 	position: fixed;
@@ -850,20 +854,63 @@ body {
 				</div>
 				<div class="col-md-9 top-box-nav">
 					<div class="topnav" id="myTopnav">
-						<a href="#home" class="active">Trang chủ</a> 
-						<a href="#phothong">Phổ thông</a> 
-						<a href="#dh-cd">ĐH - CĐ</a>
-						<a href="#duhoc">Du học</a>
-						<a href="#mamnon">Mầm Non</a>
+						<a href="<?php echo $servername ?>" class="active">Trang chủ</a>
 						<div class="dropdown">
 							<button class="dropbtn">
-								<a style="padding: 0px" href="#">Ngắn hạn<i
+								<a style="padding: 0px" href="#">Phổ thông<i
 									class="fa fa-caret-down"></i></a>
 							</button>
 							<div class="dropdown-content">
-								<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
+								<a href="<?php echo $servername ?>/categories/thpt">Trung Học Phổ Thông</a>
+								<a href="<?php echo $servername ?>/categories/thcs">Trung Học Cơ Sở</a>
+								<a href="<?php echo $servername ?>/categories/tieu-hoc">Tiểu Học</a>
 							</div>
 						</div>
+						<div class="dropdown">
+							<button class="dropbtn">
+								<a style="padding: 0px" href="#">CĐ-ĐH-Nghề<i
+									class="fa fa-caret-down"></i></a>
+							</button>
+							<div class="dropdown-content">
+								<a href="<?php echo $servername ?>/categories/cao-dang">Các trường Cao Đẳng</a>
+								<a href="<?php echo $servername ?>/categories/dai-hoc">Các trường Đại Học</a>
+								<a href="<?php echo $servername ?>/categories/nghe">Các trường Nghề</a>
+							</div>
+						</div>
+						<div class="dropdown">
+							<button class="dropbtn">
+								<a style="padding: 0px" href="#">Du Học<i
+									class="fa fa-caret-down"></i></a>
+							</button>
+							<div class="dropdown-content">
+								<a href="<?php echo $servername ?>/categories/du-hoc-my">Du Học Mỹ</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-anh">Du Học Anh</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-uc">Du Học Úc</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-sin">Du Học Singapore</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-nhat">Du Học Nhật</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-han">Du Học Hàn</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-dai-loan">Du Học Đài Loan</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-trung-quoc">Du Học Trung Quốc</a>
+							</div>
+						</div>
+						<a href="<?php echo $servername ?>/categories/mam-non">Mầm Non</a>
+						<div class="dropdown">
+							<button class="dropbtn">
+								<a style="padding: 0px" href="#">Trung Tâm Ngắn Hạn<i
+									class="fa fa-caret-down"></i></a>
+							</button>
+							<div class="dropdown-content">
+								<a href="<?php echo $servername ?>/categories/tieng-anh">Tiếng Anh</a>
+								<a href="<?php echo $servername ?>/categories/tieng-han">Tiếng Hàn</a>
+								<a href="<?php echo $servername ?>/categories/tieng-nhat">Tiếng Nhật</a>
+								<a href="<?php echo $servername ?>/categories/tieng-trung">Tiếng Trung</a>
+								<a href="<?php echo $servername ?>/categories/tieng-phap">Tiếng Pháp</a>
+								<a href="<?php echo $servername ?>/categories/tieng-duc">Tiếng Đức</a>
+								<a href="<?php echo $servername ?>/categories/tieng-tbn">Tiếng Tây Ban Nha</a>
+								<a href="<?php echo $servername ?>/categories/ky-nang-nghiep-vu">Kỹ Năng - Nghiệp Vụ</a>
+							</div>
+						</div>
+						
 						 <a href="javascript:void(0);"
 							style="font-size: 15px;" class="icon" onclick="showNav()"><i class="fa fa-bars" aria-hidden="true"></i>
 </a>

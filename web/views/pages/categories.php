@@ -49,7 +49,14 @@
 								</div>
 								<div class="school-address">
 									<span class="icon"><i class="fa fa-building" aria-hidden="true"></i>
-									</span> <span class="text"><?php echo $row["diachi"] ?></span>
+									</span> <span class="text"><?php $allDiaChi = $row["diachi"];
+									       $lstDiaChi = explode("||",$allDiaChi);
+									       if(count($lstDiaChi) > 1){
+									           echo "Nhiều địa điểm";
+									       }else{
+									           echo $allDiaChi;
+									       }
+									       ?></span>
 								</div>
 							</div>
 						</div>
