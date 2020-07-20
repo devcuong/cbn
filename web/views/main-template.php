@@ -33,12 +33,12 @@
 body {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+	font-weight: 400;
+	line-height: 1.5;
 }
 
 .top-head-container {
-	    background: linear-gradient(97deg,#00b9f2 35%,#0e7ccd 62%,#0275d8 81%);
+	background: linear-gradient(97deg, #00b9f2 35%, #0e7ccd 62%, #0275d8 81%);
 	border-bottom: 1px solid #0275d8;
 	line-height: 1;
 }
@@ -80,10 +80,12 @@ body {
 .school-logo img {
 	width: 100%;
 }
-.item-wrapper a{
-    text-decoration: none;
+
+.item-wrapper a {
+	text-decoration: none;
 	color: #000;
 }
+
 @media ( min-width : 768px) {
 	.item-wrapper {
 		width: 20%;
@@ -121,7 +123,7 @@ body {
 	}
 }
 
-.school-info .school-category{
+.school-info .school-category {
 	font-weight: bold;
 }
 
@@ -138,6 +140,8 @@ body {
 
 @media ( min-width : 1200px) .container {
 	max-width
+	
+	
 	
 	
 	
@@ -247,6 +251,8 @@ body {
 	
 	
 	
+	
+	
 	1100
 	px
 	
@@ -301,8 +307,12 @@ body {
 	
 	
 	
+	
+	
 	!
 	important
+	
+	
 	
 	
 	
@@ -439,7 +449,7 @@ body {
 	border-radius: 30px !important;
 	overflow: hidden;
 	background-color: #fff;
-/* 	border: 1px solid #ced4da; */
+	/* 	border: 1px solid #ced4da; */
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
@@ -519,8 +529,6 @@ body {
 	padding-left: 1.25rem;
 }
 
-
-
 .no-padding {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -594,9 +602,11 @@ body {
 .topnav {
 	overflow: hidden;
 }
-.topnav .active{
-    background: #0275d8	;
+
+.topnav .active {
+	background: #0275d8;
 }
+
 .topnav a {
 	float: left;
 	display: block;
@@ -606,7 +616,6 @@ body {
 	text-decoration: none;
 	font-size: 1rem;
 }
-
 
 .topnav .icon {
 	display: none;
@@ -628,8 +637,8 @@ body {
 	margin: 0;
 }
 
-.dropdown .dropbtn i{
-    margin-left: 2px;
+.dropdown .dropbtn i {
+	margin-left: 2px;
 }
 
 .dropdown-content {
@@ -672,7 +681,7 @@ body {
 		float: right;
 		display: block;
 	}
-    .topnav.responsive {
+	.topnav.responsive {
 		position: relative;
 	}
 	.topnav.responsive a.icon {
@@ -697,7 +706,6 @@ body {
 		text-align: left;
 	}
 }
-
 
 @media screen and (min-width: 1088px) {
 	.navbar>.container .navbar-brand {
@@ -833,10 +841,45 @@ body {
 	position: relative;
 	vertical-align: top;
 }
+.tt-header-top {
+    height: 25px;
+    background-color: #424242;
+    color: #fff;
+    font-size: 90%;
+}
+.tt-header-top .page-link-out {
+    margin-bottom: 0px;
+    padding: 0px;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 90%;
+    color: #fff;
+    line-height: 25px;
 }
 </style>
 </head>
 <body>
+	<div class="tt-header-top">
+		<div class="container d-flex align-items-center">
+			<div class="page-link-out is-hidden-touch">
+				<span class="d-none d-md-inline-block">Góp ý:</span> <a
+					href="mailto:company@congtytop.com"
+					title="Góp ý company@congtytop.com"> <i
+					class="fa fa-envelope mr-1 d-md-none"></i> company@congtytop.com
+				</a>
+			</div>
+			<div class="page-link-out ng-scope" ng-controller="dang-nhap as ctrl">
+				<a href="//congtytop.com" title="Đăng nhập" class="ng-scope">Đăng
+					nhập</a> <span class="ng-scope">/</span> <a href="//congtytop.com"
+					title="Đăng ký" class="ng-scope">Đăng ký</a>
+			</div>
+		</div>
+	</div>
 	<div class="top-head-container">
 		<div class="container">
 			<div class="row top-nav">
@@ -861,9 +904,11 @@ body {
 									class="fa fa-caret-down"></i></a>
 							</button>
 							<div class="dropdown-content">
-								<a href="<?php echo $servername ?>/categories/thpt">Trung Học Phổ Thông</a>
-								<a href="<?php echo $servername ?>/categories/thcs">Trung Học Cơ Sở</a>
-								<a href="<?php echo $servername ?>/categories/tieu-hoc">Tiểu Học</a>
+								<a href="<?php echo $servername ?>/categories/thpt">Trung Học
+									Phổ Thông</a> <a
+									href="<?php echo $servername ?>/categories/thcs">Trung Học Cơ
+									Sở</a> <a href="<?php echo $servername ?>/categories/tieu-hoc">Tiểu
+									Học</a>
 							</div>
 						</div>
 						<div class="dropdown">
@@ -872,9 +917,11 @@ body {
 									class="fa fa-caret-down"></i></a>
 							</button>
 							<div class="dropdown-content">
-								<a href="<?php echo $servername ?>/categories/cao-dang">Các trường Cao Đẳng</a>
-								<a href="<?php echo $servername ?>/categories/dai-hoc">Các trường Đại Học</a>
-								<a href="<?php echo $servername ?>/categories/nghe">Các trường Nghề</a>
+								<a href="<?php echo $servername ?>/categories/cao-dang">Các
+									trường Cao Đẳng</a> <a
+									href="<?php echo $servername ?>/categories/dai-hoc">Các trường
+									Đại Học</a> <a href="<?php echo $servername ?>/categories/nghe">Các
+									trường Nghề</a>
 							</div>
 						</div>
 						<div class="dropdown">
@@ -883,14 +930,21 @@ body {
 									class="fa fa-caret-down"></i></a>
 							</button>
 							<div class="dropdown-content">
-								<a href="<?php echo $servername ?>/categories/du-hoc-my">Du Học Mỹ</a>
-								<a href="<?php echo $servername ?>/categories/du-hoc-anh">Du Học Anh</a>
-								<a href="<?php echo $servername ?>/categories/du-hoc-uc">Du Học Úc</a>
-								<a href="<?php echo $servername ?>/categories/du-hoc-sin">Du Học Singapore</a>
-								<a href="<?php echo $servername ?>/categories/du-hoc-nhat">Du Học Nhật</a>
-								<a href="<?php echo $servername ?>/categories/du-hoc-han">Du Học Hàn</a>
-								<a href="<?php echo $servername ?>/categories/du-hoc-dai-loan">Du Học Đài Loan</a>
-								<a href="<?php echo $servername ?>/categories/du-hoc-trung-quoc">Du Học Trung Quốc</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-my">Du Học
+									Mỹ</a> <a
+									href="<?php echo $servername ?>/categories/du-hoc-anh">Du Học
+									Anh</a> <a
+									href="<?php echo $servername ?>/categories/du-hoc-uc">Du Học Úc</a>
+								<a href="<?php echo $servername ?>/categories/du-hoc-sin">Du Học
+									Singapore</a> <a
+									href="<?php echo $servername ?>/categories/du-hoc-nhat">Du Học
+									Nhật</a> <a
+									href="<?php echo $servername ?>/categories/du-hoc-han">Du Học
+									Hàn</a> <a
+									href="<?php echo $servername ?>/categories/du-hoc-dai-loan">Du
+									Học Đài Loan</a> <a
+									href="<?php echo $servername ?>/categories/du-hoc-trung-quoc">Du
+									Học Trung Quốc</a>
 							</div>
 						</div>
 						<a href="<?php echo $servername ?>/categories/mam-non">Mầm Non</a>
@@ -900,20 +954,26 @@ body {
 									class="fa fa-caret-down"></i></a>
 							</button>
 							<div class="dropdown-content">
-								<a href="<?php echo $servername ?>/categories/tieng-anh">Tiếng Anh</a>
-								<a href="<?php echo $servername ?>/categories/tieng-han">Tiếng Hàn</a>
-								<a href="<?php echo $servername ?>/categories/tieng-nhat">Tiếng Nhật</a>
-								<a href="<?php echo $servername ?>/categories/tieng-trung">Tiếng Trung</a>
-								<a href="<?php echo $servername ?>/categories/tieng-phap">Tiếng Pháp</a>
-								<a href="<?php echo $servername ?>/categories/tieng-duc">Tiếng Đức</a>
-								<a href="<?php echo $servername ?>/categories/tieng-tbn">Tiếng Tây Ban Nha</a>
-								<a href="<?php echo $servername ?>/categories/ky-nang-nghiep-vu">Kỹ Năng - Nghiệp Vụ</a>
+								<a href="<?php echo $servername ?>/categories/tieng-anh">Tiếng
+									Anh</a> <a
+									href="<?php echo $servername ?>/categories/tieng-han">Tiếng Hàn</a>
+								<a href="<?php echo $servername ?>/categories/tieng-nhat">Tiếng
+									Nhật</a> <a
+									href="<?php echo $servername ?>/categories/tieng-trung">Tiếng
+									Trung</a> <a
+									href="<?php echo $servername ?>/categories/tieng-phap">Tiếng
+									Pháp</a> <a
+									href="<?php echo $servername ?>/categories/tieng-duc">Tiếng Đức</a>
+								<a href="<?php echo $servername ?>/categories/tieng-tbn">Tiếng
+									Tây Ban Nha</a> <a
+									href="<?php echo $servername ?>/categories/ky-nang-nghiep-vu">Kỹ
+									Năng - Nghiệp Vụ</a>
 							</div>
 						</div>
-						
-						 <a href="javascript:void(0);"
-							style="font-size: 15px;" class="icon" onclick="showNav()"><i class="fa fa-bars" aria-hidden="true"></i>
-</a>
+
+						<a href="javascript:void(0);" style="font-size: 15px;"
+							class="icon" onclick="showNav()"><i class="fa fa-bars"
+							aria-hidden="true"></i> </a>
 					</div>
 				</div>
 			</div>
