@@ -39,12 +39,13 @@ class Home extends Controller
             $navigate = $cutString->get_nav_render($trangHienTai, $soTrang, "?page=");
             
             // Title
-            $title = "Review lương bổng, đãi ngộ, tuyển dụng, sếp của các công ty - CongTyTop";
+            $title = "Trang review đầy đủ nhất về việc dạy, học, cơ sở vật chất, giáo viên, giảng viên tại các Trường học, trung tâm dạy học, trung tâm du học - ReviewTruong.Com";
             
             // Description
-            $description = "Trang Review đầy đủ nhất về lương bổng, đãi ngộ, tuyển dụng, sếp của các công ty IT và liên quan IT - CongTyTop";
+            $description = "Trang review đầy đủ nhất về việc dạy, học, cơ sở vật chất, giáo viên, giảng viên tại các Trường học, trung tâm dạy học, trung tâm du học - ReviewTruong.Com";
             
-            $keyword = "review công ty, review cong ty, công ty review, cong ty review, review công việc, review cong viec, review mức lương, review muc luong, review sếp, review sep";
+            // Key
+            $keyword = "review trường học, review truong hoc, trường học review, truong hoc review, review trung tâm, review trung tam, review du học, review du hoc";
            
             
             // View

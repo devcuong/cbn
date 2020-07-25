@@ -30,6 +30,7 @@ class School extends Controller
                 $rvLater = $this->ReviewModel->LayReviewBangIdReview($d);
                 $getRVNow = $rvNow->fetch_assoc();
                 $tenSchool = $getRVNow["school_tenschool"];
+                $category = $getRVNow["school_category"];
                 $noiDungReview = $getRVNow["review_noidung"];
                 
                 $rp = $this->ReplyModel->LayReplyBangIdReview($d);
@@ -38,12 +39,12 @@ class School extends Controller
                 
                 
                 // Title
-                $title = "Review công ty "." - ".$cutString->get_first_num_of_words(trim($noiDungReview), 60);
+                $title = "Review $category $tenSchool"." - ".$cutString->get_first_num_of_words(trim($noiDungReview), 60);
                 
                 // Description
-                $description = "Công ty "." - ".$noiDungReview;
+                $description = "$category "." - ".$noiDungReview;
                 
-                $keyword =  $title = "Review công ty";
+                $keyword = "$category $tenSchool";
                 
                 // View
                 $this->view("main-template", [
@@ -72,17 +73,21 @@ class School extends Controller
         
         // School
         $schoolLater = $this->SchoolModel->LaySchoolBangId($idSchool);
+        $schoolBefore = $this->SchoolModel->LaySchoolBangId($idSchool);
         
-        $tencongty = "";
+        $getRVNow = $schoolBefore->fetch_assoc();
+        $tenSchool = $getRVNow["school_tenschool"];
+        $category = $getRVNow["school_category"];
+        $noiDungReview = $getRVNow["review_noidung"];
         
         // Title
-        $title = "Review công ty ".$tencongty;
+        $title = "Review ".$tenSchool;
         
         // Description
-        $description = "Review về mức lương, qui trình phỏng vấn, môi trường, tuyển dụng, sếp và công việc tại ".$tencongty;
+        $description = "Review về việc dạy, học, cơ sở vật chất, giáo viên, giảng viên, môi trường tại ".$tenSchool;
         
         // Keyword
-        $keyword = "review công ty $tencongty, review cong ty $tencongty, công ty review $tencongty, cong ty review $tencongty, review công việc $tencongty, review cong viec $tencongty, review mức lương $tencongty, review muc luong $tencongty, review sếp $tencongty, review sep $tencongty";
+        $keyword = "review $category $tenSchool, review $category $tenSchool, $category review $tenSchool, $category review $tenSchool, review việc dạy học tại $tenSchool, review việc dạy học tại $tenSchool, review $tenSchool";
         
         // Phân trang
         $cutString = new CutString();
@@ -201,7 +206,6 @@ class School extends Controller
             }
             $arrData = json_decode($data);
             array_push($arrData, $replyer);
-            //var_dump($arrData);
             $kq = $this->ReplyModel->CapNhatReplyBangIdReview(json_encode($arrData, JSON_UNESCAPED_UNICODE), $reviewId);
         } else {
             array_push($arrData, $replyer);

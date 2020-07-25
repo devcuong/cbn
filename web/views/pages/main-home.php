@@ -231,8 +231,7 @@ figure{
             });
             $childDiv.attr('data-value', item.label);
             $childDiv.attr('data-slug', item.slug);
-            //$li.append('<a href="#">');
-            //image
+            
             $figure.append($img);
             //text
             var search = item.term.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
