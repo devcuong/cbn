@@ -30,6 +30,8 @@
 	font-size: 150%;
 	font-weight: bold;
 	margin-top: 20px;
+	width: auto;
+	color: #FF4500;
 }
 
 .btn-block {
@@ -38,6 +40,14 @@
 
 .ng-pristine label {
 	margin-bottom: 0px;
+}
+.back-link{
+	font-size: 150%;
+	font-weight: bold;
+	text-decoration: none;
+}
+.back-link:hover{
+	text-decoration: none;
 }
 </style>
 <div class="container">
@@ -53,35 +63,11 @@
 	<div class="box box-border form-login">
 		<div class="row justify-content-center">
 			<div class="col-lg-2 col-md-2 col-xs-4 text-center">
-				<h1 class="title-login">ĐĂNG NHẬP</h1>
+				<h1 class="title-login">ĐĂNG NHẬP THÀNH CÔNG</h1>
 			</div>
 		</div>
 		<div class="row justify-content-center">
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="card-block p-2">
-					<form class="frm-login"
-						action="<?php echo $servername ?>/member/dang-nhap" method="POST">
-						<label>Tài khoản:</label>
-						<div class="input-username">
-							<input class="form-control" id="username" name="username"
-								placeholder="Tài khoản" required type="text">
-						</div>
-						<label>Mật khẩu:</label>
-						<div class="input-password">
-							<input class="form-control" id="password" name="password"
-								placeholder="Mật khẩu" required type="password">
-						</div>
-						<div></div>
-						<button type="submit" class="btn btn-primary btn-block" name="btn-dang-nhap">Đăng Nhập
-						</button>
-					</form>
-
-					<div class="text-center">
-						<a class="btn btn-link" id="forget-password" href="/quen-mat-khau">Quên
-							mật khẩu?</a>
-					</div>
-				</div>
-			</div>
+			<a href="#" class="back-link">QUAY VỀ TRANG CHỦ</a>
 		</div>
 	</div>
 </div>
