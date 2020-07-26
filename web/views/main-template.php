@@ -29,7 +29,7 @@ echo $url?>">
 $url = "https" . "://$_SERVER[HTTP_HOST]";
 echo $url?>/web/public/images/banner.png">
 <meta property="og:locale" content="vi_VN">
-<meta property="og:site_name" content="Công ty TOP">
+<meta property="og:site_name" content="Review Trường">
 <title><?php echo $data["Title"]; ?></title>
 <link rel="apple-touch-icon" sizes="57x57"
 	href="<?php echo $servername ?>/web/public/favicon/apple-icon-57x57.png">
@@ -1016,10 +1016,10 @@ body {
 							<!-- mr-auto -->
 							<div class="logo d-flex" data-no-instant="">
 								<a href="<?php echo $servername ?>"> <img class="logo__img"
-									src="//congtytop.com/mvc/public/images/logo.png" alt="">
+									src="<?php echo $servername ?>/web/public/images/logo.png" alt="">
 								</a>
 								<h1 class="logo__header has-text-white is-size-5">
-									<a href="<?php echo $servername ?>"> <b>RV TR</b></a>
+									<a href="<?php echo $servername ?>"> <b>REVIEW TRƯỜNG</b></a>
 								</h1>
 							</div>
 						</div>

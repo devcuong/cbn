@@ -49,6 +49,23 @@
 .back-link:hover{
 	text-decoration: none;
 }
+.link-action a{
+	padding: 10px;
+}
+.link-action a:hover{
+	text-decoration: none;
+}
+.link-action .home-link{
+	background: #FF4500;
+	color: #fff;
+	font-weight: bold;
+}
+.link-action .profile-link{
+	background: #00008B;
+	color: #fff;
+	font-weight: bold;
+	margin-left: 10px;
+}
 </style>
 <div class="container">
 	<nav aria-label="breadcrumb">
@@ -66,8 +83,11 @@
 				<h1 class="title-login">ĐĂNG NHẬP THÀNH CÔNG</h1>
 			</div>
 		</div>
-		<div class="row justify-content-center">
-			<a href="#" class="back-link">QUAY VỀ TRANG CHỦ</a>
+		<div class="row justify-content-center link-action">
+			<a href="<?php echo $servername ?>" class="home-link"><i class="fa fa-home" aria-hidden="true"></i>
+			TRANG CHỦ</a>
+			<a href="<?php echo $servername ?>" class="profile-link"><i class="fa fa-user" aria-hidden="true"></i>
+			PROFILE</a>
 		</div>
 	</div>
 </div>

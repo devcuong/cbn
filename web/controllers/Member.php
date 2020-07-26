@@ -32,21 +32,27 @@ class Member extends Controller
             $kq = $this->MemberModel->LayUserBangUsernameVaPassword($username, $password);
             $server = new Server();
             if (mysqli_num_rows($kq) > 0) {
-                $_SESSION["username"] = $username;
                 header("Location: " . $server->get_servername() . "/member/dang-nhap-thanh-cong", 301);
-                exit();
             } else {
-                header("Location: " . $server->get_servername() . "/member/", 301);
-                exit();
+                header("Location: " . $server->get_servername() . "/member/dang-nhap-that-bai", 301);
             }
     }
     
-    // QUẢN TRỊ VIÊN ĐĂNG NHẬP
+    // ĐĂNG NHẬP
     public function DangNhapThanhCong()
     {
         // View
         $this->view("main-template", [
             "Page" => "dang-nhap-thanh-cong"
+        ]);
+    }
+    
+    // ĐĂNG NHẬP THẤT BẠI
+    public function DangNhapThatBai()
+    {
+        // View
+        $this->view("main-template", [
+            "Page" => "dang-nhap-that-bai"
         ]);
     }
 }

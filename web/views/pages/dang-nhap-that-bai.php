@@ -39,8 +39,9 @@
 .ng-pristine label {
 	margin-bottom: 0px;
 }
-.g-recaptcha{
-	margin-top: 10px; 
+
+.error-alert{
+	margin-top: 10px;
 }
 </style>
 <div class="container">
@@ -74,6 +75,7 @@
 							<input class="form-control" id="password" name="password"
 								placeholder="Mật khẩu" required type="password">
 						</div>
+						<div class="error-alert alert alert-danger">KIỂM TRA THÔNG TIN ĐĂNG NHẬP !</div>
 						<div class="g-recaptcha"
 						data-sitekey="6Lenb7YZAAAAADKAss7qwQ2kfPNhUOhp5Dz_tBw_"
 						data-callback="onLoginCaptchaSuccess"></div>
