@@ -72,7 +72,7 @@
 								placeholder="Mật khẩu" required type="password">
 						</div>
 						<div></div>
-						<button type="submit" class="btn btn-primary btn-block" name="btnSubmit" id ="btnSubmit">Đăng Nhập
+						<button type="submit" class="btn btn-primary btn-block" name="btnSubmit" id ="btnSubmit" value="ok">Đăng Nhập
 						</button>
 					</form>
 

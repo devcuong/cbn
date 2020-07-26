@@ -10,6 +10,7 @@ class SchoolModel extends DB{
         // Lấy trường bởi id
         public function LaySchoolBangId($iD){
             $qr = "SELECT * FROM school WHERE id = ".mysqli_real_escape_string($this->con, $iD);
+            //return $qr;
             return mysqli_query($this->con, $qr);
         }
         

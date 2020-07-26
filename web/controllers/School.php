@@ -74,17 +74,15 @@ class School extends Controller
         // School
         $schoolLater = $this->SchoolModel->LaySchoolBangId($idSchool);
         $schoolBefore = $this->SchoolModel->LaySchoolBangId($idSchool);
-        
         $getRVNow = $schoolBefore->fetch_assoc();
-        $tenSchool = $getRVNow["school_tenschool"];
-        $category = $getRVNow["school_category"];
-        $noiDungReview = $getRVNow["review_noidung"];
+        $tenSchool = $getRVNow["tenschool"];
+        $category = $getRVNow["category"];
         
         // Title
         $title = "Review ".$tenSchool;
         
         // Description
-        $description = "Review về việc dạy, học, cơ sở vật chất, giáo viên, giảng viên, môi trường tại ".$tenSchool;
+        $description = "Review về việc dạy, học, cơ sở vật chất, giáo viên, giảng viên, môi trường tại $category $tenSchool";
         
         // Keyword
         $keyword = "review $category $tenSchool, review $category $tenSchool, $category review $tenSchool, $category review $tenSchool, review việc dạy học tại $tenSchool, review việc dạy học tại $tenSchool, review $tenSchool";
