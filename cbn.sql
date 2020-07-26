@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 19, 2020 lúc 11:22 AM
+-- Thời gian đã tạo: Th7 26, 2020 lúc 12:11 PM
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 7.3.12
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `cbn`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `member`
+--
+
+CREATE TABLE `member` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `member`
+--
+
+INSERT INTO `member` (`id`, `username`, `password`) VALUES
+(1, 'devdoan', '9ffe76c47d51bbe9faee835b9b04ddba');
 
 -- --------------------------------------------------------
 
@@ -66,7 +85,8 @@ CREATE TABLE `review` (
 
 INSERT INTO `review` (`id`, `reviewer`, `member`, `about`, `sao`, `noidung`, `school`, `thoigian`) VALUES
 (1, 'Ẩn Danh', 0, 'Đang học', 4, 'mình mới pv tuần trước. chưa biết kq thế nào nhưng thấy tác phong đón tiếp cũng chuyên nghiệp, có hai vòng , vòng 1 là technical, vòng 2 pv với nhân sự, kq hai vòng là độc lập và sẽ được đánh giá chung thành thang điểm dựa trên 10 tiêu chí, từ đó được đưa vào hệ thống đánh giá rank lương cho ứng viên và ko phụ thuộc về mặt con người\r\n', 3, '2020-07-13 22:09:22'),
-(2, 'Khách', 0, 'Tìm hiểu trường', 3, 'Trường mọi thứ đều ok', 3, '2020-07-16 21:54:44');
+(2, 'Khách', 0, 'Tìm hiểu trường', 3, 'Trường mọi thứ đều ok', 3, '2020-07-16 21:54:44'),
+(3, 'Khách', 0, 'Tìm hiểu trường', 3, 'Mọi thứ đều tốt, có điều hơi kỳ', 6, '2020-07-21 00:33:01');
 
 -- --------------------------------------------------------
 
@@ -97,7 +117,7 @@ INSERT INTO `school` (`id`, `tenschool`, `slugschool`, `category`, `slugcategory
 (3, 'Bách Khoa - ĐHQG TP.HCM', 'bach-khoa-dhqg-tphcm', 'Đại học', 'dai-hoc', 'dhbk-dhqg.png', 'https://www.hcmut.edu.vn/vi', 2, 7, 3.5, '268 Lý Thường Kiệt, Phường 14, Quận 10, TP HCM', '2020-07-16 21:54:44'),
 (4, 'Newsky', 'newsky', 'Trung Tâm Tiếng Anh', 'trung-tam-tieng-anh', 'newsky.png', 'http://newsky.edu.vn/', 0, 0, 0, '292 Âu Cơ, Phường 10, Q.Tân Bình, Tp.HCM ', '2020-07-17 23:19:34'),
 (5, 'kanata', 'kanata', 'Trung Tâm Tiếng Hàn', 'trung-tam-tieng-han', 'katana.png', 'kanata.edu.vn', 0, 0, 0, '384/19 Nam Kỳ Khởi Nghĩa, Phường 8, Quận 3, TP.HCM', '2020-07-17 23:30:59'),
-(6, 'SHZ', 'shz', 'Trung Tâm Tiếng Trung', 'trung-tam-tieng-trung', 'shz.png', 'https://hoavanshz.com/', 0, 0, 0, '247 Nguyễn Thị Minh Khai, P Nguyễn Cư Trinh, Quận 1', '2020-07-17 23:36:42'),
+(6, 'SHZ', 'shz', 'Trung Tâm Tiếng Trung', 'trung-tam-tieng-trung', 'shz.png', 'https://hoavanshz.com/', 1, 3, 3, '247 Nguyễn Thị Minh Khai, P Nguyễn Cư Trinh, Quận 1', '2020-07-21 00:33:01'),
 (10, 'Trường Đại Học Luật TP.HCM', 'truong-dai-hoc-luat-tphcm', 'Đại Học-Kỹ Năng Nghiệp Vụ', 'dai-hoc-ky-nang-nghiep-vu', 'logo-truongluat.png', 'http://www.hcmulaw.edu.vn/', 0, 0, 0, 'Số 02, Nguyễn Tất Thành, phường 12, quận 4, Tp. Hồ Chí Minh.||Số 123 Quốc lộ 13, phường Hiệp Bình Chánh\r\n', '2020-07-19 09:33:00');
 
 -- --------------------------------------------------------
@@ -122,6 +142,12 @@ INSERT INTO `user` (`id`, `email`, `password`) VALUES
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `reply`
@@ -152,6 +178,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `member`
+--
+ALTER TABLE `member`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT cho bảng `reply`
 --
 ALTER TABLE `reply`
@@ -161,7 +193,7 @@ ALTER TABLE `reply`
 -- AUTO_INCREMENT cho bảng `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `school`
