@@ -29,9 +29,12 @@ class Member extends Controller
                 $password = md5(trim($_POST["password"]));
             }
 
-            $kq = $this->MemberModel->LayUserBangUsernameVaPassword($username, $password);
+            $kq = $this->MemberModel->LayMemberBangUsernameVaPassword($username, $password);
             $server = new Server();
             if (mysqli_num_rows($kq) > 0) {
+                session_start();
+                $_SESSION["username"] = $username;
+                $_SESSION["password"] = $password;
                 header("Location: " . $server->get_servername() . "/member/dang-nhap-thanh-cong", 301);
             } else {
                 header("Location: " . $server->get_servername() . "/member/dang-nhap-that-bai", 301);

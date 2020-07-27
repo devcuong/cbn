@@ -1,28 +1,34 @@
 <style>
 .image.is-32x32 {
-    height: 32px;
-    width: 32px;
+	height: 32px;
+	width: 32px;
 }
+
 .image {
-    position: relative;
+	position: relative;
 }
-figure{
+
+figure {
 	margin: 0;
 	padding: 0;
 }
+
 .image img {
-    display: block;
-    height: auto;
-    width: 100%;
+	display: block;
+	height: auto;
+	width: 100%;
 }
+
 .autocomplete-suggestion {
 	display: flex;
-    align-items: center;
-    padding: 0.4rem;
+	align-items: center;
+	padding: 0.4rem;
 }
-.ui-autocomplete{
+
+.ui-autocomplete {
 	padding: 0;
 }
+
 .autocomplete-suggestion b {
 	font-weight: 700;
 	color: #209cee;
@@ -34,16 +40,17 @@ figure{
 	align-items: center;
 	border: 1px solid #c2c2c2;
 }
-.autocomplete-suggestion .school-name-auto-complete{
+
+.autocomplete-suggestion .school-name-auto-complete {
 	margin-top: 5px;
 }
+
 .ui-menu-item .ui-menu-item-wrapper.ui-state-active {
 	background: #F5FCFF !important;
 	font-weight: bold !important;
 	color: #000 !important;
 	border: none;
 }
-
 </style>
 <div class="container">
 	<div class="row top-banner">
@@ -62,7 +69,8 @@ figure{
 										<div class="input-group box-search">
 											<input name="school-search" id="school-search"
 												class="input form-control ui-autocomplete-input" type="text"
-												placeholder="Tìm trường bạn quan tâm / Tìm là có" autocomplete="off">
+												placeholder="Tìm trường bạn quan tâm / Tìm là có"
+												autocomplete="off">
 											<div class="input-group-append">
 												<button class="btn" type="submit">
 													<i class="fa fa-search" aria-hidden="true"></i>
@@ -84,10 +92,12 @@ figure{
     while ($r = mysqli_fetch_array($data["15ReviewMoiNhat"])) {
         ?>
         <div class="item-new-review">
-						<span class="user-name"><?php echo $r["reviewer"] ?>&nbsp;</span>đã review <a href="<?php echo $servername ?>/school/<?php echo $r["slugschool"] ?>-<?php echo $r["id"] ?>"><span
-							class="review-school-name"><?php echo $r["tenschool"] ?> &nbsp;</span></a> <span
-							class="review-rate"><?php echo $r["sao"] ?><i class="fa fa-star" aria-hidden="true"></i>
-							</span>
+						<span class="user-name"><?php echo $r["reviewer"] ?>&nbsp;</span>đã
+						review <a
+							href="<?php echo $servername ?>/school/<?php echo $r["slugschool"] ?>-<?php echo $r["id"] ?>"><span
+							class="review-school-name"><?php echo $r["tenschool"] ?> &nbsp;</span></a>
+						<span class="review-rate"><?php echo $r["sao"] ?><i
+							class="fa fa-star" aria-hidden="true"></i> </span>
 						<div class="short-review"><?php echo $r["noidung"] ?></div>
 					</div>
         <?php } ?>
@@ -101,13 +111,8 @@ figure{
 				<div class="page-heading d-flex">
 					<h4 class="box-title-page mr-auto">MỚI NHẤT</h4>
 					<div class="dh-cd d-flex">
-						<a href="#"> <span class="top-school-star"> <svg width="1em"
-									height="1em" viewBox="0 0 16 16" class="bi bi-star-fill"
-									fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path
-										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-</svg>
-						</span> <span class="top-school-text">TẤT CẢ >></span></a>
+						<a href="<?php echo $servername ?>"> <i class="fa fa-star" aria-hidden="true"></i> <span
+							class="top-school-text">TẤT CẢ >></span></a>
 					</div>
 				</div>
 				<div class="list-item d-flex flex-wrap">
@@ -115,16 +120,17 @@ figure{
     while ($row = mysqli_fetch_array($data["SchoolTrangHienTai"])) {
         ?>
         <div class="item-wrapper">
-        <a href="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>">
-						<div class="item-review">
-							<div class="school-logo">
-								<img
-									src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["logo"] ?>">
-							</div>
-							<div class="school-info">
-								<div class="school-name"><?php echo $row["tenschool"] ?></div>
-								<div class="school-rating d-flex">
-									<div class="star">
+						<a
+							href="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>">
+							<div class="item-review">
+								<div class="school-logo">
+									<img
+										src="<?php echo $servername ?>/web/public/asset/schools/logo/<?php echo $row["logo"] ?>">
+								</div>
+								<div class="school-info">
+									<div class="school-name"><?php echo $row["tenschool"] ?></div>
+									<div class="school-rating d-flex">
+										<div class="star">
 									<?php
         $n = $row["rate"];
         $whole = floor($row["rate"]);
@@ -136,34 +142,36 @@ figure{
 											<span class="fa fa-star"></span>
 										<?php } ?>
 									</div>
-									<div class="rating-count">(<?php echo $row["luotdanhgia"] ?>)</div>
-								</div>
-								<div class="school-category">
-									<span class="icon"><i class="fa fa-graduation-cap"
-										aria-hidden="true"></i> </span> <span class="text">
+										<div class="rating-count">(<?php echo $row["luotdanhgia"] ?>)</div>
+									</div>
+									<div class="school-category">
+										<span class="icon"><i class="fa fa-graduation-cap"
+											aria-hidden="true"></i> </span> <span class="text">
 									<?php echo $row["category"] ?>
 									</span>
 
-								</div>
-								<div class="school-address">
-									<span class="icon"><i class="fa fa-building" aria-hidden="true"></i>
-									</span> <span class="text">
-									<?php $allDiaChi = $row["diachi"];
-									       $lstDiaChi = explode("||",$allDiaChi);
-									       if(count($lstDiaChi) > 1){
-									           echo "Nhiều địa điểm";
-									       }else{
-									           echo $allDiaChi;
-									       }
-									       ?></span>
+									</div>
+									<div class="school-address">
+										<span class="icon"><i class="fa fa-building"
+											aria-hidden="true"></i> </span> <span class="text">
+									<?php
+        
+$allDiaChi = $row["diachi"];
+        $lstDiaChi = explode("||", $allDiaChi);
+        if (count($lstDiaChi) > 1) {
+            echo "Nhiều địa điểm";
+        } else {
+            echo $allDiaChi;
+        }
+        ?></span>
+									</div>
 								</div>
 							</div>
-						</div>
 						</a>
 					</div>
         <?php } ?>
 					</div>
-					<div class="container">
+				<div class="container">
 		<?php echo $data["Nav"] ?>
 	</div>
 			</div>
