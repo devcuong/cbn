@@ -36,8 +36,8 @@ class ReplyModel extends DB{
     }
     
     // Xóa reply theo id review
-    public function XoaReplyTheoIdReview($iDReview){
-        $qr = "DELETE FROM reply WHERE idreview = $iDReview";
+    public function XoaReplyTheoIdReview($reviewId){
+        $qr = "DELETE FROM reply WHERE review = ".mysqli_real_escape_string($this->con,$reviewId);
         $result = false;
         if(mysqli_query($this->con, $qr)){
             $result = true;

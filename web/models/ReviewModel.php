@@ -56,9 +56,9 @@ class ReviewModel extends DB{
         // return $qr;
     }
     
-    // Xóa review theo ID công ty
-    public function XoaReview($iDCongTy){
-        $qr = "DELETE FROM review WHERE congty = '$iDCongTy'";
+    // Xóa review theo ID school
+    public function XoaReview($schoolId){
+        $qr = "DELETE FROM review WHERE school = ".mysqli_real_escape_string($this->con,$schoolId);
         $result = false;
         if(mysqli_query($this->con, $qr)){
             $result = true;
@@ -68,7 +68,7 @@ class ReviewModel extends DB{
     
     // Xóa review theo id review
     public function XoaReviewBoiIdReview($idReview){
-        $qr = "DELETE FROM review WHERE id = $idReview";
+        $qr = "DELETE FROM review WHERE id = ".mysqli_real_escape_string($this->con,$idReview);
         $result = false;
         if(mysqli_query($this->con, $qr)){
             $result = true;

@@ -187,20 +187,7 @@ function changeToSlug(e) {
 						CẢ TRƯỜNG</a></li>
 				<li><a href="<?php echo $servername ?>/quan-tri/them-school">THÊM
 						TRƯỜNG</a></li>
-				<li><a href="<?php echo $servername ?>/quan-tri/review-moi-nhat">REVIEW
-						MỚI NHẤT</a></li>
-				<li><a href="<?php echo $servername ?>/quan-tri/them-tin-tuc">THÊM
-						TIN TỨC</a></li>
-				<li><a href="<?php echo $servername ?>/quan-tri/tat-ca-tin-tuc">TẤT
-						CẢ TIN TỨC</a></li>
-				<li><a href="<?php echo $servername ?>/quan-tri/them-playlist">THÊM
-						PLAYLIST</a></li>
-				<li><a href="<?php echo $servername ?>/quan-tri/tat-ca-playlist">TẤT
-						CẢ PLAYLIST</a></li>
-				<li><a href="<?php echo $servername ?>/quan-tri/them-video">THÊM
-						VIDEO</a></li>
-				<li><a href="<?php echo $servername ?>/quan-tri/tat-ca-video">TẤT CẢ
-						VIDEO</a></li>
+				<li><a href="<?php echo $servername ?>/quan-tri/tat-ca-reviews">TẤT CẢ REVIEWS</a></li>
 				<li><a href="#">REVIEW YÊU CẦU XÓA</a></li>
 			</ul>
 		</div>

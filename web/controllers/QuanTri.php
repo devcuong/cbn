@@ -4,11 +4,12 @@ require 'web/class/CutString.php';
 
 class QuanTri extends Controller
 {
-    
+
     // Khai báo model
     public $UserModel;
+
     public $SchoolModel;
-    
+
     public function __construct()
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -23,7 +24,7 @@ class QuanTri extends Controller
             "Page" => "quan-tri"
         ]);
     }
-    
+
     // QUẢN TRỊ VIÊN ĐĂNG NHẬP
     public function DangNhap()
     {
@@ -44,20 +45,21 @@ class QuanTri extends Controller
         $server = new Server();
         
         if ($temp == $pass) {
-            //echo "ok";
+            // echo "ok";
             $_SESSION["email"] = $email;
-            header("Location: " . $server->get_servername(). "/quan-tri/quan-tri-schools", 301);
+            header("Location: " . $server->get_servername() . "/quan-tri/tat-ca-schools", 301);
             exit();
         } else {
-            header("Location: " . $server->get_servername(). "/quan-tri/", 301);
+            header("Location: " . $server->get_servername() . "/quan-tri/", 301);
             exit();
         }
     }
-    
+
     // QUẢN TRỊ VIÊN ĐĂNG XUẤT
     public function DangXuat()
     {
         unset($_SESSION['email']);
+        session_destroy();
         if (! isset($_SESSION['email'])) {
             // View
             $this->view("admin-template", [
@@ -65,15 +67,17 @@ class QuanTri extends Controller
             ]);
         }
     }
-    
+
     // QUẢN TRỊ CHUNG
-    public function QuanTriSchools()
-    {
-        // View
-        $this->view("admin-template", [
-            "Page" => "quan-tri-schools"
-        ]);
-    }
+    /*
+     * public function TatCaSchools()
+     * {
+     * // View
+     * $this->view("admin-template", [
+     * "Page" => "tat-ca-schools"
+     * ]);
+     * }
+     */
     
     // THÊM TRƯỜNG
     public function ThemSchool()
@@ -83,7 +87,7 @@ class QuanTri extends Controller
                 $tentruong = "";
                 $slugtruong = "";
                 $slugcategory = "";
-                $category="";
+                $category = "";
                 $website = "";
                 $diachi = "";
                 $fileName = "";
@@ -93,15 +97,16 @@ class QuanTri extends Controller
                 }
                 if (isset($_POST["slug-category"])) {
                     $str = $_POST["slug-category"];
-                    $slugcategory = ltrim(trim($str), $str[0]); ;
-                    $str =  $_POST['category'];
+                    $slugcategory = ltrim(trim($str), $str[0]);
+                    ;
+                    $str = $_POST['category'];
                     $category = ltrim(trim($str), $str[0]);
                 }
                 if (isset($_POST["website"])) {
                     $website = trim($_POST["website"]);
                 }
                 if (isset($_POST["dia-chi"])) {
-                    $str =  $_POST["dia-chi"];
+                    $str = $_POST["dia-chi"];
                     $diachi = ltrim(trim($str), $str[0]);
                 }
                 if (isset($_FILES["logo-truong"])) {
@@ -143,33 +148,29 @@ class QuanTri extends Controller
             ]);
         }
     }
-    
+
     // TẤT CẢ CÔNG TY
     public function TatCaSchools($a, $b, $c = null)
     {
         if (isset($_SESSION["email"])) {
             $trangHienTai = 1;
-            $congTyMoiTrang = 10;
+            $schoolMoiTrang = 10;
             if ($c != null) {
                 $trangHienTai = $c;
             }
-            $soCongTyBoQua = ($trangHienTai - 1) * $congTyMoiTrang;
-            // Model
-            $congty = $this->model("CongTyModel");
-            $review = $this->model("ReviewModel");
+            $soSchoolBoQua = ($trangHienTai - 1) * $schoolMoiTrang;
             // Tất cả công ty
-            $tatCaCongTy = $congty->TatCaCongTy();
-            $soCongTy = mysqli_num_rows($tatCaCongTy);
-            $soTrang = ceil($soCongTy / $congTyMoiTrang);
-            $congTyTrangHienTai = "";
-            $congTyTrangHienTai = $congty->LayCongTyPhanTrang($soCongTyBoQua, $congTyMoiTrang);
+            $tatCaSchool = $this->SchoolModel->TatCaSchools();
+            $soSchools = mysqli_num_rows($tatCaSchool);
+            $soTrang = ceil($soSchools / $schoolMoiTrang);
+            $schoolTrangHienTai = "";
+            $schoolTrangHienTai = $this->SchoolModel->LaySchoolPhanTrang($soSchoolBoQua, $schoolMoiTrang);
             // View
             $this->view("admin-template", [
                 "Page" => "tat-ca-schools",
-                "Schools" => $schoolsTrangHienTai,
                 "SoTrang" => $soTrang,
                 "TrangHienTai" => $trangHienTai,
-                "SchoolsTrangHienTai" => $congTyTrangHienTai
+                "SchoolsTrangHienTai" => $schoolTrangHienTai
             ]);
         } else {
             $server = new Server();
@@ -178,7 +179,7 @@ class QuanTri extends Controller
             exit();
         }
     }
-    
+
     // XÓA CÔNG TY
     public function XoaSchool($a, $b, $c)
     {
@@ -206,17 +207,16 @@ class QuanTri extends Controller
             }
         }
     }
-    
+
     // GET DATA
     public function GetDataCongTy($a = NULL)
     {
         $urlCompany = "";
         if (isset($_POST["url-company"])) {
             $urlCompany = $_POST["url-company"];
-        } else 
-            if ($a != null) {
-                $urlCompany = $a;
-            }
+        } else if ($a != null) {
+            $urlCompany = $a;
+        }
         
         $context = stream_context_create(array(
             "http" => array(
@@ -291,7 +291,7 @@ class QuanTri extends Controller
             echo "ĐÃ CÓ " . $tenCongTy;
         }
     }
-    
+
     // get data page
     public function GetDataPageCongTy()
     {
@@ -339,8 +339,8 @@ class QuanTri extends Controller
         }
     }
 
-    /* review mới nhất */
-    function ReviewMoiNhat($a, $b, $c = null)
+    /* tất cả review */
+    function TatCaReviews($a, $b, $c = null)
     {
         if (isset($_SESSION["email"])) {
             $trangHienTai = 1;
@@ -353,12 +353,12 @@ class QuanTri extends Controller
             $review = $this->model("ReviewModel");
             // Tất cả công ty
             $tatCaReview = $review->LayTatCaReview();
-            $soCongTy = mysqli_num_rows($tatCaReview);
-            $soTrang = ceil($soCongTy / $reviewMoiTrang);
+            $soReview = mysqli_num_rows($tatCaReview);
+            $soTrang = ceil($soReview / $reviewMoiTrang);
             $reviewTrangHienTai = $review->LayReviewPhanTrangQuanTri($soReviewBoQua, $reviewMoiTrang);
             // View
             $this->view("admin-template", [
-                "Page" => "review-moi-nhat",
+                "Page" => "tat-ca-reviews",
                 "SoTrang" => $soTrang,
                 "TrangHienTai" => $trangHienTai,
                 "ReviewTrangHienTai" => $reviewTrangHienTai
@@ -387,7 +387,7 @@ class QuanTri extends Controller
             if ($kq2) {
                 $kt = true;
             }
-            $congTyUpdate = $this->CongTyModel->LayCongTyBangId($congty);
+            $schoolUpdate = $this->SchoolModel->LayCongTyBangId($congty);
             $luotDanhGia = 0;
             $tongSao = 0;
             $rate = 0;
@@ -407,6 +407,11 @@ class QuanTri extends Controller
                 header("Location: " . $server->get_servername() . "/quan-tri", 301);
                 exit();
             }
+        } else {
+            $server = new Server();
+            ob_start();
+            header("Location: " . $server->get_servername() . "/quan-tri", 301);
+            exit();
         }
     }
 
@@ -503,12 +508,11 @@ class QuanTri extends Controller
                     
                     // Nếu file upload không bị lỗi,
                     if ($_FILES['thumbnail']['error'] > 0) {
-                        if(isset($_POST["hidden-thumbnail"])){
+                        if (isset($_POST["hidden-thumbnail"])) {
                             $thumbnail = $_POST["hidden-thumbnail"];
-                        }else{
+                        } else {
                             echo 'File Upload Bị Lỗi';
                         }
-                        
                     } else {
                         $thumbnail = $_FILES['thumbnail']['name'];
                         $duongDanHinhAnh = 'mvc/public/asset/news/' . $thumbnail;
@@ -543,7 +547,7 @@ class QuanTri extends Controller
             ]);
         }
     }
-    
+
     // SỬA TIN TỨC
     public function CapNhatNews($a, $b, $c = NULL)
     {
@@ -565,7 +569,7 @@ class QuanTri extends Controller
             $noidungtin = "";
             $nguontin = "";
             $webnguontin = "";
-            $loaitin="";
+            $loaitin = "";
             $tagnews = "";
             $createddate = "";
             if (isset($_POST["tieu-de-tin-tuc"])) {
@@ -584,7 +588,7 @@ class QuanTri extends Controller
             if (isset($_POST["web-nguon-tin"])) {
                 $webnguontin = trim($_POST["web-nguon-tin"]);
             }
-            if(isset($_POST["loai-tin"])){
+            if (isset($_POST["loai-tin"])) {
                 $loaitin = trim($_POST["loai-tin"]);
             }
             if (isset($_POST["tag-news"])) {
@@ -597,9 +601,9 @@ class QuanTri extends Controller
                 // echo $_FILES['thumbnail']['name'];
                 // Nếu file upload không bị lỗi,
                 if ($_FILES['thumbnail']['error'] > 0) {
-                    if(isset($_POST["hidden-thumbnail"])){
+                    if (isset($_POST["hidden-thumbnail"])) {
                         $thumbnail = $_POST["hidden-thumbnail"];
-                    }else{
+                    } else {
                         echo 'File Upload Bị Lỗi';
                     }
                 } else {
@@ -610,7 +614,6 @@ class QuanTri extends Controller
                     
                     // Upload file
                     move_uploaded_file($_FILES['thumbnail']['tmp_name'], $duongDanHinhAnh);
-                    
                 }
             }
             if ("" == $thumbnail) {
@@ -622,7 +625,7 @@ class QuanTri extends Controller
             $createddate = date("Y-m-d H:i:s");
             
             // cập nhật tin tức
-            $kq = $this->NewsModel->CapNhatNews($tieudetintuc, $slugtieude, $thumbnail, $motangan, $noidungtin, $tagnews, $nguontin,$webnguontin, $loaitin, $createddate, $idnews);
+            $kq = $this->NewsModel->CapNhatNews($tieudetintuc, $slugtieude, $thumbnail, $motangan, $noidungtin, $tagnews, $nguontin, $webnguontin, $loaitin, $createddate, $idnews);
             if ($kq) {
                 // View
                 $this->view("admin-template", [
@@ -669,8 +672,10 @@ class QuanTri extends Controller
             exit();
         }
     }
+
     /* TẤT CẢ PLAYLIST */
-    public function TatCaPlaylist($a, $b, $c = NULL){
+    public function TatCaPlaylist($a, $b, $c = NULL)
+    {
         if (isset($_SESSION["email"])) {
             $trangHienTai = 1;
             $playlistMoiTrang = 10;
@@ -696,7 +701,7 @@ class QuanTri extends Controller
             ]);
         }
     }
-    
+
     /* XÓA PLAYLIST */
     function XoaPlaylist($a, $b, $c = NULL, $d = NULL, $e = NULL)
     {
@@ -760,7 +765,7 @@ class QuanTri extends Controller
                     $result = true;
                 }
                 // Update thông tin Playlist khi thêm video
-                $kq2 = $this->PlaylistModel->UpdateInfoKhiCapNhatVideo("add",$playList, $thumbVideoId, $createdDate);
+                $kq2 = $this->PlaylistModel->UpdateInfoKhiCapNhatVideo("add", $playList, $thumbVideoId, $createdDate);
                 if ($kq2) {
                     $result = true;
                 }
@@ -780,9 +785,10 @@ class QuanTri extends Controller
             }
         }
     }
-    
+
     /* TẤT CẢ VIDEO */
-    public function TatCaVideo($a, $b, $c = NULL){
+    public function TatCaVideo($a, $b, $c = NULL)
+    {
         if (isset($_SESSION["email"])) {
             $trangHienTai = 1;
             $videoMoiTrang = 10;
@@ -795,7 +801,7 @@ class QuanTri extends Controller
             // Tất cả video
             $tatCaVideo = $video->TatCaVideo();
             $soVideo = mysqli_num_rows($tatCaVideo);
-            $soTrang = ceil($soVideo/ $videoMoiTrang);
+            $soTrang = ceil($soVideo / $videoMoiTrang);
             $videoTrangHienTai = $video->LayVideoPhanTrang($soVideoBoQua, $videoMoiTrang);
             // View
             $this->view("admin-template", [
@@ -807,7 +813,7 @@ class QuanTri extends Controller
             ]);
         }
     }
-    
+
     /* XÓA VIDEO */
     function XoaVideo($a, $b, $c = NULL, $d = NULL, $e = NULL)
     {
