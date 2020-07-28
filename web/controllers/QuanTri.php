@@ -6,21 +6,24 @@ class QuanTri extends Controller
 {
 
     // Khai báo model
-    public $UserModel;
-
-    public $SchoolModel;
+    private $UserModel;
+    private $SchoolModel;
+    private $ReviewModel;
+    private $ReplyModel;
 
     public function __construct()
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $this->UserModel = $this->model("UserModel");
         $this->SchoolModel = $this->model("SchoolModel");
+        $this->ReviewModel = $this->model("ReviewModel");
+        $this->ReplyModel = $this->model("ReplyModel");
     }
 
     public function Index()
     {
         // View
-        $this->view("admin-template", [
+        $this->view("login-template", [
             "Page" => "quan-tri"
         ]);
     }
@@ -98,7 +101,6 @@ class QuanTri extends Controller
                 if (isset($_POST["slug-category"])) {
                     $str = $_POST["slug-category"];
                     $slugcategory = ltrim(trim($str), $str[0]);
-                    ;
                     $str = $_POST['category'];
                     $category = ltrim(trim($str), $str[0]);
                 }
@@ -377,8 +379,8 @@ class QuanTri extends Controller
         if (isset($_SESSION["email"])) {
             $kt = false;
             $idReview = $c;
-            $rate = $d;
-            $congty = $e;
+            $sao = $d;
+            $school = $e;
             $kq = $this->ReviewModel->XoaReviewBoiIdReview($idReview);
             if ($kq) {
                 $kt = true;
@@ -387,12 +389,13 @@ class QuanTri extends Controller
             if ($kq2) {
                 $kt = true;
             }
-            $schoolUpdate = $this->SchoolModel->LayCongTyBangId($congty);
-            $luotDanhGia = 0;
-            $tongSao = 0;
-            $rate = 0;
-            $kq3 = $this->CongTyModel->UpdateRateCongTyXoaReview($congty, $rate);
-            echo $kq3;
+            //
+            $schoolUpdate = $this->SchoolModel->LaySchoolBangId($school);
+            
+            $getNow = $schoolUpdate->fetch_assoc();
+            $luotDanhGia = $getNow["luotdanhgia"];
+            
+            $kq3 = $this->SchoolModel->UpdateRateSchoolXoaReview($school, $sao, $luotDanhGia);
             if ($kq3) {
                 $kt = true;
             }
@@ -415,434 +418,6 @@ class QuanTri extends Controller
         }
     }
 
-    /* QUẢN TRỊ TIN TỨC */
-    public function TatCaTinTuc($a, $b, $c = NULL)
-    {
-        if (isset($_SESSION["email"])) {
-            $trangHienTai = 1;
-            $newsMoiTrang = 10;
-            if ($c != null) {
-                $trangHienTai = $c;
-            }
-            $soNewsBoQua = ($trangHienTai - 1) * $newsMoiTrang;
-            // Model
-            $news = $this->model("NewsModel");
-            // Tất cả tin tức
-            $tatCaNews = $news->TatCaNews();
-            $soNews = mysqli_num_rows($tatCaNews);
-            $soTrang = ceil($soNews / $newsMoiTrang);
-            $newsTrangHienTai = "";
-            $newsTrangHienTai = $news->LayNewsPhanTrang($soNewsBoQua, $newsMoiTrang);
-            // View
-            $this->view("admin-template", [
-                "Page" => "tat-ca-tin-tuc",
-                "News" => $newsTrangHienTai,
-                "SoTrang" => $soTrang,
-                "TrangHienTai" => $trangHienTai,
-                "NewsTrangHienTai" => $newsTrangHienTai
-            ]);
-        }
-    }
-
-    /* xóa news */
-    function XoaNews($a, $b, $c = NULL, $d = NULL, $e = NULL)
-    {
-        if (isset($_SESSION["email"])) {
-            $kt = false;
-            $idNews = $c;
-            $kq = $this->NewsModel->XoaNews($idNews);
-            if ($kq) {
-                $kt = true;
-            }
-            if ($kt) {
-                // View
-                $this->view("admin-template", [
-                    "Page" => "quan-tri-thanh-cong"
-                ]);
-            } else {
-                $server = new Server();
-                ob_start();
-                header("Location: " . $server->get_servername() . "/quan-tri/tat-ca-tin-tuc/", 301);
-                exit();
-            }
-        }
-    }
-
-    /* THÊM TIN TỨC */
-    public function ThemTinTuc()
-    {
-        if (isset($_SESSION["email"])) {
-            if (isset($_POST["btn-submit"])) {
-                $tieudetintuc = "";
-                $slugtieude = "";
-                $thumbnail = "";
-                $motangan = "";
-                $noidungtin = "";
-                $nguontin = "";
-                $webnguontin = "";
-                $loaitin = "";
-                $tagnews = "";
-                if (isset($_POST["tieu-de-tin-tuc"])) {
-                    $tieudetintuc = trim($_POST["tieu-de-tin-tuc"]);
-                    $slugtieude = $_POST["slug-tin-tuc"];
-                }
-                if (isset($_POST["noi-dung-tin"])) {
-                    $noidungtin = trim($_POST["noi-dung-tin"]);
-                }
-                if (isset($_POST["nguon-tin"])) {
-                    $nguontin = trim($_POST["nguon-tin"]);
-                }
-                if (isset($_POST["web-nguon-tin"])) {
-                    $webnguontin = trim($_POST["web-nguon-tin"]);
-                }
-                if (isset($_POST["loai-tin"])) {
-                    $loaitin = trim($_POST["loai-tin"]);
-                }
-                if (isset($_POST["tag-news"])) {
-                    $tagnews = trim($_POST["tag-news"]);
-                }
-                if (isset($_POST["mo-ta-ngan"])) {
-                    $motangan = $_POST["mo-ta-ngan"];
-                }
-                if (isset($_FILES["thumbnail"])) {
-                    
-                    // Nếu file upload không bị lỗi,
-                    if ($_FILES['thumbnail']['error'] > 0) {
-                        if (isset($_POST["hidden-thumbnail"])) {
-                            $thumbnail = $_POST["hidden-thumbnail"];
-                        } else {
-                            echo 'File Upload Bị Lỗi';
-                        }
-                    } else {
-                        $thumbnail = $_FILES['thumbnail']['name'];
-                        $duongDanHinhAnh = 'mvc/public/asset/news/' . $thumbnail;
-                        // Upload file
-                        move_uploaded_file($_FILES['thumbnail']['tmp_name'], $duongDanHinhAnh);
-                        
-                        $createdDate = date("Y-m-d H:i:s");
-                        // Kiểm tra tin tức có hay chưa
-                        $daco = $this->NewsModel->LayNewsBySlug($slugtieude);
-                        if (mysqli_num_rows($daco) < 1) {
-                            // Thêm tin tức
-                            $kq = $this->NewsModel->ThemNews($tieudetintuc, $slugtieude, $thumbnail, $motangan, $noidungtin, $tagnews, $nguontin, $webnguontin, $loaitin, $createdDate);
-                            if ($kq) {
-                                // View
-                                $this->view("admin-template", [
-                                    "Page" => "quan-tri-thanh-cong"
-                                ]);
-                            }
-                        }
-                    }
-                }
-            } else {
-                // View
-                $this->view("admin-template", [
-                    "Page" => "them-tin-tuc"
-                ]);
-            }
-        } else {
-            // View
-            $this->view("admin-template", [
-                "Page" => "quan-tri"
-            ]);
-        }
-    }
-
-    // SỬA TIN TỨC
-    public function CapNhatNews($a, $b, $c = NULL)
-    {
-        $idnews = "";
-        if ($c != NULL) {
-            $idnews = trim($c);
-        }
-        if (! isset($_POST["btn-submit"])) {
-            $news = $this->NewsModel->LayNewsById($idnews);
-            // View
-            $this->view("admin-template", [
-                "Page" => "cap-nhat-tin-tuc",
-                "News" => $news
-            ]);
-        } else {
-            $tieudetintuc = "";
-            $slugtieude = "";
-            $thumbnail = "";
-            $noidungtin = "";
-            $nguontin = "";
-            $webnguontin = "";
-            $loaitin = "";
-            $tagnews = "";
-            $createddate = "";
-            if (isset($_POST["tieu-de-tin-tuc"])) {
-                $tieudetintuc = trim($_POST["tieu-de-tin-tuc"]);
-                $slugtieude = $_POST["slug-tin-tuc"];
-            }
-            if (isset($_POST["id-tin-tuc"])) {
-                $idnews = trim($_POST["id-tin-tuc"]);
-            }
-            if (isset($_POST["noi-dung-tin"])) {
-                $noidungtin = trim($_POST["noi-dung-tin"]);
-            }
-            if (isset($_POST["nguon-tin"])) {
-                $nguontin = trim($_POST["nguon-tin"]);
-            }
-            if (isset($_POST["web-nguon-tin"])) {
-                $webnguontin = trim($_POST["web-nguon-tin"]);
-            }
-            if (isset($_POST["loai-tin"])) {
-                $loaitin = trim($_POST["loai-tin"]);
-            }
-            if (isset($_POST["tag-news"])) {
-                $tagnews = trim($_POST["tag-news"]);
-            }
-            if (isset($_POST["mo-ta-ngan"])) {
-                $motangan = $_POST["mo-ta-ngan"];
-            }
-            if (isset($_FILES['thumbnail']['name'])) {
-                // echo $_FILES['thumbnail']['name'];
-                // Nếu file upload không bị lỗi,
-                if ($_FILES['thumbnail']['error'] > 0) {
-                    if (isset($_POST["hidden-thumbnail"])) {
-                        $thumbnail = $_POST["hidden-thumbnail"];
-                    } else {
-                        echo 'File Upload Bị Lỗi';
-                    }
-                } else {
-                    $thumbnail = $_FILES['thumbnail']['name'];
-                    $duongDanHinhAnh = 'mvc/public/asset/news/' . $thumbnail;
-                    // Remove file
-                    unlink('mvc/public/asset/news/' . $_POST["hidden-thumbnail"]);
-                    
-                    // Upload file
-                    move_uploaded_file($_FILES['thumbnail']['tmp_name'], $duongDanHinhAnh);
-                }
-            }
-            if ("" == $thumbnail) {
-                if (isset($_POST["hidden-thumbnail"])) {
-                    $thumbnail = trim($_POST['hidden-thumbnail']);
-                }
-            }
-            
-            $createddate = date("Y-m-d H:i:s");
-            
-            // cập nhật tin tức
-            $kq = $this->NewsModel->CapNhatNews($tieudetintuc, $slugtieude, $thumbnail, $motangan, $noidungtin, $tagnews, $nguontin, $webnguontin, $loaitin, $createddate, $idnews);
-            if ($kq) {
-                // View
-                $this->view("admin-template", [
-                    "Page" => "quan-tri-thanh-cong"
-                ]);
-            }
-        }
-    }
-
-    /* THÊM PLAYLIST */
-    public function ThemPlayList()
-    {
-        if (isset($_SESSION["email"])) {
-            if (isset($_POST["btn-submit"])) {
-                $tieuDePlaylist = "";
-                $slugPlaylist = "";
-                $soVideo = 0;
-                $createdDate = date("Y-m-d H:i:s");
-                if (isset($_POST["tieu-de-playlist"])) {
-                    $tieuDePlaylist = $_POST["tieu-de-playlist"];
-                }
-                if (isset($_POST["slug-playlist"])) {
-                    $slugPlaylist = $_POST["slug-playlist"];
-                }
-                // Thêm playlist
-                $kq = $this->PlaylistModel->ThemPlaylist($tieuDePlaylist, $slugPlaylist, $soVideo, $createdDate);
-                
-                if ($kq) {
-                    // View
-                    $this->view("admin-template", [
-                        "Page" => "quan-tri-thanh-cong"
-                    ]);
-                }
-            } else {
-                // View
-                $this->view("admin-template", [
-                    "Page" => "them-playlist"
-                ]);
-            }
-        } else {
-            $server = new Server();
-            // View
-            header("Location: " . $server->servername . "/quan-tri/", 301);
-            exit();
-        }
-    }
-
-    /* TẤT CẢ PLAYLIST */
-    public function TatCaPlaylist($a, $b, $c = NULL)
-    {
-        if (isset($_SESSION["email"])) {
-            $trangHienTai = 1;
-            $playlistMoiTrang = 10;
-            if ($c != null) {
-                $trangHienTai = $c;
-            }
-            $soPlaylistBoQua = ($trangHienTai - 1) * $playlistMoiTrang;
-            // Model
-            $playlist = $this->PlaylistModel;
-            // Tất cả playlist
-            $tatCaPlaylist = $playlist->TatCaPlaylist();
-            $soPlaylist = mysqli_num_rows($tatCaPlaylist);
-            $soTrang = ceil($soPlaylist / $playlistMoiTrang);
-            $playlistTrangHienTai = "";
-            $playlistTrangHienTai = $playlist->LayPlaylistPhanTrang($soPlaylistBoQua, $playlistMoiTrang);
-            // View
-            $this->view("admin-template", [
-                "Page" => "tat-ca-playlist",
-                "Playlist" => $playlistTrangHienTai,
-                "SoTrang" => $soTrang,
-                "TrangHienTai" => $trangHienTai,
-                "PlaylistTrangHienTai" => $playlistTrangHienTai
-            ]);
-        }
-    }
-
-    /* XÓA PLAYLIST */
-    function XoaPlaylist($a, $b, $c = NULL, $d = NULL, $e = NULL)
-    {
-        if (isset($_SESSION["email"])) {
-            $kt = false;
-            $idPlaylist = $c;
-            $kq = $this->PlaylistModel->XoaPlaylist($idPlaylist);
-            if ($kq) {
-                $kt = true;
-            }
-            $kq2 = $this->VideoModel->XoaVideoByIdPlaylist($idPlaylist);
-            if ($kq2) {
-                $kt = true;
-            }
-            if ($kt) {
-                // View
-                $this->view("admin-template", [
-                    "Page" => "quan-tri-thanh-cong"
-                ]);
-            } else {
-                $server = new Server();
-                ob_start();
-                header("Location: " . $server->get_servername() . "/quan-tri/tat-ca-video/", 301);
-                exit();
-            }
-        }
-    }
-
-    /* THÊM VIDEO */
-    public function ThemVideo()
-    {
-        if (isset($_SESSION["email"])) {
-            if (isset($_POST["btn-submit"])) {
-                $tieuDeVideo = "";
-                $slugVideo = "";
-                $playList = "";
-                $urlVideo = "";
-                $timeDuration = "";
-                $thumbVideoId = "";
-                $kt = false;
-                $createdDate = date("Y-m-d H:i:s");
-                if (isset($_POST["tieu-de-video"])) {
-                    $tieuDeVideo = $_POST["tieu-de-video"];
-                }
-                if (isset($_POST["slug-video"])) {
-                    $slugVideo = $_POST["slug-video"];
-                }
-                if (isset($_POST["playlist-video"])) {
-                    $playList = $_POST["playlist-video"];
-                }
-                if (isset($_POST["url-video"])) {
-                    $urlVideo = $_POST["url-video"];
-                    $thumbVideoId = explode("v=", $urlVideo)[1];
-                }
-                if (isset($_POST["time-duration"])) {
-                    $timeDuration = $_POST["time-duration"];
-                }
-                // Thêm video
-                $kq = $this->VideoModel->ThemVideo($tieuDeVideo, $slugVideo, $playList, $urlVideo, $thumbVideoId, $timeDuration, $createdDate);
-                if ($kq) {
-                    $result = true;
-                }
-                // Update thông tin Playlist khi thêm video
-                $kq2 = $this->PlaylistModel->UpdateInfoKhiCapNhatVideo("add", $playList, $thumbVideoId, $createdDate);
-                if ($kq2) {
-                    $result = true;
-                }
-                if ($result) {
-                    // View
-                    $this->view("admin-template", [
-                        "Page" => "quan-tri-thanh-cong"
-                    ]);
-                }
-            } else {
-                $listPlaylist = $this->PlaylistModel->TatCaPlaylist();
-                // View
-                $this->view("admin-template", [
-                    "Page" => "them-video",
-                    "ListPlaylist" => $listPlaylist
-                ]);
-            }
-        }
-    }
-
-    /* TẤT CẢ VIDEO */
-    public function TatCaVideo($a, $b, $c = NULL)
-    {
-        if (isset($_SESSION["email"])) {
-            $trangHienTai = 1;
-            $videoMoiTrang = 10;
-            if ($c != null) {
-                $trangHienTai = $c;
-            }
-            $soVideoBoQua = ($trangHienTai - 1) * $videoMoiTrang;
-            // Model
-            $video = $this->VideoModel;
-            // Tất cả video
-            $tatCaVideo = $video->TatCaVideo();
-            $soVideo = mysqli_num_rows($tatCaVideo);
-            $soTrang = ceil($soVideo / $videoMoiTrang);
-            $videoTrangHienTai = $video->LayVideoPhanTrang($soVideoBoQua, $videoMoiTrang);
-            // View
-            $this->view("admin-template", [
-                "Page" => "tat-ca-video",
-                "Video" => $videoTrangHienTai,
-                "SoTrang" => $soTrang,
-                "TrangHienTai" => $trangHienTai,
-                "VideoTrangHienTai" => $videoTrangHienTai
-            ]);
-        }
-    }
-
-    /* XÓA VIDEO */
-    function XoaVideo($a, $b, $c = NULL, $d = NULL, $e = NULL)
-    {
-        if (isset($_SESSION["email"])) {
-            $kt = false;
-            $idVideo = $c;
-            $idPlaylist = $d;
-            $createdDate = date("Y-m-d H:i:s");
-            $kq = $this->VideoModel->XoaVideo($idVideo);
-            if ($kq) {
-                $kt = true;
-            }
-            $kq2 = $this->PlaylistModel->UpdateInfoKhiCapNhatVideo("delete", $idPlaylist, "none", $createdDate);
-            if ($kq2) {
-                $kt = true;
-            }
-            if ($kt) {
-                // View
-                $this->view("admin-template", [
-                    "Page" => "quan-tri-thanh-cong"
-                ]);
-            } else {
-                $server = new Server();
-                ob_start();
-                header("Location: " . $server->get_servername() . "/quan-tri/tat-ca-video/", 301);
-                exit();
-            }
-        }
-    }
 
     function ToSlug($str, $options = array())
     {

@@ -71,7 +71,8 @@ class SchoolModel extends DB{
         /*HẾT TÌM KIẾM*/
         // Update rate school
         public function UpdateRateSchool($iD, $score, $thoigian){
-            $qr = "UPDATE school SET luotdanhgia = luotdanhgia + 1, tongsao = tongsao + $score, rate = tongsao/luotdanhgia, thoigian = '$thoigian' WHERE id = $iD";
+            $sao = (int)$score;
+            $qr = "UPDATE school SET luotdanhgia = luotdanhgia + 1, tongsao = tongsao + $sao, rate = tongsao/luotdanhgia, thoigian = '".mysqli_real_escape_string($this->con, $thoigian)."' WHERE id = ".mysqli_real_escape_string($this->con, $iD);
             $result = false;
             if(mysqli_query($this->con, $qr)){
                 $result = true;
@@ -79,8 +80,13 @@ class SchoolModel extends DB{
             return $result;
         }
         // Update rate school giảm
-        public function UpdateRateSchoolXoaReview($iD, $score){
-            $qr = "UPDATE school SET luotdanhgia = luotdanhgia - 1, tongsao = tongsao - $score, rate = tongsao/luotdanhgia WHERE id = $iD";
+        public function UpdateRateSchoolXoaReview($iD, $score, $luotDanhGia){
+            $sao = (int)$score;
+            $qr = "UPDATE school SET luotdanhgia = luotdanhgia - 1, tongsao = tongsao - $sao, rate = tongsao/luotdanhgia WHERE id = ".mysqli_real_escape_string($this->con, $iD);
+            if($luotDanhGia == 1)
+            {
+                $qr = "UPDATE school SET luotdanhgia = 0, tongsao = 0, rate = 0";
+            }
             $result = false;
             if(mysqli_query($this->con, $qr)){
                 $result = true;
@@ -107,8 +113,8 @@ class SchoolModel extends DB{
         }
         
         /*XÓA TRƯỜNG*/
-        public function XoaTruong($idSchool){
-            $qr = "DELETE FROM school WHERE id = '$idSchool'";
+        public function XoaSchool($idSchool){
+            $qr = "DELETE FROM school WHERE id = ".mysqli_real_escape_string($this->con, $idSchool);
             $result = false;
             if(mysqli_query($this->con, $qr)){
                 $result = true;

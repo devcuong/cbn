@@ -3,7 +3,7 @@
     <tr>
       <th scope="col">id</th>
       <th scope="col">reviewer</th>
-      <th scope="col">rate</th>
+      <th scope="col">sao</th>
       <th scope="col">nội dung</th>
       <th scope="col">school</th>
       <th scope="col">thời gian</th>

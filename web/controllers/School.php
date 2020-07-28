@@ -2,6 +2,7 @@
 require 'web/class/CutString.php';
 require 'web/class/Replyer.php';
 require 'web/class/Server.php';
+require 'web/class/Purifier.php';
 class School extends Controller
 {
     // Model
@@ -108,43 +109,43 @@ class School extends Controller
     // Đăng review
     function DangReview()
     {
+        $purifier = new Purifier();
         $reviewerName = "Khách";
         $memberId = 0;
         $reviewerAbout = "Tìm hiểu trường";
         $score = "";
     
         // school id
-        $schoolId = $_POST["schoolId"];
+        $schoolId = $purifier->defaultPurifier($_POST["schoolId"]);
     
         // school url
-        $schoolUrl = $_POST["schoolUrl"];
+        $schoolUrl = $purifier->defaultPurifier($_POST["schoolUrl"]);
     
         // content
-        $content = nl2br($_POST["content"]);
-    
+        $content = $purifier->defaultPurifier($_POST["content"]);
         // reviewer
         if (isset($_POST['reviewer'])) {
             if (trim($_POST['reviewer']) != "") {
-                $reviewerName = trim($_POST["reviewer"]);
+                $reviewerName = $purifier->defaultPurifier($_POST["reviewer"]);
             }
         }
         
         // member Id
         if(isset($_POST['member'])){
             if(trim($_POST["member"]) != ""){
-                $memberId = trim($_POST["member"]);
+                $memberId = $purifier->defaultPurifier($_POST["member"]);
             }
         }
         
-        // position
+        // about
         if (isset($_POST['about'])) {
             if (trim($_POST['about']) != "") {
-                $reviewerAbout = trim($_POST["about"]);
+                $reviewerAbout = $purifier->defaultPurifier($_POST['about']);
             }
         }
     
         // score
-        $score = intval($_POST["score"]);
+        $score = intval($purifier->defaultPurifier($_POST['score']));
     
         $createdDate = date("Y-m-d H:i:s");
     
@@ -165,6 +166,7 @@ class School extends Controller
     // Đăng reply
     function DangReply()
     {
+        $purifier = new Purifier();
         $data = "";
         $replyerName = "Khách";
         $member = "0";
@@ -173,21 +175,21 @@ class School extends Controller
         // reviewer
         if (isset($_POST['replyer'])) {
             if (trim($_POST['replyer']) != "") {
-                $replyer = trim($_POST["replyer"]);
+                $replyer = $purifier->defaultPurifier($_POST["replyer"]);
             }
         }
         // member id
-        $member = $_POST["member-id"];
+        $member =  $purifier->defaultPurifier($_POST["member-id"]);
         // content
-        $content = trim($_POST["content"]);
+        $content =  $purifier->defaultPurifier($_POST["content"]);
         // id school
-        $schoolId = $_POST["schoolId"];
+        $schoolId =  $purifier->defaultPurifier($_POST["schoolId"]);
         // slug school
-        $schoolUrl = $_POST["schoolUrl"];
+        $schoolUrl =  $purifier->defaultPurifier($_POST["schoolUrl"]);
         // id Review
-        $reviewId = $_POST["reviewId"];
+        $reviewId =  $purifier->defaultPurifier($_POST["reviewId"]);
         // reaction
-        $reaction = $_POST["review-reaction"];
+        $reaction =  $purifier->defaultPurifier($_POST["review-reaction"]);
         
         $replyer = new Replyer();
         $replyer->replyer = $replyerName;

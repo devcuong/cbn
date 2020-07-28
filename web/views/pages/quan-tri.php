@@ -1,4 +1,4 @@
-  <form method="POST" action="<?php echo $servername ?>/quan-tri/dang-nhap">
+<form method="POST" action="<?php echo $servername ?>/quan-tri/dang-nhap">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="user-email" name="user-email"  aria-describedby="emailHelp" placeholder="Enter email">
