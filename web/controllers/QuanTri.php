@@ -210,120 +210,6 @@ class QuanTri extends Controller
         }
     }
 
-    // GET DATA
-    public function GetDataCongTy($a = NULL)
-    {
-        $urlCompany = "";
-        if (isset($_POST["url-company"])) {
-            $urlCompany = $_POST["url-company"];
-        } else if ($a != null) {
-            $urlCompany = $a;
-        }
-        
-        $context = stream_context_create(array(
-            "http" => array(
-                "header" => "User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.60 Mobile Safari/537.36"
-            )
-        ));
-        
-        $page = file_get_contents($urlCompany, false, $context);
-        
-        @$doc = new DOMDocument();
-        @$doc->loadHTML($page);
-        
-        $xpath = new DomXPath($doc);
-        
-        // Thông tin
-        $nodeList = $xpath->query("//div[@class='company-info__detail']");
-        $nodeCongTy = $nodeList->item(0);
-        
-        $tenCongTy = $nodeCongTy->getElementsByTagName('h2')
-            ->item(0)
-            ->getElementsByTagName('a')
-            ->item(0)->nodeValue;
-        $nganhNghe = $nodeCongTy->getElementsByTagName('div')
-            ->item(0)
-            ->getElementsByTagName('span')
-            ->item(0)->nodeValue;
-        $nhanVien = $nodeCongTy->getElementsByTagName('div')
-            ->item(0)
-            ->getElementsByTagName('span')
-            ->item(2)->nodeValue;
-        $diaChi = $nodeCongTy->getElementsByTagName('div')->item(1)->nodeValue;
-        
-        // Image
-        $nodeImage = $xpath->query("//div[@class='company-info']");
-        $imageUrl = $nodeImage->item(0)
-            ->getElementsByTagName('img')
-            ->item(0)
-            ->getAttribute('src');
-        $arrImage = explode("/", $imageUrl);
-        $imageName = end($arrImage);
-        
-        // First comment
-        $nodeComment = $xpath->query("//div[@class='card-content']");
-        $firstComment = $nodeComment->item(0)->nodeValue;
-        $cutString = new CutString();
-        $insertComment = $cutString->remove_see_more($firstComment);
-        
-        // Model
-        $congty = $this->model("CongTyModel");
-        
-        $duongDanHinhAnh = 'mvc/public/asset/companies/logo/' . $imageName;
-        
-        file_put_contents($duongDanHinhAnh, file_get_contents("https://reviewcongty.com" . $imageUrl, false, $context));
-        
-        $createdDate = date("Y-m-d H:i:s");
-        
-        // Kiểm tra công ty có hay chưa
-        $daco = $this->CongTyModel->LayCongTyBangSlug(trim($this->ToSlug(trim($tenCongTy))));
-        // mysqli_num_rows($daco);
-        if (mysqli_num_rows($daco) == 0) {
-            $kt = false;
-            $db = new DB();
-            // Thêm công ty
-            $kq = $this->CongTyModel->ThemCongTy(trim($tenCongTy), trim($this->ToSlug(trim($tenCongTy))), trim($imageName), trim($nganhNghe), trim($nhanVien), trim($diaChi), $createdDate);
-            $lastId = $this->CongTyModel->GetLastId();
-            $kq2 = $this->ReviewModel->ThemReview("Ẩn danh", "Dev", 3, $insertComment, $lastId, $createdDate);
-            $kq3 = $this->CongTyModel->UpdateRateCongTy($lastId, 3, $createdDate);
-            if ($kq3) {
-                echo "THÀNH CÔNG " . $tenCongTy . " " . $lastId;
-            }
-        } else {
-            echo "ĐÃ CÓ " . $tenCongTy;
-        }
-    }
-
-    // get data page
-    public function GetDataPageCongTy()
-    {
-        if (isset($_POST["url-page"])) {
-            $url = "https://reviewcongty.com";
-            $urlCompany = $_POST["url-page"];
-            
-            $context = stream_context_create(array(
-                "http" => array(
-                    "header" => "User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.60 Mobile Safari/537.36"
-                )
-            ));
-            
-            $page = file_get_contents($urlCompany, false, $context);
-            @$doc = new DOMDocument();
-            @$doc->loadHTML($page);
-            
-            $xpath = new DomXPath($doc);
-            
-            // Thông tin
-            $nodeList = $xpath->query("//div[@class='company-item']");
-            // $nodeCongTy = $nodeList->item(0)->getAttribute('data-href');
-            foreach ($nodeList as $node) {
-                echo $this->GetDataCongTy($url . $node->getAttribute('data-href'));
-            }
-            
-            // echo $nodeCongTy;
-        }
-    }
-
     /* cập nhật slug */
     function CapNhatSlug($a, $b, $c, $d)
     {
@@ -396,6 +282,7 @@ class QuanTri extends Controller
             $luotDanhGia = $getNow["luotdanhgia"];
             
             $kq3 = $this->SchoolModel->UpdateRateSchoolXoaReview($school, $sao, $luotDanhGia);
+         
             if ($kq3) {
                 $kt = true;
             }

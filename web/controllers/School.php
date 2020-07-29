@@ -149,8 +149,6 @@ class School extends Controller
     
         $createdDate = date("Y-m-d H:i:s");
     
-        /*echo $createdDate;*/
-    
         $kq = $this->ReviewModel->ThemReview($reviewerName, $memberId, $reviewerAbout, $score, $content, $schoolId, $createdDate);
         if ($kq > 0) {
             $kq2 = $this->SchoolModel->UpdateRateSchool($schoolId, $score, $createdDate);

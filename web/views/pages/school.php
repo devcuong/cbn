@@ -332,34 +332,49 @@
 	text-transform: uppercase;
 	color: #0275d8;
 }
+
 .textarea
+
+
 :not
+
  
+
 (
 [
 rows
 ]
+
  
+
 )
 {
 max-height
+
+
 :
+
  
+
 600
 px
-;
 
-	
+
+;
 min-height
+
+
 :
+
  
+
 120
 px
+
+
 ;
-
-
 }
-.school-location{
+.school-location {
 	display: block;
 }
 </style>
@@ -410,13 +425,18 @@ while ($row = mysqli_fetch_array($data["School"])) {
 					</span>
 				</div>
 				<div class="school-location">
-					<?php $lstDiaChi = explode("||", $row["diachi"]);
-					for($i = 0; $i < count($lstDiaChi); $i++){ ?>
+					<?php
+    
+$lstDiaChi = explode("||", $row["diachi"]);
+    for ($i = 0; $i < count($lstDiaChi); $i ++) {
+        ?>
 					   <span class="school-location"> <span class="icon"><i
 							class="fa fa-map-marker" aria-hidden="true"></i></span><?php echo $lstDiaChi[$i]; ?>
 					</span>
-					<?php }
-					?>
+					<?php
+    
+}
+    ?>
 				</div>
 			</div>
 		</div>
@@ -568,17 +588,17 @@ while ($row = mysqli_fetch_array($data["School"])) {
 				</div>
 				<?php } ?>
 			</div>
-
+	<?php } ?>
 		</div>
 	</div>
-	
-	
-	
- 	<?php } ?>
- 	
+
+
+
+
+
 </div>
 <div class="container">
-		<?php echo $data["Nav"] ?>
+		<?php echo $data["Nav"]?>
 	</div>
 
 <div class="modal fade" id="review-modal" tabindex="-1" role="dialog"
@@ -625,8 +645,7 @@ while ($row = mysqli_fetch_array($data["School"])) {
 					</div>
 					<input type="hidden" name="schoolId"
 						value="<?php echo $row["id"] ?>"> <input type="hidden"
-						name="member" value=""> <input
-						type="hidden" name="schoolUrl"
+						name="member" value=""> <input type="hidden" name="schoolUrl"
 						value="<?php echo $servername ?>/school/<?php echo $row["slugschool"] ?>-<?php echo $row["id"] ?>">
 					<div class="g-recaptcha"
 						data-sitekey="6LevlLEZAAAAAEGrjvk9tDC7xoUOmCeCRma6RY7-"
