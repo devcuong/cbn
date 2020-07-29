@@ -2,6 +2,7 @@
 require 'web/class/CutString.php';
 require 'web/class/Replyer.php';
 require 'web/class/Server.php';
+require 'web/class/Schema.php';
 require 'web/class/Purifier.php';
 class School extends Controller
 {
@@ -75,9 +76,17 @@ class School extends Controller
         // School
         $schoolLater = $this->SchoolModel->LaySchoolBangId($idSchool);
         $schoolBefore = $this->SchoolModel->LaySchoolBangId($idSchool);
+        $schoolForSchema = $this->SchoolModel->LaySchoolBangId($idSchool);
+        $schoolForReviewSchema = $this->SchoolModel->LaySchoolBangId($idSchool);
+        
         $getRVNow = $schoolBefore->fetch_assoc();
         $tenSchool = $getRVNow["tenschool"];
         $category = $getRVNow["category"];
+        
+        // Schema
+        $schema = new Schema();
+        $StringSchema = $schema->generate_schema($schoolForSchema,"school");
+        $arrayReviewSchema = $schema->generate_schema_for_review($schoolForReviewSchema, $reviewForSchema);
         
         // Title
         $title = "Review ".$tenSchool;
@@ -101,7 +110,9 @@ class School extends Controller
             "Nav" => $navigate,
             "Title" => $title,
             "Description" => $description,
-            "Keyword" => $keyword
+            "Keyword" => $keyword,
+            "StringSchema" => $StringSchema,
+            "ArrayReviewSchema" => $arrayReviewSchema
         ]);
 
     }

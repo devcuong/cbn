@@ -587,8 +587,16 @@ $lstDiaChi = explode("||", $row["diachi"]);
 					<?php } ?>
 				</div>
 				<?php } ?>
+				 <div class="google-seo">
+			<script type="application/ld+json">
+                <?php
+        echo $data["ArrayReviewSchema"][$rowIndex]?>
+            </script>
+		</div>
 			</div>
-	<?php } ?>
+	<?php 
+	$rowIndex ++;
+    } ?>
 		</div>
 	</div>
 

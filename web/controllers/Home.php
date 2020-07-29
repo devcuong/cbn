@@ -38,6 +38,10 @@ class Home extends Controller
             $server = new Server();
             $navigate = $cutString->get_nav_render($trangHienTai, $soTrang, "?page=");
             
+            // Schema
+            $schema = new Schema();
+            $StringSchema = $schema->generate_schema("","main-home");
+            
             // Title
             $title = "Trang review đầy đủ nhất về việc dạy, học, cơ sở vật chất, giáo viên, giảng viên tại các Trường học, trung tâm dạy học, trung tâm du học - ReviewTruong.Com";
             
@@ -56,7 +60,8 @@ class Home extends Controller
                 "15ReviewMoiNhat" => $this->ReviewModel->Lay15ReviewMoiNhat(),
                 "Title" => $title,
                 "Description" => $description,
-                "Keyword" => $keyword
+                "Keyword" => $keyword,
+                "StringSchema" => $StringSchema
             ]);
     }
 }
