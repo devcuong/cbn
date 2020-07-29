@@ -7,8 +7,11 @@ class QuanTri extends Controller
 
     // Khai báo model
     private $UserModel;
+
     private $SchoolModel;
+
     private $ReviewModel;
+
     private $ReplyModel;
 
     public function __construct()
@@ -263,39 +266,44 @@ class QuanTri extends Controller
     function XoaReview($a, $b, $c = NULL, $d = NULL, $e = NULL)
     {
         if (isset($_SESSION["email"])) {
-            $kt = false;
             $idReview = $c;
-            $sao = $d;
-            $school = $e;
-            $kq = $this->ReviewModel->XoaReviewBoiIdReview($idReview);
-            if ($kq) {
-                $kt = true;
-            }
-            $kq2 = $this->ReplyModel->XoaReplyTheoIdReview($idReview);
-            if ($kq2) {
-                $kt = true;
-            }
-            //
-            $schoolUpdate = $this->SchoolModel->LaySchoolBangId($school);
             
-            $getNow = $schoolUpdate->fetch_assoc();
-            $luotDanhGia = $getNow["luotdanhgia"];
-            
-            $kq3 = $this->SchoolModel->UpdateRateSchoolXoaReview($school, $sao, $luotDanhGia);
-         
-            if ($kq3) {
-                $kt = true;
-            }
-            if ($kt) {
-                // View
-                $this->view("admin-template", [
-                    "Page" => "quan-tri-thanh-cong"
-                ]);
-            } else {
-                $server = new Server();
-                ob_start();
-                header("Location: " . $server->get_servername() . "/quan-tri", 301);
-                exit();
+            // check review còn không
+            $check = $this->ReviewModel->LayReviewBangIdReview($idReview);
+            if (mysqli_num_rows($check)) {
+                $kt = false;
+                $sao = $d;
+                $school = $e;
+                $kq = $this->ReviewModel->XoaReviewBoiIdReview($idReview);
+                if ($kq) {
+                    $kt = true;
+                }
+                $kq2 = $this->ReplyModel->XoaReplyTheoIdReview($idReview);
+                if ($kq2) {
+                    $kt = true;
+                }
+                //
+                $schoolUpdate = $this->SchoolModel->LaySchoolBangId($school);
+                
+                $getNow = $schoolUpdate->fetch_assoc();
+                $luotDanhGia = $getNow["luotdanhgia"];
+                
+                $kq3 = $this->SchoolModel->UpdateRateSchoolXoaReview($school, $sao, $luotDanhGia);
+                
+                if ($kq3) {
+                    $kt = true;
+                }
+                if ($kt) {
+                    // View
+                    $this->view("admin-template", [
+                        "Page" => "quan-tri-thanh-cong"
+                    ]);
+                } else {
+                    $server = new Server();
+                    ob_start();
+                    header("Location: " . $server->get_servername() . "/quan-tri", 301);
+                    exit();
+                }
             }
         } else {
             $server = new Server();
@@ -304,7 +312,6 @@ class QuanTri extends Controller
             exit();
         }
     }
-
 
     function ToSlug($str, $options = array())
     {

@@ -19,7 +19,7 @@
           <td><?php echo $row["noidung"] ?></td>
           <td><?php echo $row["school"] ?></td>
           <td><?php echo $row["thoigian"] ?></td>
-          <td><a href="<?php echo $servername ?>/quan-tri/xoa-review/<?php echo $row["id"] ?>/<?php echo $row["sao"] ?>/<?php echo $row["school"] ?>">X</a></td>
+          <td><a href="<?php echo $servername ?>/quan-tri/xoa-review/<?php echo $row["id"] ?>/<?php echo $row["sao"] ?>/<?php echo $row["school"] ?>" onclick="return confirm('Are you sure you want to delete this item?');">DELETE</a></td>
         </tr>
   <?php } ?>
   </tbody>
