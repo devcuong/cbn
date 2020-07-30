@@ -259,7 +259,11 @@ body {
 	
 	
 	
+	
+	
 	:
+	
+	
 	
 	
 	
@@ -392,8 +396,12 @@ body {
 	
 	
 	
+	
+	
 	!
 	important
+	
+	
 	
 	
 	
@@ -653,9 +661,11 @@ body {
 .item-new-review .review-school-name {
 	color: #FE2E2E;
 }
-.item-new-review a{
+
+.item-new-review a {
 	text-decoration: none;
 }
+
 .item-new-review .review-rate {
 	color: #fff;
 	padding: 3px;
@@ -987,151 +997,158 @@ body {
 .member-log {
 	display: none;
 }
+
+#wrapper {
+  min-height: 100%;
+}
 </style>
 </head>
 <body oncontextmenu="return false">
-	<div class="tt-header-top">
-		<div class="container d-flex align-items-center">
-			<div class="page-link-out mr-auto">
-				<span class="d-none d-md-inline-block">Góp ý:</span> <a
-					href="#"
-					title="Góp ý #"> <i
-					class="fa fa-envelope mr-1 d-md-none"></i> school@reviewtruong.com
-				</a>
-			</div>
-			<div class="page-link-out ng-scope" ng-controller="dang-nhap as ctrl">
-				<a href="<?php echo $servername ?>" title="Đăng nhập"
-					class="ng-scope">Đăng nhập</a> <span class="ng-scope">/</span> <a
-					href="<?php echo $servername ?>" title="Đăng ký" class="ng-scope">Đăng
-					ký</a>
+	<div id="wrapper">
+		<div class="tt-header-top">
+			<div class="container d-flex align-items-center">
+				<div class="page-link-out mr-auto">
+					<span class="d-none d-md-inline-block">Góp ý:</span> <a href="#"
+						title="Góp ý #"> <i class="fa fa-envelope mr-1 d-md-none"></i>
+						school@reviewtruong.com
+					</a>
+				</div>
+				<div class="page-link-out ng-scope"
+					ng-controller="dang-nhap as ctrl">
+					<a href="<?php echo $servername ?>" title="Đăng nhập"
+						class="ng-scope">Đăng nhập</a> <span class="ng-scope">/</span> <a
+						href="<?php echo $servername ?>" title="Đăng ký" class="ng-scope">Đăng
+						ký</a>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="top-head-container">
-		<div class="container">
-			<div class="row top-nav">
-				<div class="col-md-3 top-box-mobile">
-					<div class="container d-flex align-items-center">
-						<div class="navbar-brand">
-							<!-- mr-auto -->
-							<div class="logo d-flex" data-no-instant="">
-								<a href="<?php echo $servername ?>"> <img class="logo__img"
-									src="<?php echo $servername ?>/web/public/images/logo.png" alt="">
-								</a>
-								<h1 class="logo__header has-text-white is-size-5">
-									<a href="<?php echo $servername ?>"> <b>REVIEW TRƯỜNG</b></a>
-								</h1>
+		<div class="top-head-container">
+			<div class="container">
+				<div class="row top-nav">
+					<div class="col-md-3 top-box-mobile">
+						<div class="container d-flex align-items-center">
+							<div class="navbar-brand">
+								<!-- mr-auto -->
+								<div class="logo d-flex" data-no-instant="">
+									<a href="<?php echo $servername ?>"> <img class="logo__img"
+										src="<?php echo $servername ?>/web/public/images/logo.png"
+										alt="">
+									</a>
+									<h1 class="logo__header has-text-white is-size-5">
+										<a href="<?php echo $servername ?>"> <b>REVIEW TRƯỜNG</b></a>
+									</h1>
+								</div>
 							</div>
-						</div>
-						<div class="page-link-out member-log"
-							ng-controller="dang-nhap as ctrl">
-							<a href="<?php echo $servername ?>" title="Đăng nhập">Đăng nhập</a>
-							<span class="ng-scope">/</span> <a
-								href="<?php echo $servername ?>" title="Đăng ký">Đăng ký</a>
+							<div class="page-link-out member-log"
+								ng-controller="dang-nhap as ctrl">
+								<a href="<?php echo $servername ?>" title="Đăng nhập">Đăng nhập</a>
+								<span class="ng-scope">/</span> <a
+									href="<?php echo $servername ?>" title="Đăng ký">Đăng ký</a>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-9 top-box-nav">
-					<div class="topnav" id="myTopnav">
-						<a href="<?php echo $servername ?>" class="active">Trang chủ</a>
-						<div class="dropdown">
-							<button class="dropbtn">
-								<a style="padding: 0px" href="#">Phổ thông<i
-									class="fa fa-caret-down"></i></a>
-							</button>
-							<div class="dropdown-content">
-								<a href="<?php echo $servername ?>/categories/thpt">Trung Học
-									Phổ Thông</a> <a
-									href="<?php echo $servername ?>/categories/thcs">Trung Học Cơ
-									Sở</a> <a href="<?php echo $servername ?>/categories/tieu-hoc">Tiểu
-									Học</a>
+					<div class="col-md-9 top-box-nav">
+						<div class="topnav" id="myTopnav">
+							<a href="<?php echo $servername ?>" class="active">Trang chủ</a>
+							<div class="dropdown">
+								<button class="dropbtn">
+									<a style="padding: 0px" href="#">Phổ thông<i
+										class="fa fa-caret-down"></i></a>
+								</button>
+								<div class="dropdown-content">
+									<a href="<?php echo $servername ?>/categories/thpt">Trung Học
+										Phổ Thông</a> <a
+										href="<?php echo $servername ?>/categories/thcs">Trung Học Cơ
+										Sở</a> <a href="<?php echo $servername ?>/categories/tieu-hoc">Tiểu
+										Học</a>
+								</div>
 							</div>
-						</div>
-						<div class="dropdown">
-							<button class="dropbtn">
-								<a style="padding: 0px" href="#">CĐ-ĐH-Nghề<i
-									class="fa fa-caret-down"></i></a>
-							</button>
-							<div class="dropdown-content">
-								<a href="<?php echo $servername ?>/categories/cao-dang">Các
-									trường Cao Đẳng</a> <a
-									href="<?php echo $servername ?>/categories/dai-hoc">Các trường
-									Đại Học</a> <a href="<?php echo $servername ?>/categories/nghe">Các
-									trường Nghề</a>
+							<div class="dropdown">
+								<button class="dropbtn">
+									<a style="padding: 0px" href="#">CĐ-ĐH-Nghề<i
+										class="fa fa-caret-down"></i></a>
+								</button>
+								<div class="dropdown-content">
+									<a href="<?php echo $servername ?>/categories/cao-dang">Các
+										trường Cao Đẳng</a> <a
+										href="<?php echo $servername ?>/categories/dai-hoc">Các trường
+										Đại Học</a> <a
+										href="<?php echo $servername ?>/categories/nghe">Các trường
+										Nghề</a>
+								</div>
 							</div>
-						</div>
-						<div class="dropdown">
-							<button class="dropbtn">
-								<a style="padding: 0px" href="#">Du Học<i
-									class="fa fa-caret-down"></i></a>
-							</button>
-							<div class="dropdown-content">
-								<a href="<?php echo $servername ?>/categories/du-hoc-my">Du Học
-									Mỹ</a> <a
-									href="<?php echo $servername ?>/categories/du-hoc-anh">Du Học
-									Anh</a> <a
-									href="<?php echo $servername ?>/categories/du-hoc-uc">Du Học Úc</a>
-								<a href="<?php echo $servername ?>/categories/du-hoc-sin">Du Học
-									Singapore</a> <a
-									href="<?php echo $servername ?>/categories/du-hoc-nhat">Du Học
-									Nhật</a> <a
-									href="<?php echo $servername ?>/categories/du-hoc-han">Du Học
-									Hàn</a> <a
-									href="<?php echo $servername ?>/categories/du-hoc-dai-loan">Du
-									Học Đài Loan</a> <a
-									href="<?php echo $servername ?>/categories/du-hoc-trung-quoc">Du
-									Học Trung Quốc</a>
+							<div class="dropdown">
+								<button class="dropbtn">
+									<a style="padding: 0px" href="#">Du Học<i
+										class="fa fa-caret-down"></i></a>
+								</button>
+								<div class="dropdown-content">
+									<a href="<?php echo $servername ?>/categories/du-hoc-my">Du Học
+										Mỹ</a> <a
+										href="<?php echo $servername ?>/categories/du-hoc-anh">Du Học
+										Anh</a> <a
+										href="<?php echo $servername ?>/categories/du-hoc-uc">Du Học
+										Úc</a> <a
+										href="<?php echo $servername ?>/categories/du-hoc-sin">Du Học
+										Singapore</a> <a
+										href="<?php echo $servername ?>/categories/du-hoc-nhat">Du Học
+										Nhật</a> <a
+										href="<?php echo $servername ?>/categories/du-hoc-han">Du Học
+										Hàn</a> <a
+										href="<?php echo $servername ?>/categories/du-hoc-dai-loan">Du
+										Học Đài Loan</a> <a
+										href="<?php echo $servername ?>/categories/du-hoc-trung-quoc">Du
+										Học Trung Quốc</a>
+								</div>
 							</div>
-						</div>
-						<a href="<?php echo $servername ?>/categories/mam-non">Mầm Non</a>
-						<div class="dropdown">
-							<button class="dropbtn">
-								<a style="padding: 0px" href="#">Trung Tâm Ngắn Hạn<i
-									class="fa fa-caret-down"></i></a>
-							</button>
-							<div class="dropdown-content">
-								<a href="<?php echo $servername ?>/categories/tieng-anh">Tiếng
-									Anh</a> <a
-									href="<?php echo $servername ?>/categories/tieng-han">Tiếng Hàn</a>
-								<a href="<?php echo $servername ?>/categories/tieng-nhat">Tiếng
-									Nhật</a> <a
-									href="<?php echo $servername ?>/categories/tieng-trung">Tiếng
-									Trung</a> <a
-									href="<?php echo $servername ?>/categories/tieng-phap">Tiếng
-									Pháp</a> <a
-									href="<?php echo $servername ?>/categories/tieng-duc">Tiếng Đức</a>
-								<a href="<?php echo $servername ?>/categories/tieng-tbn">Tiếng
-									Tây Ban Nha</a> <a
-									href="<?php echo $servername ?>/categories/ky-nang-nghiep-vu">Kỹ
-									Năng - Nghiệp Vụ</a>
+							<a href="<?php echo $servername ?>/categories/mam-non">Mầm Non</a>
+							<div class="dropdown">
+								<button class="dropbtn">
+									<a style="padding: 0px" href="#">Trung Tâm Ngắn Hạn<i
+										class="fa fa-caret-down"></i></a>
+								</button>
+								<div class="dropdown-content">
+									<a href="<?php echo $servername ?>/categories/tieng-anh">Tiếng
+										Anh</a> <a
+										href="<?php echo $servername ?>/categories/tieng-han">Tiếng
+										Hàn</a> <a
+										href="<?php echo $servername ?>/categories/tieng-nhat">Tiếng
+										Nhật</a> <a
+										href="<?php echo $servername ?>/categories/tieng-trung">Tiếng
+										Trung</a> <a
+										href="<?php echo $servername ?>/categories/tieng-phap">Tiếng
+										Pháp</a> <a
+										href="<?php echo $servername ?>/categories/tieng-duc">Tiếng
+										Đức</a> <a
+										href="<?php echo $servername ?>/categories/tieng-tbn">Tiếng
+										Tây Ban Nha</a> <a
+										href="<?php echo $servername ?>/categories/ky-nang-nghiep-vu">Kỹ
+										Năng - Nghiệp Vụ</a>
+								</div>
 							</div>
-						</div>
 
-						<a href="javascript:void(0);" style="font-size: 15px;"
-							class="icon" onclick="showNav()"><i class="fa fa-bars"
-							aria-hidden="true"></i> </a>
+							<a href="javascript:void(0);" style="font-size: 15px;"
+								class="icon" onclick="showNav()"><i class="fa fa-bars"
+								aria-hidden="true"></i> </a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	<?php require_once "./web/views/pages/" . $data["Page"] . ".php"?>
-	<div class="bottom-foot-container">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="header">Email: school@reviewtruong.com</div>
-				</div>
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
+	<footer class="bottom-foot-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="header">Email: school@reviewtruong.com</div>
+					</div>
+					<div class="col-md-3"></div>
+					<div class="col-md-3"></div>
+					<div class="col-md-3"></div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
+		</footer>
+		<script type="text/javascript">
 	function showNav() {
 		  var x = document.getElementById("myTopnav");
 		  if (x.className === "topnav") {
@@ -1150,5 +1167,6 @@ body {
 		});
 
 	</script>
+	</div>
 </body>
 </html>

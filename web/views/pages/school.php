@@ -377,8 +377,11 @@ px
 .school-location {
 	display: block;
 }
+.main-content{
+	min-height: 500px;
+}
 </style>
-<div class="container">
+<div class="container main-content">
 	<?php
 while ($row = mysqli_fetch_array($data["School"])) {
     ?>
