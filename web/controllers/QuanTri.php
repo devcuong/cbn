@@ -53,10 +53,10 @@ class QuanTri extends Controller
         if ($temp == $pass) {
             // echo "ok";
             $_SESSION["email"] = $email;
-            header("Location: " . $server->get_servername() . "/quan-tri/tat-ca-schools", 301);
+            header("Location: " . $server->get_servername() . "/quan-tri-chinh/tat-ca-schools", 301);
             exit();
         } else {
-            header("Location: " . $server->get_servername() . "/quan-tri/", 301);
+            header("Location: " . $server->get_servername() . "/quan-tri-chinh/", 301);
             exit();
         }
     }

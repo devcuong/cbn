@@ -84,7 +84,7 @@ function changeToSlug(e) {
 		if($("#link-review").val() != ""){
 			  $.ajax({
 		          type: "POST",
-		          url: SiteName + "/quan-tri/get-data-cong-ty/",
+		          url: SiteName + "/quan-tri-cg/get-data-cong-ty/",
 		          data: {"url-company": $("#link-review").val()},
 		          success: function(data)
 		          {
